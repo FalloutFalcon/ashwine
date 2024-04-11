@@ -58,7 +58,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	var/range = 10 //how far from the user the spirit can be
 	var/toggle_button_type = /atom/movable/screen/guardian/ToggleMode/Inactive //what sort of toggle button the hud uses
 	var/playstyle_string = "<span class='holoparasite bold'>You are a Guardian without any type. You shouldn't exist!</span>"
-	var/magic_fluff_string = "<span class='holoparasite'>You draw the Coder, symbolizing bugs and errors. This shouldn't happen! Submit a bug report!</span>"
 	var/tech_fluff_string = "<span class='holoparasite'>BOOT SEQUENCE COMPLETE. ERROR MODULE LOADED. THIS SHOULDN'T HAPPEN. Submit a bug report!</span>"
 	var/carp_fluff_string = "<span class='holoparasite'>CARP CARP CARP SOME SORT OF HORRIFIC BUG BLAME THE CODERS CARP CARP CARP</span>"
 	var/miner_fluff_string = "<span class='holoparasite'>You encounter... Mythril, it shouldn't exist... Submit a bug report!</span>"
@@ -91,15 +90,8 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 
 /mob/living/simple_animal/hostile/guardian/proc/updatetheme(theme) //update the guardian's theme
 	if(!theme)
-		theme = pick("magic", "tech", "carp", "miner")
+		theme = pick("tech", "carp", "miner")
 	switch(theme)//should make it easier to create new stand designs in the future if anyone likes that
-		if("magic")
-			name = "Guardian Spirit"
-			real_name = "Guardian Spirit"
-			bubble_icon = "guardian"
-			icon_state = "magicbase"
-			icon_living = "magicbase"
-			icon_dead = "magicbase"
 		if("tech")
 			name = "Holoparasite"
 			real_name = "Holoparasite"
@@ -484,14 +476,10 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 				switch(G.theme)
 					if("tech")
 						to_chat(src, "<span class='holoparasite'><font color=\"[G.guardiancolor]\"><b>[G.real_name]</b></font> is now online!</span>")
-					if("magic")
-						to_chat(src, "<span class='holoparasite'><font color=\"[G.guardiancolor]\"><b>[G.real_name]</b></font> has been summoned!</span>")
 					if("carp")
 						to_chat(src, "<span class='holoparasite'><font color=\"[G.guardiancolor]\"><b>[G.real_name]</b></font> has been caught!</span>")
 					if("miner")
 						to_chat(src, "<span class='holoparasite'><font color=\"[G.guardiancolor]\"><b>[G.real_name]</b></font> has appeared!</span>")
-					if("slime")
-						to_chat(src, "<span class='holoparasite'><font color=\"[G.guardiancolor]\"><b>[G.real_name]</b></font> has taken shape!</span>")
 				guardians -= G
 				if(!guardians.len)
 					remove_verb(src, /mob/living/proc/guardian_reset)
@@ -518,21 +506,19 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 ////////Creation
 
 /obj/item/guardiancreator
-	name = "enchanted deck of tarot cards"
-	desc = "An enchanted deck of tarot cards, rumored to be a source of unimaginable power."
-	icon = 'icons/obj/toy.dmi'
-	icon_state = "deck_tarot_full"
+	name = "holoparasite injector"
+	desc = "It contains an alien nanoswarm of unknown origin. Though capable of near sorcerous feats via use of hardlight holograms and nanomachines, it requires an organic host as a home base and source of fuel."
+	icon = 'icons/obj/syringe.dmi'
+	icon_state = "combat_hypo"
 	var/used = FALSE
-	var/theme = "magic"
-	var/mob_name = "Guardian Spirit"
-	var/use_message = "<span class='holoparasite'>You shuffle the deck...</span>"
-	var/used_message = "<span class='holoparasite'>All the cards seem to be blank now.</span>"
-	var/failure_message = "<span class='holoparasite bold'>..And draw a card! It's...blank? Maybe you should try again later.</span>"
-	var/ling_failure = "<span class='holoparasite bold'>The deck refuses to respond to a souless creature such as you.</span>"
+	var/theme = "tech"
+	var/mob_name = "Holoparasite"
+	var/use_message = "<span class='holoparasite'>You start to power on the injector...</span>"
+	var/used_message = "<span class='holoparasite'>The injector has already been used.</span>"
+	var/failure_message = "<span class='holoparasite bold'>...ERROR. BOOT SEQUENCE ABORTED. AI FAILED TO INTIALIZE. PLEASE CONTACT SUPPORT OR TRY AGAIN LATER.</span>"
 	var/list/possible_guardians = list("Assassin", "Chaos", "Charger", "Explosive", "Lightning", "Protector", "Ranged", "Standard", "Support", "Gravitokinetic")
 	var/random = TRUE
 	var/allowmultiple = FALSE
-	var/allowling = TRUE
 	var/allowguardian = FALSE
 
 /obj/item/guardiancreator/attack_self(mob/living/user)
@@ -542,9 +528,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	var/list/guardians = user.hasparasites()
 	if(guardians.len && !allowmultiple)
 		to_chat(user, "<span class='holoparasite'>You already have a [mob_name]!</span>")
-		return
-	if(user.mind && user.mind.has_antag_datum(/datum/antagonist/changeling) && !allowling)
-		to_chat(user, "[ling_failure]")
 		return
 	if(used == TRUE)
 		to_chat(user, "[used_message]")
@@ -607,9 +590,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 		if("Gravitokinetic")
 			pickedtype = /mob/living/simple_animal/hostile/guardian/gravitokinetic
 
-		if("Slime")
-			pickedtype = /mob/living/simple_animal/hostile/guardian/slime
-
 	var/list/guardians = user.hasparasites()
 	if(guardians.len && !allowmultiple)
 		to_chat(user, "<span class='holoparasite'>You already have a [mob_name]!</span>" )
@@ -625,18 +605,12 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 		if("tech")
 			to_chat(user, "[G.tech_fluff_string]")
 			to_chat(user, "<span class='holoparasite'><b>[G.real_name]</b> is now online!</span>")
-		if("magic")
-			to_chat(user, "[G.magic_fluff_string]")
-			to_chat(user, "<span class='holoparasite'><b>[G.real_name]</b> has been summoned!</span>")
 		if("carp")
 			to_chat(user, "[G.carp_fluff_string]")
 			to_chat(user, "<span class='holoparasite'><b>[G.real_name]</b> has been caught!</span>")
 		if("miner")
 			to_chat(user, "[G.miner_fluff_string]")
 			to_chat(user, "<span class='holoparasite'><b>[G.real_name]</b> has appeared!</span>")
-		if("slime")
-			to_chat(user, "[G.slime_fluff_string]")
-			to_chat(user, "<span class='holoparasite'><b>[G.real_name]</b> was created using slime science!</span>")
 	add_verb(user, list(/mob/living/proc/guardian_comm, \
 						/mob/living/proc/guardian_recall, \
 						/mob/living/proc/guardian_reset))
@@ -644,35 +618,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 
 /obj/item/guardiancreator/choose
 	random = FALSE
-
-/obj/item/guardiancreator/choose/dextrous
-	possible_guardians = list("Assassin", "Chaos", "Charger", "Dextrous", "Explosive", "Lightning", "Protector", "Ranged", "Standard", "Support")
-
-/obj/item/guardiancreator/choose/wizard
-	possible_guardians = list("Assassin", "Chaos", "Charger", "Dextrous", "Explosive", "Lightning", "Protector", "Ranged", "Standard",)
-	allowmultiple = TRUE
-
-/obj/item/guardiancreator/tech
-	name = "holoparasite injector"
-	desc = "It contains an alien nanoswarm of unknown origin. Though capable of near sorcerous feats via use of hardlight holograms and nanomachines, it requires an organic host as a home base and source of fuel."
-	icon = 'icons/obj/syringe.dmi'
-	icon_state = "combat_hypo"
-	theme = "tech"
-	mob_name = "Holoparasite"
-	use_message = "<span class='holoparasite'>You start to power on the injector...</span>"
-	used_message = "<span class='holoparasite'>The injector has already been used.</span>"
-	failure_message = "<span class='holoparasite bold'>...ERROR. BOOT SEQUENCE ABORTED. AI FAILED TO INTIALIZE. PLEASE CONTACT SUPPORT OR TRY AGAIN LATER.</span>"
-	ling_failure = "<span class='holoparasite bold'>The holoparasites recoil in horror. They want nothing to do with a creature like you.</span>"
-
-/obj/item/guardiancreator/tech/choose/traitor
-	possible_guardians = list("Assassin", "Chaos", "Charger", "Explosive", "Lightning", "Protector", "Ranged", "Standard", "Support")
-	allowling = FALSE
-
-/obj/item/guardiancreator/tech/choose
-	random = FALSE
-
-/obj/item/guardiancreator/tech/choose/dextrous
-	possible_guardians = list("Assassin", "Chaos", "Charger", "Dextrous", "Explosive", "Lightning", "Protector", "Ranged", "Standard", "Support")//"Gravokinetic" to re-add guardians to lists like this one
 
 /obj/item/paper/guides/antag/guardian
 	name = "Holoparasite Guide"
@@ -701,44 +646,16 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 <br>
 "}
 
-/obj/item/paper/guides/antag/guardian/wizard
-	name = "Guardian Guide"
-	default_raw_text = {"<b>A list of Guardian Types</b><br>
-
-<br>
-<b>Assassin</b>: Does medium damage and takes full damage, but can enter stealth, causing its next attack to do massive damage and ignore armor. However, it becomes briefly unable to recall after attacking from stealth.<br>
-<br>
-<b>Chaos</b>: Ignites enemies on touch and causes them to hallucinate all nearby people as the guardian. Automatically extinguishes the user if they catch on fire.<br>
-<br>
-<b>Charger</b>: Moves extremely fast, does medium damage on attack, and can charge at targets, damaging the first target hit and forcing them to drop any items they are holding.<br>
-<br>
-<b>Dexterous</b>: Does low damage on attack, but is capable of holding items and storing a single item within it. It will drop items held in its hands when it recalls, but it will retain the stored item.<br>
-<br>
-<b>Explosive</b>: High damage resist and medium power attack that may explosively teleport targets. Can turn any object, including objects too large to pick up, into a bomb, dealing explosive damage to the next person to touch it. The object will return to normal after the trap is triggered or after a delay.<br>
-<br>
-<b>Lightning</b>: Attacks apply lightning chains to targets. Has a lightning chain to the user. Lightning chains shock everything near them, doing constant damage.<br>
-<br>
-<b>Protector</b>: Causes you to teleport to it when out of range, unlike other parasites. Has two modes; Combat, where it does and takes medium damage, and Protection, where it does and takes almost no damage but moves slightly slower.<br>
-<br>
-<b>Ranged</b>: Has two modes. Ranged; which fires a constant stream of weak, armor-ignoring projectiles. Scout; Cannot attack, but can move through walls and is quite hard to see. Can lay surveillance snares, which alert it when crossed, in either mode.<br>
-<br>
-<b>Standard</b>: Devastating close combat attacks and high damage resist. Can smash through weak walls.<br>
-<br>
-<b>Gravitokinetic</b>: Attacks will apply crushing gravity to the target. Can target the ground as well to slow targets advancing on you, but this will affect the user.<br>
-<br>
-"}
-
-
 /obj/item/storage/box/syndie_kit/guardian
 	name = "holoparasite injector kit"
 
 /obj/item/storage/box/syndie_kit/guardian/PopulateContents()
-	new /obj/item/guardiancreator/tech/choose/dextrous(src) //WS Edit - Dextrous Guardians
+	new /obj/item/guardiancreator/choose(src) //WS Edit - Dextrous Guardians
 	new /obj/item/paper/guides/antag/guardian(src)
 
 /obj/item/guardiancreator/carp
 	name = "holocarp fishsticks"
-	desc = "Using the power of Carp'sie, you can catch a carp from byond the veil of Carpthulu, and bind it to your fleshy flesh form."
+	desc = "Fishsticks with tiny nanites "
 	icon = 'icons/obj/food/food.dmi'
 	icon_state = "fishfingers"
 	theme = "carp"
@@ -746,7 +663,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	use_message = "<span class='holoparasite'>You put the fishsticks in your mouth...</span>"
 	used_message = "<span class='holoparasite'>Someone's already taken a bite out of these fishsticks! Ew.</span>"
 	failure_message = "<span class='holoparasite bold'>You couldn't catch any carp spirits from the seas of Lake Carp. Maybe there are none, maybe you fucked up.</span>"
-	ling_failure = "<span class='holoparasite bold'>Carp'sie seems to not have taken you as the chosen one. Maybe it's because of your horrifying origin.</span>"
 	allowmultiple = TRUE
 
 /obj/item/guardiancreator/carp/choose
@@ -762,7 +678,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	use_message = "<span class='holoparasite'>You pierce your skin with the shard...</span>"
 	used_message = "<span class='holoparasite'>This shard seems to have lost all its' power...</span>"
 	failure_message = "<span class='holoparasite bold'>The shard hasn't reacted at all. Maybe try again later...</span>"
-	ling_failure = "<span class='holoparasite bold'>The power of the shard seems to not react with your horrifying, mutated body.</span>"
 
 /obj/item/guardiancreator/miner/choose
 	random = FALSE
@@ -770,17 +685,3 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	desc = "Seems to be a very old rock, may have originated from a strange meteor. <b>This one looks exceptionally pure.</b>"
 	possible_guardians = list("Assassin", "Chaos", "Charger", "Dextrous", "Explosive", "Lightning", "Protector", "Ranged", "Standard", "Support")
 	allowmultiple = TRUE//if you *somehow* get the extremely rare minerchoose guardian(25% chance to spawn, for an item in a table of around 30 options) while you already have a guardian, you can stack it. The ultimate gambling.
-
-/obj/item/guardiancreator/slime
-	name = "slime shard"
-	desc = "A shard of crystallized slime."
-	icon = 'icons/obj/lavaland/artefacts.dmi'
-	icon_state = "dustyshard"
-	color = "#00ff15"
-	theme = "slime"
-	mob_name = "Standing Slime"
-	use_message = "<span class='holoparasite'>You squeeze the shard inhand, and it grows warm...</span>"
-	used_message = "<span class='holoparasite'>You squeeze the shard, but nothing happens. Maybe it's been used already.</span>"
-	failure_message = "<span class='holoparasite bold'>The shard grows cold. Maybe try again later?</span>"
-	ling_failure = "<span class='holoparasite bold'>The shard seems to quiver and twist away from you.</span>"
-	possible_guardians = list("Slime")
