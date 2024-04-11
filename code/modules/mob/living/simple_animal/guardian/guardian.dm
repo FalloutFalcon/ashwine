@@ -119,19 +119,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 			attack_verb_simple = "bite"
 			attack_sound = 'sound/weapons/bite.ogg'
 			recolorentiresprite = TRUE
-		if("slime")
-			bubble_icon = "guardian"
-			icon_state = "slimebase"
-			icon_living = "slimebase"
-			icon_dead = "slimebase"
-			friendly_verb_continuous = "nourishes"
-			friendly_verb_simple = "nourish"
-			attack_verb_continuous = "glomps"
-			attack_verb_simple = "glomp"
-			speak_emote = list("blorbles")
-			attack_sound = 'sound/effects/blobattack.ogg'
-			desc = "A mysterious slime that stands by its charge, ever vigilant."
-			attack_sound = 'sound/weapons/bite.ogg'
 
 	if(!recolorentiresprite) //we want this to proc before stand logs in, so the overlay isnt gone for some reason
 		cooloverlay = mutable_appearance(icon, theme)
@@ -245,7 +232,6 @@ GLOBAL_LIST_EMPTY(parasites) //all currently existing/living guardians
 	..()
 	if(summoner)
 		to_chat(summoner, "<span class='danger'><B>Your [name] died somehow!</span></B>")
-		summoner.dust()
 
 /mob/living/simple_animal/hostile/guardian/update_health_hud()
 	if(summoner && hud_used && hud_used.healths)
