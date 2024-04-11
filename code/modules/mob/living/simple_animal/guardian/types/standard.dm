@@ -20,8 +20,6 @@
 	if(input)
 		battlecry = input
 
-
-
 /mob/living/simple_animal/hostile/guardian/punch/AttackingTarget()
 	. = ..()
 	if(isliving(target))
