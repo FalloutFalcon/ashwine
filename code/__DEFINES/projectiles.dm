@@ -7,3 +7,6 @@
 #define PROJECTILE_PIERCE_PHASE 2
 // Delete self without hitting
 #define PROJECTILE_DELETE_WITHOUT_HITTING 3
+
+/// The caliber used by the rebar crossbow.
+#define CALIBER_REBAR "sharpened iron rod"
