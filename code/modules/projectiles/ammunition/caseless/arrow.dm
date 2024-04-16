@@ -32,3 +32,9 @@
 	desc = "An arrow made from wood. tipped with bronze."
 	icon_state = "bronzearrow"
 	projectile_type = /obj/projectile/bullet/reusable/arrow/bronze
+
+/obj/item/ammo_casing/caseless/rebar
+	name = "sharpened iron rod"
+	desc = "A Sharpened Iron rod. It's Pointy!"
+	icon_state = "rod_sharp"
+	projectile_type = /obj/projectile/bullet/reusable/rebar
