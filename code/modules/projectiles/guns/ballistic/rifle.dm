@@ -216,34 +216,33 @@
 	can_be_sawn_off = FALSE
 	manufacturer = MANUFACTURER_NONE
 
-\/obj/item/gun/ballistic/rifle/rebarxbow
+/obj/item/gun/ballistic/rifle/rebarxbow
 	name = "Heated Rebar Crossbow"
 	desc = "Made from an inducer, iron rods, and some wire, this crossbow fires sharpened iron rods, made from the plentiful iron rods found stationwide. \
 			Only holds one rod in the magazine - you can craft the crossbow with a crowbar to try and force a second rod in, but risks a misfire, or worse..."
-	icon = 'icons/obj/weapons/guns/ballistic.dmi'
+	icon = 'icons/obj/guns/projectile.dmi'
 	icon_state = "rebarxbow"
-	inhand_icon_state = "rebarxbow"
-	worn_icon_state = "rebarxbow"
-	rack_sound = 'sound/weapons/gun/sniper/rack.ogg'
-	must_hold_to_load = FALSE
+	//inhand_icon_state = "rebarxbow"
+	//worn_icon_state = "rebarxbow"
+	//rack_sound = 'sound/weapons/gun/sniper/rack.ogg'
+	//must_hold_to_load = FALSE
 	mag_display = FALSE
 	empty_indicator = TRUE
 	bolt_type = BOLT_TYPE_LOCKING
-	semi_auto = FALSE
-	internal_magazine = TRUE
-	can_modify_ammo = FALSE
+	//semi_auto = FALSE
+	//internal_magazine = TRUE
+	//can_modify_ammo = FALSE
 	slot_flags = ITEM_SLOT_BACK|ITEM_SLOT_SUITSTORE
 	bolt_wording = "bowstring"
 	magazine_wording = "rod"
 	cartridge_wording = "rod"
-	misfire_probability = 25
-	initial_caliber = CALIBER_REBAR
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction/rebarxbow/normal
-	fire_sound = 'sound/items/syringeproj.ogg'
+	//misfire_probability = 25
+	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/rebarxbow/normal
+	//fire_sound = 'sound/items/syringeproj.ogg'
 	can_be_sawn_off = FALSE
-	tac_reloads = FALSE
+	//tac_reloads = FALSE
 	var/draw_time = 3 SECONDS
-	SET_BASE_PIXEL(0, 0)
+
 
 /obj/item/gun/ballistic/rifle/rebarxbow/rack(mob/user = null)
 	if (bolt_locked)
@@ -251,8 +250,8 @@
 		return
 	balloon_alert(user, "bowstring loosened")
 	playsound(src, rack_sound, rack_sound_volume, rack_sound_vary)
-	handle_chamber(empty_chamber =  FALSE, from_firing = FALSE, chamber_next_round = FALSE)
-	bolt_locked = TRUE
+	//handle_chamber(empty_chamber =  FALSE, from_firing = FALSE, chamber_next_round = FALSE)
+	//bolt_locked = TRUE
 	update_appearance()
 
 /obj/item/gun/ballistic/rifle/rebarxbow/drop_bolt(mob/user = null)
