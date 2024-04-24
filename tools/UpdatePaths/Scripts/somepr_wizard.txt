@@ -1,4 +1,4 @@
-/obj/item/book/granter/spell : /obj/item/book/manual/magic_fiction
+/obj/item/book/granter/spell/@SUBTYPES : /obj/item/book/manual/magic_fiction
 /obj/item/clothing/shoes/sandal/magic : /obj/item/clothing/shoes/sandal
 /obj/machinery/power/smes/magical : /obj/machinery/power/smes/infinite
 /area/wizard_station : /area/centcom
