@@ -239,6 +239,41 @@
 			</body>
 			</html>"}
 
+/obj/item/book/manual/magic_fiction
+	name = "Folklore on the Frontier"
+	icon_state = "book2"
+	author = "Bridget Saint-Baskett"
+	title = "Folklore on the Frontier"
+	dat = {"<html>
+			<head>
+			<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+			<style>
+			h1 {font-size: 18px; margin: 15px 0px 5px;}
+			h2 {font-size: 15px; margin: 15px 0px 5px;}
+			li {margin: 2px 0px 2px 15px;}
+			ul {list-style: none; margin: 5px; padding: 0px;}
+			ol {margin: 5px; padding: 0px 15px;}
+			</style>
+			</head>
+			<body>
+			<h3>Folklore on the Frontier</h3>
+			<h2>Introduction</h2>
+			As part of my research into groups on the frontier I often come across tall tales of things like cults and wizards.
+			This is a collection of my findings which have yielded almost no results.
+			<h2>Wizards</h2>
+			I blame a large part of these tales on the commonality of wizards in culture. Ive never seen a story that doenst follow the most generic tropes.
+			I've also come across plenty of wizard paraphernalia but none of them have ever been anything more then well crafted coseplay.
+			There is also some evidence to suggest that Nanotrasen fabricated stories related to wizards to cover up mishaps on there stations.
+			Theres good reason to want to rally your employees against a common cause to boost morale.
+			<h2>Cults</h2>
+			These are a bit more interesting. I have found evidence on plenty of religious groups with strange practices.
+			None of these have ever been proven to be anything more then a group of people with a shared interest.
+			Plently of runes have been found but the are often covered in approximations of alchemical symbols and mimicrys of runes found in popular culture such as old ghost hunting shows.
+			<br>Bridget Saint-Baskett, Senior Brewer<br>
+
+			</body>
+			</html>"}
+
 /obj/item/book/manual/trickwines_4_brewers
 	name = "Trickwines for brewers"
 	icon_state = "book2"
