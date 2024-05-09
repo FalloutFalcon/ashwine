@@ -213,8 +213,6 @@
 				b_loss = 150
 			if (EXPLODE_LIGHT)
 				b_loss = 30
-		if(has_bane(BANE_LIGHT))
-			b_loss *=2
 		adjustBruteLoss(b_loss)
 	return ..()
 
