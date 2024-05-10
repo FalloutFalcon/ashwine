@@ -121,17 +121,39 @@
 			icon_state = "[initial(icon_state)]-open"
 			addtimer(VARSET_CALLBACK(src, icon_state, initial(icon_state)), 5)
 
-
 /*
  * Security Record Cabinets
  */
-/obj/structure/filingcabinet/security
-	var/virgin = 1
+/obj/structure/filingcabinet/record
+	var/virgin = TRUE
+	var/datum/datacore/linked_datacore
 
-/obj/structure/filingcabinet/security/proc/populate()
+/obj/structure/filingcabinet/record/Initialize(mapload)
+	var/datum/overmap/ship/controlled/ship = SSshuttle.get_ship(src)
+	if(ship)
+		linked_datacore = ship.ship_datacore
+	else
+		linked_datacore = GLOB.data_core
+	. = ..()
+
+/obj/structure/filingcabinet/record/proc/populate()
+
+/obj/structure/filingcabinet/record/attack_hand()
+	populate()
+	. = ..()
+
+/obj/structure/filingcabinet/record/attack_tk()
+	populate()
+	..()
+
+/obj/structure/filingcabinet/record/security
+	name = "security record cabinet"
+
+/obj/structure/filingcabinet/record/security/populate()
+	..()
 	if(virgin)
-		for(var/datum/data/record/G in GLOB.data_core.general)
-			var/datum/data/record/S = find_record("name", G.fields["name"], GLOB.data_core.security)
+		for(var/datum/data/record/G in linked_datacore.general)
+			var/datum/data/record/S = find_record("name", G.fields["name"], linked_datacore.security)
 			if(!S)
 				continue
 			var/obj/item/paper/sec_record_paper = new /obj/item/paper(src)
@@ -146,27 +168,20 @@
 			sec_record_paper.add_raw_text(sec_record_text)
 			sec_record_paper.name = "paper - '[G.fields["name"]]'"
 			sec_record_paper.update_appearance()
-			virgin = 0	//tabbing here is correct- it's possible for people to try and use it
+			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
-
-/obj/structure/filingcabinet/security/attack_hand()
-	populate()
-	. = ..()
-
-/obj/structure/filingcabinet/security/attack_tk()
-	populate()
-	..()
 
 /*
  * Medical Record Cabinets
  */
-/obj/structure/filingcabinet/medical
-	var/virgin = 1
+/obj/structure/filingcabinet/record/medical
+	name = "medical record cabinet"
 
-/obj/structure/filingcabinet/medical/proc/populate()
+/obj/structure/filingcabinet/record/medical/populate()
+	..()
 	if(virgin)
-		for(var/datum/data/record/G in GLOB.data_core.general)
-			var/datum/data/record/M = find_record("name", G.fields["name"], GLOB.data_core.medical)
+		for(var/datum/data/record/G in linked_datacore.general)
+			var/datum/data/record/M = find_record("name", G.fields["name"], linked_datacore.medical)
 			if(!M)
 				continue
 			var/obj/item/paper/med_record_paper = new /obj/item/paper(src)
@@ -181,59 +196,26 @@
 			med_record_paper.add_raw_text(med_record_text)
 			med_record_paper.name = "paper - '[G.fields["name"]]'"
 			med_record_paper.update_appearance()
-			virgin = 0	//tabbing here is correct- it's possible for people to try and use it
+			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
-
-//ATTACK HAND IGNORING PARENT RETURN VALUE
-/obj/structure/filingcabinet/medical/attack_hand()
-	populate()
-	. = ..()
-
-/obj/structure/filingcabinet/medical/attack_tk()
-	populate()
-	..()
-
 /*
- * Employment contract Cabinets
+ * General Record Cabinets
  */
 
-GLOBAL_LIST_EMPTY(employmentCabinets)
+/obj/structure/filingcabinet/record/general
+	name = "general record cabinet"
 
-/obj/structure/filingcabinet/employment
-	var/cooldown = 0
-	icon_state = "employmentcabinet"
-	var/virgin = 1
-
-/obj/structure/filingcabinet/employment/Initialize()
-	. = ..()
-	GLOB.employmentCabinets += src
-
-/obj/structure/filingcabinet/employment/Destroy()
-	GLOB.employmentCabinets -= src
-	return ..()
-
-/obj/structure/filingcabinet/employment/proc/fillCurrent()
-	//This proc fills the cabinet with the current crew.
-	for(var/record in GLOB.data_core.locked)
-		var/datum/data/record/G = record
-		if(!G)
-			continue
-		var/datum/mind/M = G.fields["mindref"]
-		if(M && ishuman(M.current))
-			addFile(M.current)
-
-
-/obj/structure/filingcabinet/employment/proc/addFile(mob/living/carbon/human/employee)
-	new /obj/item/paper/contract/employment(src, employee)
-
-/obj/structure/filingcabinet/employment/interact(mob/user)
-	if(!cooldown)
-		if(virgin)
-			fillCurrent()
-			virgin = 0
-		cooldown = TRUE
-		// prevents the devil from just instantly emptying the cabinet, ensuring an easy win.
-		addtimer(VARSET_CALLBACK(src, cooldown, FALSE), 10 SECONDS)
-	else
-		to_chat(user, "<span class='warning'>[src] is jammed, give it a few seconds.</span>")
+/obj/structure/filingcabinet/record/general/populate()
 	..()
+	if(virgin)
+		for(var/datum/data/record/G in linked_datacore.general)
+			var/obj/item/paper/gen_record_paper = new /obj/item/paper(src)
+			var/gen_record_text = "<CENTER><B>General Record</B></CENTER><BR>"
+			gen_record_text += "Name: [G.fields["name"]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
+			var/counter = 1
+			gen_record_text += "</TT>"
+			gen_record_paper.add_raw_text(gen_record_text)
+			gen_record_paper.name = "paper - '[G.fields["name"]]'"
+			gen_record_paper.update_appearance()
+			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
+						//before the records have been generated, so we do this inside the loop.

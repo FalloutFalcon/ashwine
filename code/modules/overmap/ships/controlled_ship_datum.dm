@@ -70,6 +70,8 @@
 	///Stations the ship has been blacklisted from landing at, associative station = reason
 	var/list/blacklisted = list()
 
+	var/datum/datacore/ship_datacore = new()
+
 /datum/overmap/ship/controlled/Rename(new_name, force = FALSE)
 	var/oldname = name
 	if(!..() || (!COOLDOWN_FINISHED(src, rename_cooldown) && !force))
@@ -284,28 +286,30 @@
  * Adds the passed-in mob to the list of ship owner candidates, and makes them
  * the ship owner if there is currently none.
  *
- * * H - Human mob to add to the manifest
- * * C - client of the mob to add to the manifest
- * * human_job - Job of the human mob to add to the manifest
+ * * human - Human mob to add to the manifest
+ * * client - client of the mob to add to the manifest
+ * * job - Job of the human mob to add to the manifest
  */
-/datum/overmap/ship/controlled/proc/manifest_inject(mob/living/carbon/human/H, client/C, datum/job/human_job)
+/datum/overmap/ship/controlled/proc/manifest_inject(mob/living/carbon/human/human, client/human_client, datum/job/job)
 	// no idea why this check exists
-	if(H.mind.assigned_role != H.mind.special_role)
-		manifest[H.real_name] = human_job
+	if(human.mind.assigned_role != human.mind.special_role)
+		manifest[human.real_name] = job
 
 	var/mind_info = list(
-		name = H.real_name,
+		name = human.real_name,
 		eligible = TRUE
 	)
-	LAZYSET(owner_candidates, H.mind, mind_info)
-	H.mind.original_ship = WEAKREF(src)
-	RegisterSignal(H.mind, COMSIG_PARENT_QDELETING, PROC_REF(crew_mind_deleting))
+	LAZYSET(owner_candidates, human.mind, mind_info)
+	human.mind.original_ship = WEAKREF(src)
+	RegisterSignal(human.mind, COMSIG_PARENT_QDELETING, PROC_REF(crew_mind_deleting))
 	if(!owner_mob)
-		set_owner_mob(H)
+		set_owner_mob(human)
 
-	if(!(human_job in job_holder_refs))
-		job_holder_refs[human_job] = list()
-	job_holder_refs[human_job] += WEAKREF(H)
+	if(!(job in job_holder_refs))
+		job_holder_refs[job] = list()
+	job_holder_refs[job] += WEAKREF(human)
+
+	ship_datacore.manifest_inject(human, human_client, job)
 
 /**
  * adds a mob's real name to a crew's guestbooks
