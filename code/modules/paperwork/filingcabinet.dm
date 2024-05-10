@@ -153,20 +153,33 @@
 	..()
 	if(virgin)
 		for(var/datum/data/record/G in linked_datacore.general)
-			var/datum/data/record/S = find_record("name", G.fields["name"], linked_datacore.security)
+			var/datum/data/record/S = find_record(DATACORE_NAME, G.fields[DATACORE_NAME], linked_datacore.security)
 			if(!S)
 				continue
 			var/obj/item/paper/sec_record_paper = new /obj/item/paper(src)
 			var/sec_record_text = "<CENTER><B>Security Record</B></CENTER><BR>"
-			sec_record_text += "Name: [G.fields["name"]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
-			sec_record_text += "<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: [S.fields["criminal"]]<BR>\n<BR>\nCrimes: [S.fields["crim"]]<BR>\nDetails: [S.fields["crim_d"]]<BR>\n<BR>\nImportant Notes:<BR>\n\t[S.fields["notes"]]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
+			sec_record_text += {"Name: [G.fields[DATACORE_NAME]] ID: [G.fields[DATACORE_ID]]<BR>\n
+				Gender: [G.fields[DATACORE_GENDER]]<BR>\n
+				Age: [G.fields[DATACORE_AGE]]<BR>\n
+				Fingerprint: [G.fields[DATACORE_FINGERPRINT]]<BR>\n
+				Physical Status: [G.fields[DATACORE_PHYSICAL_HEALTH]]<BR>\n
+				Mental Status: [G.fields[DATACORE_MENTAL_HEALTH]]<BR><BR>\n"}
+			sec_record_text += {"<CENTER><B>Security Data</B></CENTER><BR>\n
+				Criminal Status: [S.fields[DATACORE_CRIMINAL_STATUS]]<BR>\n
+				<BR>\n
+				Crimes: [S.fields[DATACORE_CRIMES]]<BR>\n
+				Details: [S.fields[DATACORE_CRIME_DETAILS]]<BR>\n
+				<BR>\n
+				Important Notes:<BR>\n\t[S.fields[DATACORE_NOTES]]<BR>\n
+				<BR>\n
+				<CENTER><B>Comments/Log</B></CENTER><BR>"}
 			var/counter = 1
 			while(S.fields["com_[counter]"])
 				sec_record_text += "[S.fields["com_[counter]"]]<BR>"
 				counter++
 			sec_record_text += "</TT>"
 			sec_record_paper.add_raw_text(sec_record_text)
-			sec_record_paper.name = "paper - '[G.fields["name"]]'"
+			sec_record_paper.name = "paper - '[G.fields[DATACORE_NAME]]'"
 			sec_record_paper.update_appearance()
 			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
@@ -181,20 +194,38 @@
 	..()
 	if(virgin)
 		for(var/datum/data/record/G in linked_datacore.general)
-			var/datum/data/record/M = find_record("name", G.fields["name"], linked_datacore.medical)
+			var/datum/data/record/M = find_record(DATACORE_NAME, G.fields[DATACORE_NAME], linked_datacore.medical)
 			if(!M)
 				continue
 			var/obj/item/paper/med_record_paper = new /obj/item/paper(src)
 			var/med_record_text = "<CENTER><B>Medical Record</B></CENTER><BR>"
-			med_record_text += "Name: [G.fields["name"]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
-			med_record_text += "<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\nBlood Type: [M.fields["blood_type"]]<BR>\nDNA: [M.fields["b_dna"]]<BR>\n<BR>\nMinor Disabilities: [M.fields["mi_dis"]]<BR>\nDetails: [M.fields["mi_dis_d"]]<BR>\n<BR>\nMajor Disabilities: [M.fields["ma_dis"]]<BR>\nDetails: [M.fields["ma_dis_d"]]<BR>\n<BR>\nAllergies: [M.fields["alg"]]<BR>\nDetails: [M.fields["alg_d"]]<BR>\n<BR>\nCurrent Diseases: [M.fields["cdi"]] (per disease info placed in log/comment section)<BR>\nDetails: [M.fields["cdi_d"]]<BR>\n<BR>\nImportant Notes:<BR>\n\t[M.fields["notes"]]<BR>\n<BR>\n<CENTER><B>Comments/Log</B></CENTER><BR>"
+			med_record_text += {"Name: [G.fields[DATACORE_NAME]]
+				ID: [G.fields[DATACORE_ID]]<BR>\n
+				Gender: [G.fields[DATACORE_GENDER]]<BR>\n
+				Age: [G.fields[DATACORE_AGE]]<BR>\n
+				Fingerprint: [G.fields[DATACORE_FINGERPRINT]]<BR>\n
+				Physical Status: [G.fields[DATACORE_PHYSICAL_HEALTH]]<BR>\n
+				Mental Status: [G.fields[DATACORE_MENTAL_HEALTH]]<BR>"}
+			med_record_text += {"<BR>\n<CENTER><B>Medical Data</B></CENTER><BR>\n
+				Blood Type: [M.fields[DATACORE_BLOOD_TYPE]]<BR>\n
+				DNA: [M.fields[DATACORE_BLOOD_DNA]]<BR>\n<BR>\n
+				Minor Disabilities: [M.fields[DATACORE_MINOR_DISABILITIES]]<BR>\n
+				Details: [M.fields[DATACORE_MINOR_DISABILITIES_DETAILS]]<BR>\n<BR>\n
+				Major Disabilities: [M.fields[DATACORE_DISABILITIES]]<BR>\n
+				Details: [M.fields[DATACORE_DISABILITIES_DETAILS]]<BR>\n<BR>\n
+				Allergies: [M.fields[DATACORE_ALLERGIES]]]<BR>\n
+				Details: [M.fields[DATACORE_ALLERGIES_DETAILS]]<BR>\n<BR>\n
+				Current Diseases: [M.fields[DATACORE_DISEASES]] (per disease info placed in log/comment section)<BR>\n
+				Details: [M.fields[DATACORE_DISEASES_DETAILS]]<BR>\n<BR>\n
+				Important Notes:<BR>\n\t[M.fields[DATACORE_NOTES]]<BR>\n<BR>\n
+				<CENTER><B>Comments/Log</B></CENTER><BR>"}
 			var/counter = 1
 			while(M.fields["com_[counter]"])
 				med_record_text += "[M.fields["com_[counter]"]]<BR>"
 				counter++
 			med_record_text += "</TT>"
 			med_record_paper.add_raw_text(med_record_text)
-			med_record_paper.name = "paper - '[G.fields["name"]]'"
+			med_record_paper.name = "paper - '[G.fields[DATACORE_NAME]]'"
 			med_record_paper.update_appearance()
 			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
@@ -211,11 +242,11 @@
 		for(var/datum/data/record/G in linked_datacore.general)
 			var/obj/item/paper/gen_record_paper = new /obj/item/paper(src)
 			var/gen_record_text = "<CENTER><B>General Record</B></CENTER><BR>"
-			gen_record_text += "Name: [G.fields["name"]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
+			gen_record_text += "Name: [G.fields[DATACORE_NAME]] ID: [G.fields["id"]]<BR>\nGender: [G.fields["gender"]]<BR>\nAge: [G.fields["age"]]<BR>\nFingerprint: [G.fields["fingerprint"]]<BR>\nPhysical Status: [G.fields["p_stat"]]<BR>\nMental Status: [G.fields["m_stat"]]<BR>"
 			var/counter = 1
 			gen_record_text += "</TT>"
 			gen_record_paper.add_raw_text(gen_record_text)
-			gen_record_paper.name = "paper - '[G.fields["name"]]'"
+			gen_record_paper.name = "paper - '[G.fields[DATACORE_NAME]]'"
 			gen_record_paper.update_appearance()
 			virgin = FALSE	//tabbing here is correct- it's possible for people to try and use it
 						//before the records have been generated, so we do this inside the loop.
