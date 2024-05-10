@@ -58,8 +58,8 @@
  */
 /datum/datacore/proc/addCrime(id = "", datum/data/crime/crime)
 	for(var/datum/data/record/R in security)
-		if(R.fields["id"] == id)
-			var/list/crimes = R.fields["crim"]
+		if(R.fields[DATACORE_ID] == id)
+			var/list/crimes = R.fields[DATACORE_CRIMES]
 			crimes |= crime
 			return
 
@@ -73,8 +73,8 @@
  */
 /datum/datacore/proc/removeCrime(id, cDataId)
 	for(var/datum/data/record/R in security)
-		if(R.fields["id"] == id)
-			var/list/crimes = R.fields["crim"]
+		if(R.fields[DATACORE_ID] == id)
+			var/list/crimes = R.fields[DATACORE_CRIMES]
 			for(var/datum/data/crime/crime in crimes)
 				if(crime.dataId == text2num(cDataId))
 					crimes -= crime
@@ -91,8 +91,8 @@
  */
 /datum/datacore/proc/addCrimeDetails(id, cDataId, details)
 	for(var/datum/data/record/R in security)
-		if(R.fields["id"] == id)
-			var/list/crimes = R.fields["crim"]
+		if(R.fields[DATACORE_ID] == id)
+			var/list/crimes = R.fields[DATACORE_CRIMES]
 			for(var/datum/data/crime/crime in crimes)
 				if(crime.dataId == text2num(cDataId))
 					crime.crimeDetails = details
@@ -108,9 +108,9 @@
 		CHECK_TICK
 
 /datum/datacore/proc/manifest_modify(name, assignment)
-	var/datum/data/record/foundrecord = find_record("name", name, GLOB.data_core.general)
+	var/datum/data/record/foundrecord = find_record(DATACORE_NAME, name, GLOB.data_core.general)
 	if(foundrecord)
-		foundrecord.fields["rank"] = assignment
+		foundrecord.fields[DATACORE_RANK] = assignment
 
 /datum/datacore/proc/get_manifest()
 	var/list/manifest_out = list()
@@ -125,8 +125,8 @@
 		"Silicon" = GLOB.nonhuman_positions
 	)
 	for(var/datum/data/record/t in GLOB.data_core.general)
-		var/name = t.fields["name"]
-		var/rank = t.fields["rank"]
+		var/name = t.fields[DATACORE_NAME]
+		var/rank = t.fields[DATACORE_RANK]
 		var/has_department = FALSE
 		for(var/department in departments)
 			var/list/jobs = departments[department]
@@ -136,21 +136,21 @@
 				// Append to beginning of list if captain or department head
 				if (rank == "Captain" || (department != "Command" && (rank in GLOB.command_positions)))
 					manifest_out[department] = list(list(
-						"name" = name,
-						"rank" = rank
+						DATACORE_NAME = name,
+						DATACORE_RANK = rank
 					)) + manifest_out[department]
 				else
 					manifest_out[department] += list(list(
-						"name" = name,
-						"rank" = rank
+						DATACORE_NAME = name,
+						DATACORE_RANK = rank
 					))
 				has_department = TRUE
 		if(!has_department)
 			if(!manifest_out["Misc"])
 				manifest_out["Misc"] = list()
 			manifest_out["Misc"] += list(list(
-				"name" = name,
-				"rank" = rank
+				DATACORE_NAME = name,
+				DATACORE_RANK = rank
 			))
 	return manifest_out
 
@@ -174,7 +174,7 @@
 		var/even = FALSE
 		for(var/entry in entries)
 			var/list/entry_list = entry
-			dat += "<tr[even ? " class='alt'" : ""]><td>[entry_list["name"]]</td><td>[entry_list["rank"]]</td></tr>"
+			dat += "<tr[even ? " class='alt'" : ""]><td>[entry_list[DATACORE_NAME]]</td><td>[entry_list[DATACORE_RANK]]</td></tr>"
 			even = !even
 
 	dat += "</table>"
@@ -214,71 +214,71 @@
 		//These records should ~really~ be merged or something
 		//General Record
 		var/datum/data/record/G = new()
-		G.fields["id"]			= id
-		G.fields["name"]		= H.real_name
-		G.fields["rank"]		= assignment
-		G.fields["age"]			= H.age
-		G.fields["species"]	= H.dna.species.name
-		G.fields["fingerprint"]	= md5(H.dna.uni_identity)
-		G.fields["p_stat"]		= "Active"
-		G.fields["m_stat"]		= "Stable"
-		G.fields["gender"]			= H.gender
+		G.fields[DATACORE_ID] = id
+		G.fields[DATACORE_NAME] = H.real_name
+		G.fields[DATACORE_RANK] = assignment
+		G.fields[DATACORE_AGE] = H.age
+		G.fields[DATACORE_SPECIES] = H.dna.species.name
+		G.fields[DATACORE_FINGERPRINT] = md5(H.dna.uni_identity)
+		G.fields[DATACORE_PHYSICAL_HEALTH] = "Active"
+		G.fields[DATACORE_MENTAL_HEALTH] = "Stable"
+		G.fields[DATACORE_GENDER] = H.gender
 		if(H.gender == "male")
-			G.fields["gender"]  = "Male"
+			G.fields[DATACORE_GENDER] = "Male"
 		else if(H.gender == "female")
-			G.fields["gender"]  = "Female"
+			G.fields[DATACORE_GENDER] = "Female"
 		else
-			G.fields["gender"]  = "Other"
-		G.fields["photo_front"]	= photo_front
-		G.fields["photo_side"]	= photo_side
+			G.fields[DATACORE_GENDER] = "Other"
+		G.fields[DATACORE_PHOTO] = photo_front
+		G.fields[DATACORE_PHOTO_SIDE] = photo_side
 		general += G
 
 		//Medical Record
 		var/datum/data/record/M = new()
-		M.fields["id"]			= id
-		M.fields["name"]		= H.real_name
-		M.fields["blood_type"]	= H.dna.blood_type.name
-		M.fields["b_dna"]		= H.dna.unique_enzymes
-		M.fields["mi_dis"]		= "None"
-		M.fields["mi_dis_d"]	= "No minor disabilities have been declared."
-		M.fields["ma_dis"]		= "None"
-		M.fields["ma_dis_d"]	= "No major disabilities have been diagnosed."
-		M.fields["alg"]			= "None"
-		M.fields["alg_d"]		= "No allergies have been detected in this patient."
-		M.fields["cdi"]			= "None"
-		M.fields["cdi_d"]		= "No diseases have been diagnosed at the moment."
-		M.fields["notes"]		= H.get_trait_string(medical)
+		M.fields[DATACORE_ID] = id
+		M.fields[DATACORE_NAME] = H.real_name
+		M.fields[DATACORE_BLOOD_TYPE] = H.dna.blood_type.name
+		M.fields[DATACORE_BLOOD_DNA] = H.dna.unique_enzymes
+		M.fields[DATACORE_MINOR_DISABILITIES] = "None"
+		M.fields[DATACORE_MINOR_DISABILITIES_DETAILS] = "No minor disabilities have been declared."
+		M.fields[DATACORE_DISABILITIES] = "None"
+		M.fields[DATACORE_DISABILITIES_DETAILS] = "No major disabilities have been diagnosed."
+		M.fields[DATACORE_ALLERGIES] = "None"
+		M.fields[DATACORE_ALLERGIES_DETAILS] = "No allergies have been detected in this patient."
+		M.fields[DATACORE_DISEASES] = "None"
+		M.fields[DATACORE_DISABILITIES_DETAILS] = "No diseases have been diagnosed at the moment."
+		M.fields[DATACORE_NOTES] = H.get_trait_string(medical)
 		medical += M
 
 		//Security Record
 		var/datum/data/record/S = new()
-		S.fields["id"]			= id
-		S.fields["name"]		= H.real_name
-		S.fields["criminal"]	= "None"
-		S.fields["crim"]		= list()
-		S.fields["notes"]		= "No notes."
+		S.fields[DATACORE_ID] = id
+		S.fields[DATACORE_NAME] = H.real_name
+		S.fields[DATACORE_CRIMINAL_STATUS] = "None"
+		S.fields[DATACORE_CRIMES] = list()
+		S.fields[DATACORE_NOTES] = "No notes."
 		security += S
 
 		//Locked Record
 		var/datum/data/record/L = new()
-		L.fields["id"]			= md5("[H.real_name][H.mind.assigned_role]")	//surely this should just be id, like the others?
-		L.fields["name"]		= H.real_name
-		L.fields["rank"] 		= H.mind.assigned_role
-		L.fields["age"]			= H.age
-		L.fields["gender"]			= H.gender
+		L.fields[DATACORE_ID] = md5("[H.real_name][H.mind.assigned_role]")	//surely this should just be id, like the others?
+		L.fields[DATACORE_NAME] = H.real_name
+		L.fields[DATACORE_RANK] = H.mind.assigned_role
+		L.fields[DATACORE_AGE] = H.age
+		L.fields[DATACORE_GENDER] = H.gender
 		if(H.gender == "male")
-			G.fields["gender"]  = "Male"
+			G.fields[DATACORE_GENDER] = "Male"
 		else if(H.gender == "female")
-			G.fields["gender"]  = "Female"
+			G.fields[DATACORE_GENDER] = "Female"
 		else
-			G.fields["gender"]  = "Other"
-		L.fields["blood_type"]	= H.dna.blood_type
-		L.fields["b_dna"]		= H.dna.unique_enzymes
-		L.fields["identity"]	= H.dna.uni_identity
-		L.fields["species"]		= H.dna.species.type
-		L.fields["features"]	= H.dna.features
-		L.fields["image"]		= image
-		L.fields["mindref"]		= H.mind
+			G.fields[DATACORE_GENDER] = "Other"
+		L.fields[DATACORE_BLOOD_TYPE] = H.dna.blood_type
+		L.fields[DATACORE_BLOOD_DNA] = H.dna.unique_enzymes
+		L.fields[DATACORE_DNA_IDENTITY] = H.dna.uni_identity
+		L.fields[DATACORE_SPECIES] = H.dna.species.type
+		L.fields[DATACORE_DNA_FEATURES] = H.dna.features
+		L.fields[DATACORE_IMAGE] = image
+		L.fields[DATACORE_MINDREF] = H.mind
 		locked += L
 	return
 

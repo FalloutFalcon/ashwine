@@ -1179,7 +1179,7 @@
 
 	if(oldname)
 		//update the datacore records! This is goig to be a bit costly.
-		replace_records_name(oldname,newname)
+		replace_records_name(oldname, newname)
 
 		//update our pda and id if we have them on our person
 		replace_identification_name(oldname,newname)
@@ -1192,7 +1192,7 @@
 	return 1
 
 ///Updates GLOB.data_core records with new name , see mob/living/carbon/human
-/mob/proc/replace_records_name(oldname,newname)
+/mob/proc/replace_records_name(oldname, newname, datum/datacore/linked_datacore = GLOB.data_core)
 	return
 
 ///update the ID name of this mob

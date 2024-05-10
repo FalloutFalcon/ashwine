@@ -18,7 +18,15 @@
 	//Sorting Variables
 	var/sortBy = "name"
 	var/order = 1 // -1 = Descending - 1 = Ascending
+	var/datum/datacore/linked_datacore
 
+/obj/machinery/computer/secure_data/Initialize(mapload, obj/item/circuitboard/C)
+	. = ..()
+	var/datum/overmap/ship/controlled/ship = SSshuttle.get_ship(src)
+	if(ship)
+		linked_datacore = ship.ship_datacore
+	else
+		linked_datacore = GLOB.data_core
 
 /obj/machinery/computer/secure_data/syndie
 	icon_keyboard = "syndie_key"
@@ -119,10 +127,10 @@
 <th><A href='?src=[REF(src)];choice=Sorting;sort=fingerprint'>Fingerprints</A></th>
 <th>Criminal Status</th>
 </tr>"}
-					if(!isnull(GLOB.data_core.general))
-						for(var/datum/data/record/R in sortRecord(GLOB.data_core.general, sortBy, order))
+					if(!isnull(linked_datacore.general))
+						for(var/datum/data/record/R in sortRecord(linked_datacore.general, sortBy, order))
 							var/crimstat = ""
-							for(var/datum/data/record/E in GLOB.data_core.security)
+							for(var/datum/data/record/E in linked_datacore.security)
 								if((E.fields["name"] == R.fields["name"]) && (E.fields["id"] == R.fields["id"]))
 									crimstat = E.fields["criminal"]
 							var/background
@@ -160,7 +168,7 @@
 					dat += "<BR><A href='?src=[REF(src)];choice=Delete All Records'>Delete All Records</A><BR><BR><A href='?src=[REF(src)];choice=Return'>Back</A>"
 				if(3)
 					dat += "<font size='4'><b>Security Record</b></font><br>"
-					if(istype(active1, /datum/data/record) && GLOB.data_core.general.Find(active1))
+					if(istype(active1, /datum/data/record) && linked_datacore.general.Find(active1))
 						if(istype(active1.fields["photo_front"], /obj/item/photo))
 							var/obj/item/photo/P1 = active1.fields["photo_front"]
 							user << browse_rsc(P1.picture.picture_image, "photo_front")
@@ -187,7 +195,7 @@
 						</td></tr></table></td></tr></table>"}
 					else
 						dat += "<br>General Record Lost!<br>"
-					if((istype(active2, /datum/data/record) && GLOB.data_core.security.Find(active2)))
+					if((istype(active2, /datum/data/record) && linked_datacore.security.Find(active2)))
 						dat += "<font size='4'><b>Security Data</b></font>"
 						dat += "<br>Criminal Status: <A href='?src=[REF(src)];choice=Edit Field;field=criminal'>[active2.fields["criminal"]]</A>"
 
@@ -243,9 +251,9 @@ What a mess.*/
 	. = ..()
 	if(.)
 		return .
-	if(!(GLOB.data_core.general.Find(active1)))
+	if(!(linked_datacore.general.Find(active1)))
 		active1 = null
-	if(!(GLOB.data_core.security.Find(active2)))
+	if(!(linked_datacore.security.Find(active2)))
 		active2 = null
 	if(usr.contents.Find(src) || (in_range(src, usr) && isturf(loc)) || issilicon(usr) || isAdminGhostAI(usr))
 		usr.set_machine(src)
@@ -311,12 +319,12 @@ What a mess.*/
 				active2 = null
 
 			if("Browse Record")
-				var/datum/data/record/R = locate(href_list["d_rec"]) in GLOB.data_core.general
+				var/datum/data/record/R = locate(href_list["d_rec"]) in linked_datacore.general
 				if(!R)
 					temp = "Record Not Found!"
 				else
 					active1 = active2 = R
-					for(var/datum/data/record/E in GLOB.data_core.security)
+					for(var/datum/data/record/E in linked_datacore.security)
 						if((E.fields["name"] == R.fields["name"] || E.fields["id"] == R.fields["id"]))
 							active2 = E
 					screen = 3
@@ -324,18 +332,18 @@ What a mess.*/
 			if("Print Record")
 				if(!(printing))
 					printing = 1
-					GLOB.data_core.securityPrintCount++
+					linked_datacore.securityPrintCount++
 					playsound(loc, 'sound/items/poster_being_created.ogg', 100, TRUE)
 					sleep(30)
 					var/obj/item/paper/printed_paper = new /obj/item/paper(loc)
-					var/final_paper_text = "<CENTER><B>Security Record - (SR-[GLOB.data_core.securityPrintCount])</B></CENTER><BR>"
-					if((istype(active1, /datum/data/record) && GLOB.data_core.general.Find(active1)))
+					var/final_paper_text = "<CENTER><B>Security Record - (SR-[linked_datacore.securityPrintCount])</B></CENTER><BR>"
+					if((istype(active1, /datum/data/record) && linked_datacore.general.Find(active1)))
 						final_paper_text += text("Name: [] ID: []<BR>\nGender: []<BR>\nAge: []<BR>", active1.fields["name"], active1.fields["id"], active1.fields["gender"], active1.fields["age"])
 						final_paper_text += "\nSpecies: [active1.fields["species"]]<BR>"
 						final_paper_text += text("\nFingerprint: []<BR>\nPhysical Status: []<BR>\nMental Status: []<BR>", active1.fields["fingerprint"], active1.fields["p_stat"], active1.fields["m_stat"])
 					else
 						final_paper_text += "<B>General Record Lost!</B><BR>"
-					if((istype(active2, /datum/data/record) && GLOB.data_core.security.Find(active2)))
+					if((istype(active2, /datum/data/record) && linked_datacore.security.Find(active2)))
 						final_paper_text += text("<BR>\n<CENTER><B>Security Data</B></CENTER><BR>\nCriminal Status: []", active2.fields["criminal"])
 
 						final_paper_text += "<BR>\n<BR>\nCrimes:<BR>\n"
@@ -359,10 +367,10 @@ What a mess.*/
 						while(active2.fields[text("com_[]", counter)])
 							final_paper_text += text("[]<BR>", active2.fields[text("com_[]", counter)])
 							counter++
-						printed_paper.name = text("SR-[] '[]'", GLOB.data_core.securityPrintCount, active1.fields["name"])
+						printed_paper.name = text("SR-[] '[]'", linked_datacore.securityPrintCount, active1.fields["name"])
 					else
 						final_paper_text += "<B>Security Record Lost!</B><BR>"
-						printed_paper.name = text("SR-[] '[]'", GLOB.data_core.securityPrintCount, "Record Lost")
+						printed_paper.name = text("SR-[] '[]'", linked_datacore.securityPrintCount, "Record Lost")
 					final_paper_text += "</TT>"
 					printed_paper.add_raw_text(final_paper_text)
 					printed_paper.update_appearance()
@@ -386,7 +394,7 @@ What a mess.*/
 							playsound(loc, 'sound/items/poster_being_created.ogg', 100, TRUE)
 							printing = 1
 							sleep(30)
-							if((istype(active1, /datum/data/record) && GLOB.data_core.general.Find(active1)))//make sure the record still exists.
+							if((istype(active1, /datum/data/record) && linked_datacore.general.Find(active1)))//make sure the record still exists.
 								var/obj/item/photo/photo = active1.fields["photo_front"]
 								new /obj/item/poster/wanted(loc, photo.picture.picture_image, wanted_name, info, headerText)
 							printing = 0
@@ -403,7 +411,7 @@ What a mess.*/
 							playsound(loc, 'sound/items/poster_being_created.ogg', 100, TRUE)
 							printing = 1
 							sleep(30)
-							if((istype(active1, /datum/data/record) && GLOB.data_core.general.Find(active1)))//make sure the record still exists.
+							if((istype(active1, /datum/data/record) && linked_datacore.general.Find(active1)))//make sure the record still exists.
 								var/obj/item/photo/photo = active1.fields["photo_front"]
 								new /obj/item/poster/wanted/missing(loc, photo.picture.picture_image, missing_name, info, headerText)
 							printing = 0
@@ -417,9 +425,9 @@ What a mess.*/
 
 			if("Purge All Records")
 				investigate_log("[key_name(usr)] has purged all the security records.", INVESTIGATE_RECORDS)
-				for(var/datum/data/record/R in GLOB.data_core.security)
+				for(var/datum/data/record/R in linked_datacore.security)
 					qdel(R)
-				GLOB.data_core.security.Cut()
+				linked_datacore.security.Cut()
 				temp = "All Security records deleted."
 
 			if("Add Entry")
@@ -459,7 +467,7 @@ What a mess.*/
 					R.fields["criminal"] = "None"
 					R.fields["crim"] = list()
 					R.fields["notes"] = "No notes."
-					GLOB.data_core.security += R
+					linked_datacore.security += R
 					active2 = R
 					screen = 3
 
@@ -477,7 +485,7 @@ What a mess.*/
 				G.fields["fingerprint"] = "?????"
 				G.fields["p_stat"] = "Active"
 				G.fields["m_stat"] = "Stable"
-				GLOB.data_core.general += G
+				linked_datacore.general += G
 				active1 = G
 
 				//Security Record
@@ -488,7 +496,7 @@ What a mess.*/
 				R.fields["criminal"] = "None"
 				R.fields["crim"] = list()
 				R.fields["notes"] = "No notes."
-				GLOB.data_core.security += R
+				linked_datacore.security += R
 				active2 = R
 
 				//Medical Record
@@ -506,7 +514,7 @@ What a mess.*/
 				M.fields["cdi"]			= "None"
 				M.fields["cdi_d"]		= "No diseases have been diagnosed at the moment."
 				M.fields["notes"]		= "No notes."
-				GLOB.data_core.medical += M
+				linked_datacore.medical += M
 
 
 
@@ -614,22 +622,22 @@ What a mess.*/
 							var/t2 = stripped_input(usr, "Please input crime details:", "Secure. records", "", null)
 							if(!canUseSecurityRecordsConsole(usr, t1, null, a2))
 								return
-							var/crime = GLOB.data_core.createCrimeEntry(t1, t2, authenticated, station_time_timestamp())
-							GLOB.data_core.addCrime(active1.fields["id"], crime)
+							var/crime = linked_datacore.createCrimeEntry(t1, t2, authenticated, station_time_timestamp())
+							linked_datacore.addCrime(active1.fields["id"], crime)
 							investigate_log("New Crime: <strong>[t1]</strong>: [t2] | Added to [active1.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
 					if("crim_delete")
 						if(istype(active1, /datum/data/record))
 							if(href_list["cdataid"])
 								if(!canUseSecurityRecordsConsole(usr, "delete", null, a2))
 									return
-								GLOB.data_core.removeCrime(active1.fields["id"],href_list["cdataid"])
+								linked_datacore.removeCrime(active1.fields["id"],href_list["cdataid"])
 					if("add_details")
 						if(istype(active1, /datum/data/record))
 							if(href_list["cdataid"])
 								var/t1 = stripped_input(usr, "Please input crime details:", "Secure. records", "", null)
 								if(!canUseSecurityRecordsConsole(usr, t1, null, a2))
 									return
-								GLOB.data_core.addCrimeDetails(active1.fields["id"], href_list["cdataid"], t1)
+								linked_datacore.addCrimeDetails(active1.fields["id"], href_list["cdataid"], t1)
 								investigate_log("New Crime details: [t1] | Added to [active1.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
 					if("notes")
 						if(istype(active2, /datum/data/record))
@@ -695,7 +703,7 @@ What a mess.*/
 					if("Delete Record (ALL) Execute")
 						if(active1)
 							investigate_log("[key_name(usr)] has deleted all records for [active1.fields["name"]].", INVESTIGATE_RECORDS)
-							for(var/datum/data/record/R in GLOB.data_core.medical)
+							for(var/datum/data/record/R in linked_datacore.medical)
 								if((R.fields["name"] == active1.fields["name"] || R.fields["id"] == active1.fields["id"]))
 									qdel(R)
 									break
@@ -741,7 +749,7 @@ What a mess.*/
 	if(machine_stat & (BROKEN|NOPOWER) || . & EMP_PROTECT_SELF)
 		return
 
-	for(var/datum/data/record/R in GLOB.data_core.security)
+	for(var/datum/data/record/R in linked_datacore.security)
 		if(prob(10/severity))
 			switch(rand(1,8))
 				if(1)
@@ -762,7 +770,7 @@ What a mess.*/
 				if(7)
 					R.fields["species"] = pick(GLOB.roundstart_races)
 				if(8)
-					var/datum/data/record/G = pick(GLOB.data_core.general)
+					var/datum/data/record/G = pick(linked_datacore.general)
 					R.fields["photo_front"] = G.fields["photo_front"]
 					R.fields["photo_side"] = G.fields["photo_side"]
 			continue

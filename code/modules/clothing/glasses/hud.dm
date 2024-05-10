@@ -5,6 +5,15 @@
 	var/hud_type = null
 	///Used for topic calls. Just because you have a HUD display doesn't mean you should be able to interact with stuff.
 	var/hud_trait = null
+	var/datum/datacore/linked_datacore
+
+/obj/item/clothing/glasses/hud/Initialize()
+	. = ..()
+	var/datum/overmap/ship/controlled/ship = SSshuttle.get_ship(src)
+	if(ship)
+		linked_datacore = ship.ship_datacore
+	else
+		linked_datacore = GLOB.data_core
 
 /obj/item/clothing/glasses/hud/equipped(mob/living/carbon/human/user, slot)
 	..()

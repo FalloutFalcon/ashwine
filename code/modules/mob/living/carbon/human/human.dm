@@ -280,10 +280,14 @@
 		if(!ishuman(usr))
 			return
 		var/mob/living/carbon/human/H = usr
+		var/obj/item/clothing/glasses/hud/glass_hud = get_item_by_slot(ITEM_SLOT_EYES)
+		var/datum/datacore/linked_datacore = GLOB.data_core
+		if(glass_hud.linked_datacore && istype(glass_hud.linked_datacore, /datum/datacore))
+			linked_datacore = glass_hud.linked_datacore
 		var/perpname = get_face_name(get_id_name(""))
 		if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD) && !HAS_TRAIT(H, TRAIT_MEDICAL_HUD))
 			return
-		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.general)
+		var/datum/data/record/R = find_record("name", perpname, linked_datacore.general)
 		if(href_list["photo_front"] || href_list["photo_side"])
 			if(!R)
 				return
@@ -397,7 +401,7 @@
 			if(!perpname)
 				to_chat(H, "<span class='warning'>ERROR: Can not identify target.</span>")
 				return
-			R = find_record("name", perpname, GLOB.data_core.security)
+			R = find_record("name", perpname, linked_datacore.security)
 			if(!R)
 				to_chat(usr, "<span class='warning'>ERROR: Unable to locate data core entry for target.</span>")
 				return
@@ -440,8 +444,8 @@
 					return
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
-				var/crime = GLOB.data_core.createCrimeEntry(t1, null, allowed_access, station_time_timestamp())
-				GLOB.data_core.addCrime(R.fields["id"], crime)
+				var/crime = linked_datacore.createCrimeEntry(t1, null, allowed_access, station_time_timestamp())
+				linked_datacore.addCrime(R.fields["id"], crime)
 				investigate_log("New Crime: <strong>[t1]</strong> | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
 				to_chat(usr, "<span class='notice'>Successfully added a crime.</span>")
 				return
@@ -455,7 +459,7 @@
 				if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD))
 					return
 				if(href_list["cdataid"])
-					GLOB.data_core.addCrimeDetails(R.fields["id"], href_list["cdataid"], t1)
+					linked_datacore.addCrimeDetails(R.fields["id"], href_list["cdataid"], t1)
 					investigate_log("New Crime details: [t1] | Added to [R.fields["name"]] by [key_name(usr)]", INVESTIGATE_RECORDS)
 					to_chat(usr, "<span class='notice'>Successfully added details.</span>")
 				return
@@ -517,7 +521,7 @@
 		// Might need re-wording.
 		to_chat(user, "<span class='alert'>There is no exposed flesh or thin material [above_neck(target_zone) ? "on [p_their()] head" : "on [p_their()] body"].</span>")
 
-/mob/living/carbon/human/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null)
+/mob/living/carbon/human/assess_threat(judgement_criteria, lasercolor = "", datum/callback/weaponcheck=null, datum/datacore/linked_datacore = GLOB.data_core)
 	if(judgement_criteria & JUDGE_EMAGGED)
 		return 10 //Everyone is a criminal!
 
@@ -560,7 +564,7 @@
 	//Check for arrest warrant
 	if(judgement_criteria & JUDGE_RECORDCHECK)
 		var/perpname = get_face_name(get_id_name())
-		var/datum/data/record/R = find_record("name", perpname, GLOB.data_core.security)
+		var/datum/data/record/R = find_record("name", perpname, linked_datacore.security)
 		if(R && R.fields["criminal"])
 			switch(R.fields["criminal"])
 				if("*Arrest*")
@@ -827,8 +831,8 @@
 		to_chat(src, "<span class='notice'>You successfully [cuff_break ? "break" : "remove"] [I].</span>")
 		return TRUE
 
-/mob/living/carbon/human/replace_records_name(oldname,newname) // Only humans have records right now, move this up if changed.
-	for(var/list/L in list(GLOB.data_core.general,GLOB.data_core.medical,GLOB.data_core.security,GLOB.data_core.locked))
+/mob/living/carbon/human/replace_records_name(oldname, newname, datum/datacore/linked_datacore = GLOB.data_core) // Only humans have records right now, move this up if changed.
+	for(var/list/L in list(linked_datacore.general, linked_datacore.medical, linked_datacore.security, linked_datacore.locked))
 		var/datum/data/record/R = find_record("name", oldname, L)
 		if(R)
 			R.fields["name"] = newname

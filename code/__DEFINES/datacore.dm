@@ -35,6 +35,10 @@
 #define DATACORE_CRIMINAL_STATUS "criminal"
 #define DATACORE_CITATIONS "citation"
 
+#define DATACORE_PHOTO "photo_front"
+#define DATACORE_PHOTO_SIDE "photo_side"
+#define DATACORE_IMAGE "image"
+
 #define DATACORE_RECORDS_STATION "general"
 #define DATACORE_RECORDS_SECURITY "security"
 #define DATACORE_RECORDS_MEDICAL "medical"
