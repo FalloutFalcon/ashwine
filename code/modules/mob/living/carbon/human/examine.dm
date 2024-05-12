@@ -351,7 +351,7 @@
 		var/datum/datacore/linked_datacore = GLOB.data_core
 		if(glass_hud.linked_datacore && istype(glass_hud.linked_datacore, /datum/datacore))
 			linked_datacore = glass_hud.linked_datacore
-		var/datum/data/record/R = find_record(DATACORE_NAME, perpname, linked_datacore.general)
+		var/datum/data/record/R = SSdatacore.find_record_by_name(perpname, linked_datacore.general)
 
 		if(R)
 			. += "<span class='deptradio'>Rank:</span> [R.fields[DATACORE_RANK]]<span class='deptradio'> Name:</span> [R.fields[DATACORE_NAME]]\n<a href='?src=[REF(src)];hud=1;photo_front=1'>\[Front photo\]</a><a href='?src=[REF(src)];hud=1;photo_side=1'>\[Side photo\]</a>"
@@ -360,13 +360,13 @@
 			health_r = R.fields["m_stat"]
 			. += "<a href='?src=[REF(src)];hud=m;m_stat=1'>\[[health_r]\]</a>"
 			if(HAS_TRAIT(user, TRAIT_MEDICAL_HUD))
-				var/datum/data/record/medical_record = find_record(DATACORE_NAME, perpname, linked_datacore.medical)
+				var/datum/data/record/medical_record = SSdatacore.find_record_by_name(perpname, linked_datacore.medical)
 				if(medical_record)
 					. += "<a href='?src=[REF(src)];hud=m;evaluation=1'>\[Medical evaluation\]</a><br>"
 			if(HAS_TRAIT(user, TRAIT_SECURITY_HUD))
 				var/criminal = "None"
 
-				var/datum/data/record/sec_record = find_record(DATACORE_NAME, perpname, linked_datacore.security)
+				var/datum/data/record/sec_record = SSdatacore.find_record_by_name(perpname, linked_datacore.security)
 				if(sec_record)
 					criminal = sec_record.fields["criminal"]
 

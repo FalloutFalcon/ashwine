@@ -153,7 +153,7 @@
 	..()
 	if(virgin)
 		for(var/datum/data/record/G in linked_datacore.general)
-			var/datum/data/record/S = find_record(DATACORE_NAME, G.fields[DATACORE_NAME], linked_datacore.security)
+			var/datum/data/record/S = SSdatacore.find_record_by_name(G.fields[DATACORE_NAME], linked_datacore.security)
 			if(!S)
 				continue
 			var/obj/item/paper/sec_record_paper = new /obj/item/paper(src)
@@ -191,7 +191,7 @@ Important Notes:<BR>\n\t[S.fields[DATACORE_NOTES]]<BR>\n<BR>\n
 	..()
 	if(virgin)
 		for(var/datum/data/record/G in linked_datacore.general)
-			var/datum/data/record/M = find_record(DATACORE_NAME, G.fields[DATACORE_NAME], linked_datacore.medical)
+			var/datum/data/record/M = SSdatacore.find_record_by_name(G.fields[DATACORE_NAME], linked_datacore.medical)
 			if(!M)
 				continue
 			var/obj/item/paper/med_record_paper = new /obj/item/paper(src)

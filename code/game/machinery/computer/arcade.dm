@@ -543,7 +543,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		gamer.mind?.adjust_experience(/datum/skill/gaming, 50) // cheevos make u better
 
 		if(!isnull(GLOB.data_core.general))
-			for(var/datum/data/record/R in GLOB.data_core.general)
+			for(var/datum/data/record/R in SSdatacore.get_records(DATACORE_RECORDS_OUTPOST))
 				if(R.fields["name"] == gamer.name)
 					R.fields["m_stat"] = "*Unstable*"
 					return

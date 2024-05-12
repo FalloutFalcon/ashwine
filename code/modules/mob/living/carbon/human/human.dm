@@ -287,7 +287,7 @@
 		var/perpname = get_face_name(get_id_name(""))
 		if(!HAS_TRAIT(H, TRAIT_SECURITY_HUD) && !HAS_TRAIT(H, TRAIT_MEDICAL_HUD))
 			return
-		var/datum/data/record/R = find_record("name", perpname, linked_datacore.general)
+		var/datum/data/record/R = SSdatacore.find_record_by_name(perpname, linked_datacore.general)
 		if(href_list["photo_front"] || href_list["photo_side"])
 			if(!R)
 				return
@@ -401,7 +401,7 @@
 			if(!perpname)
 				to_chat(H, "<span class='warning'>ERROR: Can not identify target.</span>")
 				return
-			R = find_record("name", perpname, linked_datacore.security)
+			R = SSdatacore.find_record_by_name(perpname, linked_datacore.security)
 			if(!R)
 				to_chat(usr, "<span class='warning'>ERROR: Unable to locate data core entry for target.</span>")
 				return
@@ -564,7 +564,7 @@
 	//Check for arrest warrant
 	if(judgement_criteria & JUDGE_RECORDCHECK)
 		var/perpname = get_face_name(get_id_name())
-		var/datum/data/record/R = find_record("name", perpname, linked_datacore.security)
+		var/datum/data/record/R = SSdatacore.find_record_by_name(perpname, linked_datacore.security)
 		if(R && R.fields["criminal"])
 			switch(R.fields["criminal"])
 				if("*Arrest*")
@@ -833,7 +833,7 @@
 
 /mob/living/carbon/human/replace_records_name(oldname, newname, datum/datacore/linked_datacore = GLOB.data_core) // Only humans have records right now, move this up if changed.
 	for(var/list/L in list(linked_datacore.general, linked_datacore.medical, linked_datacore.security, linked_datacore.locked))
-		var/datum/data/record/R = find_record("name", oldname, L)
+		var/datum/data/record/R = SSdatacore.find_record_by_name(oldname, L)
 		if(R)
 			R.fields["name"] = newname
 
