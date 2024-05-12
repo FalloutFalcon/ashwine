@@ -328,16 +328,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod/retro, 17)
 
 	// Delete them from datacore.
 	var/announce_rank = null
-	for(var/datum/data/record/R in GLOB.data_core.medical)
-		if((R.fields["name"] == mob_occupant.real_name))
-			qdel(R)
-	for(var/datum/data/record/T in GLOB.data_core.security)
-		if((T.fields["name"] == mob_occupant.real_name))
-			qdel(T)
-	for(var/datum/data/record/G in GLOB.data_core.general)
-		if((G.fields["name"] == mob_occupant.real_name))
-			announce_rank = G.fields["rank"]
-			qdel(G)
+	for(var/datum/data/record/record_med in SSdatacore.get_records(DATACORE_RECORDS_MEDICAL))
+		if((record_med.fields["name"] == mob_occupant.real_name))
+			qdel(record_med)
+	for(var/datum/data/record/record_sec in GLOB.data_core.security)
+		if((record_sec.fields["name"] == mob_occupant.real_name))
+			qdel(record_sec)
+	for(var/datum/data/record/record_gen in SSdatacore.get_records(DATACORE_RECORDS_OUTPOST))
+		if((record_gen.fields["name"] == mob_occupant.real_name))
+			announce_rank = record_gen.fields["rank"]
+			qdel(record_gen)
 
 	var/datum/overmap/ship/controlled/original_ship = mob_occupant.mind.original_ship.resolve()
 	original_ship.manifest -= mob_occupant.real_name
