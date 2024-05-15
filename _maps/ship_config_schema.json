@@ -164,6 +164,12 @@
 			"description": "Whether or not this ship can be selected by players. Will still be admin-spawnable if not.",
 			"default": false
 		},
+		"whitelist": {
+			"title": "Whitelist Type",
+			"type": "string",
+			"description": "How the ship is unlocked",
+			"default": "hours"
+		},
 		"space_spawn": {
 			"title": "Spawns in space",
 			"type": "boolean",

@@ -44,5 +44,6 @@
 			"slots": 5
 		}
 	},
-	"enabled": true
+	"enabled": true,
+	"whitelist": "inteq"
 }

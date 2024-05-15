@@ -244,6 +244,9 @@ SUBSYSTEM_DEF(mapping)
 			S.enabled = TRUE
 			ship_purchase_list[S.name] = S
 
+		if(istext(data["whitelist"]) && data["whitelist"])
+			S.whitelist = data["whitelist"]
+
 		if(isnum(data["roundstart"]) && data["roundstart"])
 			maplist[S.name] = S
 

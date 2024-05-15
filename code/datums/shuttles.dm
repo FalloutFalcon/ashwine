@@ -14,6 +14,7 @@
 
 	var/limit = 2
 	var/enabled
+	var/whitelist
 	var/short_name
 	var/list/job_slots = list()
 	var/list/name_categories = list("GENERAL")
