@@ -131,6 +131,7 @@ const ShipContent = (_props, context) => {
   const {
     isViewer,
     engineInfo,
+    systemsInfo,
     estThrust,
     burnPercentage,
     speed,
@@ -246,6 +247,68 @@ const ShipContent = (_props, context) => {
               Gm/s²
             </Table.Cell>
           </Table.Row>
+        </Table>
+      </Section>
+      <Section
+        title="Systems"
+        buttons={
+          <Button
+            tooltip="Refresh Systems"
+            tooltipPosition="left"
+            icon="sync"
+            disabled={isViewer}
+            onClick={() => act('reload_systems')}
+          />
+        }
+      >
+        <Table>
+          <Table.Row bold>
+            <Table.Cell collapsing>Name</Table.Cell>
+            <Table.Cell fluid>Cooldown</Table.Cell>
+          </Table.Row>
+          {systemsInfo &&
+            systemsInfo.map((system) => (
+              <Table.Row key={system.name} className="candystripe">
+                <Table.Cell collapsing>
+                  <Button
+                    content={
+                      system.name.len < 14
+                        ? system.name
+                        : system.name.slice(0, 10) + '...'
+                    }
+                    disabled={isViewer}
+                    tooltip="Toggle System"
+                    tooltipPosition="right"
+                    onClick={() =>
+                      act('fire_system', {
+                        system: system.ref,
+                      })
+                    }
+                  />
+                </Table.Cell>
+                <Table.Cell fluid>
+                  {!!system.maxCooldown && (
+                    <ProgressBar
+                      fluid
+                      ranges={{
+                        good: [50, Infinity],
+                        average: [25, 50],
+                        bad: [-Infinity, 25],
+                      }}
+                      maxValue={system.maxCooldown}
+                      minValue={0}
+                      value={system.cooldown}
+                    >
+                      <AnimatedNumber
+                        value={(system.cooldown)}
+                        format={(value) => Math.round(value)}
+                      />
+                      %
+                    </ProgressBar>
+                  )}
+                </Table.Cell>
+              </Table.Row>
+            ))}
         </Table>
       </Section>
     </>

@@ -235,6 +235,22 @@
 			)
 		.["engineInfo"] += list(engine_data)
 
+	.["systemsInfo"] = list()
+	for(var/datum/weakref/weak_system in current_ship.shuttle_port.ship_systems)
+		var/list/systems_data
+		var/obj/machinery/ship_system/ship_system = weak_system.resolve()
+		var/last_used = max(min(world.time - ship_system.last_used, ship_system.cooldown), 0)
+		var/cooldown_time = ship_system.cooldown - last_used
+		systems_data = list(
+			name = ship_system.name,
+			enabled = ship_system.on,
+			can_fire = ship_system.can_trigger(),
+			ref = REF(ship_system),
+			maxCooldown = ship_system.cooldown,
+			cooldown = cooldown_time
+		)
+		.["systemsInfo"] += list(systems_data)
+
 /obj/machinery/computer/helm/ui_static_data(mob/user)
 	. = list()
 	.["isViewer"] = viewer || (!allow_ai_control && issilicon(user))
@@ -312,6 +328,16 @@
 				real_engine.enabled = !real_engine.enabled
 				real_engine.update_icon_state()
 				current_ship.refresh_engines()
+				return
+			if("fire_system")
+				var/datum/weakref/weak_system = locate(params["system"]) in current_ship.shuttle_port.ship_systems
+				var/obj/machinery/ship_system/ship_system = weak_system.resolve()
+				if(!ship_system)
+					current_ship.shuttle_port.ship_systems -= weak_system
+					return
+				if(!ship_system.can_trigger())
+					return
+				ship_system.trigger()
 				return
 			if("change_burn_percentage")
 				var/new_percentage = clamp(text2num(params["percentage"]), 1, 100)
