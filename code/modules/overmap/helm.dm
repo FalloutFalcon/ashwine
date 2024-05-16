@@ -34,6 +34,8 @@
 	/// store an ntnet relay for tablets on the ship
 	var/obj/machinery/ntnet_relay/integrated/ntnet_relay
 
+	var/datum/weakref/selected_system
+
 /obj/machinery/computer/helm/retro
 	icon = 'icons/obj/machines/retro_computer.dmi'
 	icon_state = "computer-retro"
@@ -208,6 +210,7 @@
 	.["eta"] = current_ship.get_eta()
 	.["estThrust"] = current_ship.est_thrust
 	.["engineInfo"] = list()
+	.["systemsInfo"] = list()
 	.["aiControls"] = allow_ai_control
 	.["burnDirection"] = current_ship.burn_direction
 	.["burnPercentage"] = current_ship.burn_percentage
@@ -234,18 +237,23 @@
 				ref = REF(engine)
 			)
 		.["engineInfo"] += list(engine_data)
-
-	.["systemsInfo"] = list()
 	for(var/datum/weakref/weak_system in current_ship.shuttle_port.ship_systems)
 		var/list/systems_data
 		var/obj/machinery/ship_system/ship_system = weak_system.resolve()
+
 		var/last_used = max(min(world.time - ship_system.last_used, ship_system.cooldown), 0)
 		var/cooldown_time = ship_system.cooldown - last_used
+
+		var/selected = FALSE
+		if(weak_system == selected_system)
+			selected = TRUE
+
 		systems_data = list(
 			name = ship_system.name,
 			enabled = ship_system.on,
 			can_fire = ship_system.can_trigger(),
-			ref = REF(ship_system),
+			selected = selected,
+			ref = REF(weak_system),
 			maxCooldown = ship_system.cooldown,
 			cooldown = cooldown_time
 		)
@@ -328,6 +336,13 @@
 				real_engine.enabled = !real_engine.enabled
 				real_engine.update_icon_state()
 				current_ship.refresh_engines()
+				return
+			if("select_system")
+				var/datum/weakref/weak_system = locate(params["system"]) in current_ship.shuttle_port.ship_systems
+				if(weak_system == selected_system)
+					selected_system = null
+					return
+				selected_system = weak_system
 				return
 			if("fire_system")
 				var/datum/weakref/weak_system = locate(params["system"]) in current_ship.shuttle_port.ship_systems

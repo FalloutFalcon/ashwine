@@ -96,7 +96,6 @@
 		var/list/bbox = get_bbox_of_atoms(visible_turfs)
 		var/size_x = bbox[3] - bbox[1] + 1
 		var/size_y = bbox[4] - bbox[2] + 1
-
 		cam_screen?.vis_contents = visible_turfs
 		cam_background.icon_state = "clear"
 		cam_background.fill_rect(1, 1, size_x, size_y)

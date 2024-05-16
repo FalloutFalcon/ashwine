@@ -189,10 +189,17 @@
  * Returns all other overmap objects on the tile as a list. Will return an empty list if there are no other objects, or the source object is docked.
  * Setting include_docked to TRUE will include any overmap objects docked to objects at the tile.
  */
-/datum/overmap/proc/get_nearby_overmap_objects(include_docked = FALSE)
+/datum/overmap/proc/get_nearby_overmap_objects(include_docked = FALSE, range = 0)
 	if(docked_to)
 		return list()
-	. = SSovermap.overmap_container[x][y] - src
+
+	if(range == 0)
+		. = SSovermap.overmap_container[x][y] - src
+	else
+		for(var/y_cord in (y - range) to (y + range))
+			for(var/x_cord in (x - range) to (x + range))
+				. = SSovermap.overmap_container[x_cord][y_cord] - src
+
 	if(!include_docked)
 		return
 	var/dequeue_pointer = 0

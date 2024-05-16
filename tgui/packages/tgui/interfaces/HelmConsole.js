@@ -44,86 +44,7 @@ export const HelmConsole = (_props, context) => {
   );
 };
 
-const SharedContent = (_props, context) => {
-  const { act, data } = useBackend(context);
-  const { isViewer, shipInfo = [], otherInfo = [] } = data;
-  return (
-    <>
-      <Section
-        title={
-          <Button.Input
-            content={decodeHtmlEntities(shipInfo.name)}
-            currentValue={shipInfo.name}
-            disabled={isViewer}
-            onCommit={(_e, value) =>
-              act('rename_ship', {
-                newName: value,
-              })
-            }
-          />
-        }
-        buttons={
-          <Button
-            tooltip="Refresh Ship Stats"
-            tooltipPosition="left"
-            icon="sync"
-            disabled={isViewer}
-            onClick={() => act('reload_ship')}
-          />
-        }
-      >
-        <LabeledList>
-          <LabeledList.Item label="Class">{shipInfo.class}</LabeledList.Item>
-          <LabeledList.Item label="Sensor Range">
-            <ProgressBar
-              value={shipInfo.sensor_range}
-              minValue={1}
-              maxValue={8}
-            >
-              <AnimatedNumber value={shipInfo.sensor_range} />
-            </ProgressBar>
-          </LabeledList.Item>
-          {shipInfo.mass && (
-            <LabeledList.Item label="Mass">
-              {shipInfo.mass + 'tonnes'}
-            </LabeledList.Item>
-          )}
-        </LabeledList>
-      </Section>
-      <Section title="Radar">
-        <Table>
-          <Table.Row bold>
-            <Table.Cell>Name</Table.Cell>
-            {!isViewer && <Table.Cell>Act</Table.Cell>}
-          </Table.Row>
-          {otherInfo.map((ship) => (
-            <Table.Row key={ship.name}>
-              <Table.Cell>{ship.name}</Table.Cell>
-              {!isViewer && (
-                <Table.Cell>
-                  <Button
-                    tooltip="Interact"
-                    tooltipPosition="left"
-                    icon="circle"
-                    disabled={
-                      // I hate this so much
-                      isViewer || data.speed > 0 || data.docked || data.docking
-                    }
-                    onClick={() =>
-                      act('act_overmap', {
-                        ship_to_act: ship.ref,
-                      })
-                    }
-                  />
-                </Table.Cell>
-              )}
-            </Table.Row>
-          ))}
-        </Table>
-      </Section>
-    </>
-  );
-};
+
 
 // Content included on helms when they're controlling ships
 const ShipContent = (_props, context) => {
@@ -175,142 +96,8 @@ const ShipContent = (_props, context) => {
           </LabeledList.Item>
         </LabeledList>
       </Section>
-      <Section
-        title="Engines"
-        buttons={
-          <Button
-            tooltip="Refresh Engine"
-            tooltipPosition="left"
-            icon="sync"
-            disabled={isViewer}
-            onClick={() => act('reload_engines')}
-          />
-        }
-      >
-        <Table>
-          <Table.Row bold>
-            <Table.Cell collapsing>Name</Table.Cell>
-            <Table.Cell fluid>Fuel</Table.Cell>
-          </Table.Row>
-          {engineInfo &&
-            engineInfo.map((engine) => (
-              <Table.Row key={engine.name} className="candystripe">
-                <Table.Cell collapsing>
-                  <Button
-                    content={
-                      engine.name.len < 14
-                        ? engine.name
-                        : engine.name.slice(0, 10) + '...'
-                    }
-                    color={engine.enabled && 'good'}
-                    icon={engine.enabled ? 'toggle-on' : 'toggle-off'}
-                    disabled={isViewer}
-                    tooltip="Toggle Engine"
-                    tooltipPosition="right"
-                    onClick={() =>
-                      act('toggle_engine', {
-                        engine: engine.ref,
-                      })
-                    }
-                  />
-                </Table.Cell>
-                <Table.Cell fluid>
-                  {!!engine.maxFuel && (
-                    <ProgressBar
-                      fluid
-                      ranges={{
-                        good: [50, Infinity],
-                        average: [25, 50],
-                        bad: [-Infinity, 25],
-                      }}
-                      maxValue={engine.maxFuel}
-                      minValue={0}
-                      value={engine.fuel}
-                    >
-                      <AnimatedNumber
-                        value={(engine.fuel / engine.maxFuel) * 100}
-                        format={(value) => Math.round(value)}
-                      />
-                      %
-                    </ProgressBar>
-                  )}
-                </Table.Cell>
-              </Table.Row>
-            ))}
-          <Table.Row>
-            <Table.Cell>Max thrust per second:</Table.Cell>
-            <Table.Cell>
-              <AnimatedNumber
-                value={estThrust * 500}
-                format={(value) => value.toFixed(2)}
-              />
-              Gm/s²
-            </Table.Cell>
-          </Table.Row>
-        </Table>
-      </Section>
-      <Section
-        title="Systems"
-        buttons={
-          <Button
-            tooltip="Refresh Systems"
-            tooltipPosition="left"
-            icon="sync"
-            disabled={isViewer}
-            onClick={() => act('reload_systems')}
-          />
-        }
-      >
-        <Table>
-          <Table.Row bold>
-            <Table.Cell collapsing>Name</Table.Cell>
-            <Table.Cell fluid>Cooldown</Table.Cell>
-          </Table.Row>
-          {systemsInfo &&
-            systemsInfo.map((system) => (
-              <Table.Row key={system.name} className="candystripe">
-                <Table.Cell collapsing>
-                  <Button
-                    content={
-                      system.name.len < 14
-                        ? system.name
-                        : system.name.slice(0, 10) + '...'
-                    }
-                    disabled={isViewer}
-                    tooltip="Toggle System"
-                    tooltipPosition="right"
-                    onClick={() =>
-                      act('fire_system', {
-                        system: system.ref,
-                      })
-                    }
-                  />
-                </Table.Cell>
-                <Table.Cell fluid>
-                  {!!system.maxCooldown && (
-                    <ProgressBar
-                      fluid
-                      ranges={{
-                        good: [50, Infinity],
-                        average: [25, 50],
-                        bad: [-Infinity, 25],
-                      }}
-                      maxValue={system.maxCooldown}
-                      minValue={0}
-                      value={system.cooldown}
-                    >
-                      <AnimatedNumber
-                        value={(system.cooldown)}
-                        format={(value) => Math.round(value)}
-                      />
-                      %
-                    </ProgressBar>
-                  )}
-                </Table.Cell>
-              </Table.Row>
-            ))}
-        </Table>
-      </Section>
+      <EngineContent />
+      <SystemsContent />
     </>
   );
 };
@@ -546,5 +333,251 @@ const ShipControlContent = (_props, context) => {
         </LabeledControls.Item>
       </LabeledControls>
     </Section>
+  );
+};
+
+const EngineContent = (_props, context) => {
+  const { act, data } = useBackend(context);
+  const {
+    isViewer,
+    engineInfo,
+    estThrust,
+  } = data;
+  let flyable = !data.docking && !data.docked;
+  return (
+    <>
+      <Section
+        title="Engines"
+        buttons={
+          <Button
+            tooltip="Refresh Engine"
+            tooltipPosition="left"
+            icon="sync"
+            disabled={isViewer}
+            onClick={() => act('reload_engines')}
+          />
+        }
+      >
+        <Table>
+          <Table.Row bold>
+            <Table.Cell collapsing>Name</Table.Cell>
+            <Table.Cell fluid>Fuel</Table.Cell>
+          </Table.Row>
+          {engineInfo &&
+            engineInfo.map((engine) => (
+              <Table.Row key={engine.name} className="candystripe">
+                <Table.Cell collapsing>
+                  <Button
+                    content={
+                      engine.name.len < 14
+                        ? engine.name
+                        : engine.name.slice(0, 10) + '...'
+                    }
+                    color={engine.enabled && 'good'}
+                    icon={engine.enabled ? 'toggle-on' : 'toggle-off'}
+                    disabled={isViewer || flyable}
+                    tooltip="Toggle Engine"
+                    tooltipPosition="right"
+                    onClick={() =>
+                      act('toggle_engine', {
+                        engine: engine.ref,
+                      })
+                    }
+                  />
+                </Table.Cell>
+                <Table.Cell fluid>
+                  {!!engine.maxFuel && (
+                    <ProgressBar
+                      fluid
+                      ranges={{
+                        good: [50, Infinity],
+                        average: [25, 50],
+                        bad: [-Infinity, 25],
+                      }}
+                      maxValue={engine.maxFuel}
+                      minValue={0}
+                      value={engine.fuel}
+                    >
+                      <AnimatedNumber
+                        value={(engine.fuel / engine.maxFuel) * 100}
+                        format={(value) => Math.round(value)}
+                      />
+                      %
+                    </ProgressBar>
+                  )}
+                </Table.Cell>
+              </Table.Row>
+            ))}
+          <Table.Row>
+            <Table.Cell>Max thrust per second:</Table.Cell>
+            <Table.Cell>
+              <AnimatedNumber
+                value={estThrust * 500}
+                format={(value) => value.toFixed(2)}
+              />
+              Gm/s²
+            </Table.Cell>
+          </Table.Row>
+        </Table>
+      </Section>
+    </>
+  );
+};
+
+const SystemsContent = (_props, context) => {
+  const { act, data } = useBackend(context);
+  const {
+    isViewer,
+    systemsInfo,
+  } = data;
+  let flyable = !data.docking && !data.docked;
+  return (
+    <>
+      <Section
+        title="Systems"
+        buttons={
+          <Button
+            tooltip="Refresh Systems"
+            tooltipPosition="left"
+            icon="sync"
+            disabled={isViewer}
+            onClick={() => act('reload_systems')}
+          />
+        }
+      >
+        <Table>
+          <Table.Row bold>
+            <Table.Cell collapsing>Name</Table.Cell>
+            <Table.Cell fluid>Cooldown</Table.Cell>
+          </Table.Row>
+          {systemsInfo &&
+            systemsInfo.map((system) => (
+              <Table.Row key={system.name} className="candystripe">
+                <Table.Cell collapsing>
+                  <Button
+                    content={
+                      system.name.len < 14
+                        ? system.name
+                        : system.name.slice(0, 10) + '...'
+                    }
+                    disabled={isViewer || flyable}
+                    color={system.selected && 'good'}
+                    icon={system.selected ? 'bolt' : 'power-off'}
+                    tooltip="Toggle System"
+                    tooltipPosition="right"
+                    onClick={() =>
+                      act('select_system', {
+                        system: system.ref,
+                      })
+                    }
+                  />
+                </Table.Cell>
+                <Table.Cell fluid>
+                  {!!system.maxCooldown && (
+                    <ProgressBar
+                      fluid
+                      ranges={{
+                        good: [-Infinity, 25],
+                        average: [25, 50],
+                        bad: [50, Infinity],
+                      }}
+                      maxValue={system.maxCooldown}
+                      minValue={0}
+                      value={system.cooldown}
+                    >
+                      <AnimatedNumber
+                        value={system.cooldown}
+                        format={(value) => Math.round(value)}
+                      />
+                      %
+                    </ProgressBar>
+                  )}
+                </Table.Cell>
+              </Table.Row>
+            ))}
+        </Table>
+      </Section>
+    </>
+  );
+};
+
+const SharedContent = (_props, context) => {
+  const { act, data } = useBackend(context);
+  const { isViewer, shipInfo = [], otherInfo = [] } = data;
+  return (
+    <>
+      <Section
+        title={
+          <Button.Input
+            content={decodeHtmlEntities(shipInfo.name)}
+            currentValue={shipInfo.name}
+            disabled={isViewer}
+            onCommit={(_e, value) =>
+              act('rename_ship', {
+                newName: value,
+              })
+            }
+          />
+        }
+        buttons={
+          <Button
+            tooltip="Refresh Ship Stats"
+            tooltipPosition="left"
+            icon="sync"
+            disabled={isViewer}
+            onClick={() => act('reload_ship')}
+          />
+        }
+      >
+        <LabeledList>
+          <LabeledList.Item label="Class">{shipInfo.class}</LabeledList.Item>
+          <LabeledList.Item label="Sensor Range">
+            <ProgressBar
+              value={shipInfo.sensor_range}
+              minValue={1}
+              maxValue={shipInfo.sensor_range}
+            >
+              <AnimatedNumber value={shipInfo.sensor_range} />
+            </ProgressBar>
+          </LabeledList.Item>
+          {shipInfo.mass && (
+            <LabeledList.Item label="Mass">
+              {shipInfo.mass + 'tonnes'}
+            </LabeledList.Item>
+          )}
+        </LabeledList>
+      </Section>
+      <Section title="Radar">
+        <Table>
+          <Table.Row bold>
+            <Table.Cell>Name</Table.Cell>
+            {!isViewer && <Table.Cell>Act</Table.Cell>}
+          </Table.Row>
+          {otherInfo.map((ship) => (
+            <Table.Row key={ship.name}>
+              <Table.Cell>{ship.name}</Table.Cell>
+              {!isViewer && (
+                <Table.Cell>
+                  <Button
+                    tooltip="Interact"
+                    tooltipPosition="left"
+                    icon="circle"
+                    disabled={
+                      // I hate this so much
+                      isViewer || data.speed > 0 || data.docked || data.docking
+                    }
+                    onClick={() =>
+                      act('act_overmap', {
+                        ship_to_act: ship.ref,
+                      })
+                    }
+                  />
+                </Table.Cell>
+              )}
+            </Table.Row>
+          ))}
+        </Table>
+      </Section>
+    </>
   );
 };

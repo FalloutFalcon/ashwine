@@ -6,7 +6,7 @@
 	desc = "A system that can be installed on a ship."
 	var/system_type = SHIP_SYSTEM_ACTIVE
 	var/on = TRUE
-	var/cooldown = 3 SECONDS
+	var/cooldown = 10 SECONDS
 	var/last_used = 0
 
 /obj/machinery/ship_system/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
