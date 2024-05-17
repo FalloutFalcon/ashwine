@@ -113,8 +113,8 @@ const ShipControlContent = (_props, context) => {
     burnPercentage,
     speed,
     estThrust,
+    flyable,
   } = data;
-  let flyable = !data.docking && !data.docked;
 
   //  DIRECTIONS const idea from Lyra as part of their Haven-Urist project
   const DIRECTIONS = {
@@ -342,8 +342,8 @@ const EngineContent = (_props, context) => {
     isViewer,
     engineInfo,
     estThrust,
+    flyable,
   } = data;
-  let flyable = !data.docking && !data.docked;
   return (
     <>
       <Section
@@ -375,7 +375,7 @@ const EngineContent = (_props, context) => {
                     }
                     color={engine.enabled && 'good'}
                     icon={engine.enabled ? 'toggle-on' : 'toggle-off'}
-                    disabled={isViewer || flyable}
+                    disabled={isViewer || !flyable}
                     tooltip="Toggle Engine"
                     tooltipPosition="right"
                     onClick={() =>
@@ -429,8 +429,8 @@ const SystemsContent = (_props, context) => {
   const {
     isViewer,
     systemsInfo,
+    flyable,
   } = data;
-  let flyable = !data.docking && !data.docked;
   return (
     <>
       <Section
@@ -460,7 +460,7 @@ const SystemsContent = (_props, context) => {
                         ? system.name
                         : system.name.slice(0, 10) + '...'
                     }
-                    disabled={isViewer || flyable}
+                    disabled={isViewer || !flyable}
                     color={system.selected && 'good'}
                     icon={system.selected ? 'bolt' : 'power-off'}
                     tooltip="Toggle System"

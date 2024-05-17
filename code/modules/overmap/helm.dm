@@ -205,6 +205,7 @@
 	.["y"] = current_ship.y || current_ship.docked_to.y
 	.["docking"] = current_ship.docking
 	.["docked"] = current_ship.docked_to
+	.["flyable"] = !current_ship.docking && !current_ship.docked_to
 	.["heading"] = dir2text(current_ship.get_heading()) || "None"
 	.["speed"] = current_ship.get_speed()
 	.["eta"] = current_ship.get_eta()
