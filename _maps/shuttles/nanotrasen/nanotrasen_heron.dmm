@@ -3546,7 +3546,7 @@
 /area/ship/security)
 "ne" = (
 /obj/structure/window/reinforced/spawner/north,
-/obj/machinery/computer/card/minor/hos{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 2
 	},
 /obj/effect/turf_decal/siding/wideplating/dark,

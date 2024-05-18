@@ -1,3 +1,6 @@
+/obj/item/modular_computer/laptop/preset
+	var/list/datum/computer_file/program/default_programs = list()
+
 /obj/item/modular_computer/laptop/preset/Initialize()
 	. = ..()
 	install_component(new /obj/item/computer_hardware/processor_unit/small)
@@ -8,18 +11,13 @@
 
 
 /obj/item/modular_computer/laptop/preset/proc/install_programs()
-	return
-
-
-
+	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
+	for(var/program in default_programs)
+		hard_drive.store_file(new program())
 
 /obj/item/modular_computer/laptop/preset/civilian
 	desc = "A low-end laptop often used for personal recreation."
-
-
-/obj/item/modular_computer/laptop/preset/civilian/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
+	default_programs = list(/datum/computer_file/program/chatclient)
 
 /obj/item/modular_computer/laptop/preset/civilian/rilena
 	name = "RILENA:LMR laptop"
@@ -28,7 +26,3 @@
 	icon_state_powered = "laptop_rilena"
 	icon_state_unpowered = "laptop-off_rilena"
 	icon_state_closed = "laptop-closed_rilena"
-
-/obj/item/modular_computer/laptop/preset/civilian/rilena/install_programs()
-	//var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
-	//hard_drive.store_file(new/datum/computer_file/program/rilena()) //temporarily disabling this so it doesn't ruin anything

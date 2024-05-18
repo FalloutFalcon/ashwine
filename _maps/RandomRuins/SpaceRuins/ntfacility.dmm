@@ -784,7 +784,7 @@
 /turf/open/floor/vault,
 /area/ruin/powered)
 "so" = (
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1256,7 +1256,7 @@
 "EL" = (
 /obj/structure/window/reinforced,
 /obj/structure/table/wood,
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /turf/open/floor/wood,

@@ -8331,7 +8331,7 @@
 /turf/open/floor/plating,
 /area/outpost/maintenance/fore)
 "Dl" = (
-/obj/machinery/computer/card,
+/obj/machinery/modular_computer/console/preset/id,
 /turf/open/floor/plasteel/dark,
 /area/outpost/operations)
 "Dm" = (
@@ -9586,7 +9586,7 @@
 	},
 /area/outpost/engineering/atmospherics)
 "HF" = (
-/obj/machinery/computer/card,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/effect/turf_decal/trimline/opaque/green/filled/line,
 /obj/effect/turf_decal/techfloor{
 	dir = 1

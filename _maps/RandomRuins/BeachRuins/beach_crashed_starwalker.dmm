@@ -1016,7 +1016,7 @@
 /turf/open/floor/plating,
 /area/ruin/beach/starwalker)
 "pP" = (
-/obj/machinery/computer/card/minor/cmo{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 8
 	},
 /obj/effect/turf_decal/techfloor{

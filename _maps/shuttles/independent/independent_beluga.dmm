@@ -2458,7 +2458,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/spline/fancy/opaque/blue,
-/obj/machinery/computer/card{
+/obj/machinery/modular_computer/console/preset/id{
 	dir = 4
 	},
 /obj/structure/railing{

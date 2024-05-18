@@ -1189,7 +1189,7 @@
 /turf/open/floor/plasteel/patterned/cargo_one,
 /area/ruin/jungle/cavecrew/cargo)
 "nu" = (
-/obj/machinery/computer/card/minor/cmo,
+/obj/machinery/modular_computer/console/preset/id,
 /obj/machinery/light_switch{
 	pixel_y = 21;
 	pixel_x = -10
