@@ -4,6 +4,7 @@
 	program_icon_state = "arcade"
 	extended_desc = "This port of the classic game 'Outbomb Cuban Pete', redesigned to run on tablets, with thrilling graphics and chilling storytelling."
 	requires_ntnet = FALSE
+	available_on_ntnet = TRUE
 	size = 6
 	tgui_id = "NtosArcade"
 	program_icon = "gamepad"

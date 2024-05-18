@@ -26,7 +26,7 @@
 	/// Bitflags (PROGRAM_CONSOLE, PROGRAM_LAPTOP, PROGRAM_TABLET combination) or PROGRAM_ALL
 	var/usage_flags = PROGRAM_ALL
 	/// Whether the program can be downloaded from NTNet. Set to 0 to disable.
-	var/available_on_ntnet = 1
+	var/available_on_ntnet = FALSE
 	/// Name of the tgui interface
 	var/tgui_id
 	/// Example: "something.gif" - a header image that will be rendered in computer's UI when this program is running at background. Images are taken from /icons/program_icons. Be careful not to use too large images!

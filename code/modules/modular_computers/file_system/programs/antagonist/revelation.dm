@@ -5,7 +5,6 @@
 	extended_desc = "This virus can destroy hard drive of system it is executed on. It may be obfuscated to look like another non-malicious program. Once armed, it will destroy the system upon next execution."
 	size = 13
 	requires_ntnet = FALSE
-	available_on_ntnet = FALSE
 	tgui_id = "NtosRevelation"
 	program_icon = "magnet"
 	var/armed = 0

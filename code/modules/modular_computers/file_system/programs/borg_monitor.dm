@@ -92,7 +92,6 @@
 	program_icon_state = "generic"
 	extended_desc = "This program allows for remote monitoring of mission-assigned cyborgs."
 	requires_ntnet = FALSE
-	available_on_ntnet = FALSE
 	transfer_access = null
 	tgui_id = "NtosCyborgRemoteMonitorSyndicate"
 

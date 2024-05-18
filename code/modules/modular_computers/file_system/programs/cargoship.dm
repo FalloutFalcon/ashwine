@@ -6,6 +6,7 @@
 	size = 6
 	tgui_id = "NtosShipping"
 	program_icon = "tags"
+	available_on_ntnet = TRUE
 	///Account used for creating barcodes.
 	var/datum/bank_account/payments_acc
 	///The amount which the tagger will recieve for the sale.

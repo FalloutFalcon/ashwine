@@ -6,7 +6,6 @@
 	program_icon_state = "command"
 	requires_ntnet = FALSE
 	transfer_access = null
-	available_on_ntnet = FALSE
 	unsendable = TRUE
 	undeletable = TRUE
 	usage_flags = PROGRAM_TABLET

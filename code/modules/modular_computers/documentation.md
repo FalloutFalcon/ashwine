@@ -40,7 +40,7 @@ This is how the base program is setup. the rest is mostly tgui stuff. I'll use t
 	transfer_access = access_change_ids
 
 	/// If it's available to download on ntnet. pretty self explanatory.
-	available_on_ntnet = 1
+	available_on_ntnet = TRUE
 
 	/// Bitflags (PROGRAM_CONSOLE, PROGRAM_LAPTOP, PROGRAM_TABLET combination)
 	/// or PROGRAM_ALL. Use this to limit what kind of machines can run the

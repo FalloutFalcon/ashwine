@@ -7,7 +7,7 @@
 	requires_ntnet = 1
 	requires_ntnet_feature = NTNET_COMMUNICATION
 	ui_header = "ntnrc_idle.gif"
-	available_on_ntnet = 1
+	available_on_ntnet = TRUE
 	tgui_id = "NtosNetChat"
 	program_icon = "comment-alt"
 	var/last_message				// Used to generate the toolbar icon

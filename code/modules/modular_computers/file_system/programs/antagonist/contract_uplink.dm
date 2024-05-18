@@ -4,8 +4,7 @@
 	program_icon_state = "assign"
 	extended_desc = "A standard, Syndicate issued system for handling important contracts while on the field."
 	size = 10
-	requires_ntnet = 0
-	available_on_ntnet = 0
+	requires_ntnet = TRUE
 	unsendable = 1
 	undeletable = 1
 	tgui_id = "SyndContractor"
