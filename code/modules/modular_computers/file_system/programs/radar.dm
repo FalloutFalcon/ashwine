@@ -262,7 +262,6 @@
 	requires_ntnet = FALSE
 	transfer_access = null
 	available_on_ntnet = FALSE
-	available_on_syndinet = TRUE
 	tgui_id = "NtosRadarSyndicate"
 	program_icon = "bomb"
 	arrowstyle = "ntosradarpointerS.png"

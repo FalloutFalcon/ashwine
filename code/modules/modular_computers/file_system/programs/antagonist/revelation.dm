@@ -6,7 +6,6 @@
 	size = 13
 	requires_ntnet = FALSE
 	available_on_ntnet = FALSE
-	available_on_syndinet = TRUE
 	tgui_id = "NtosRevelation"
 	program_icon = "magnet"
 	var/armed = 0

@@ -4,6 +4,7 @@
 	var/_has_printer = FALSE
 	var/_has_battery = FALSE
 	var/_has_ai = FALSE
+	var/list/datum/computer_file/program/default_programs = list()
 
 /obj/machinery/modular_computer/console/preset/Initialize()
 	. = ..()
@@ -23,19 +24,19 @@
 
 // Override in child types to install preset-specific programs.
 /obj/machinery/modular_computer/console/preset/proc/install_programs()
-	return
+	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
+	for(var/program in default_programs)
+		hard_drive.store_file(new program())
 
 // ===== ENGINEERING CONSOLE =====
 /obj/machinery/modular_computer/console/preset/engineering
 	console_department = "Engineering"
 	name = "engineering console"
 	desc = "A stationary computer. This one comes preloaded with engineering programs."
-
-/obj/machinery/modular_computer/console/preset/engineering/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
-	hard_drive.store_file(new/datum/computer_file/program/power_monitor())
-	hard_drive.store_file(new/datum/computer_file/program/alarm_monitor())
-	hard_drive.store_file(new/datum/computer_file/program/supermatter_monitor())
+	default_programs = list(
+		/datum/computer_file/program/power_monitor,
+		/datum/computer_file/program/alarm_monitor,
+		/datum/computer_file/program/supermatter_monitor)
 
 // ===== RESEARCH CONSOLE =====
 /obj/machinery/modular_computer/console/preset/research
@@ -43,14 +44,11 @@
 	name = "research director's console"
 	desc = "A stationary computer. This one comes preloaded with research programs."
 	_has_ai = TRUE
-
-/obj/machinery/modular_computer/console/preset/research/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
-	hard_drive.store_file(new/datum/computer_file/program/ntnetmonitor())
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/aidiag())
-	hard_drive.store_file(new/datum/computer_file/program/robocontrol())
-
+	default_programs = list(
+		/datum/computer_file/program/ntnetmonitor,
+		/datum/computer_file/program/chatclient,
+		/datum/computer_file/program/aidiag,
+		/datum/computer_file/program/robocontrol)
 
 // ===== COMMAND CONSOLE =====
 /obj/machinery/modular_computer/console/preset/command
@@ -59,12 +57,9 @@
 	desc = "A stationary computer. This one comes preloaded with command programs."
 	_has_id_slot = TRUE
 	_has_printer = TRUE
-
-/obj/machinery/modular_computer/console/preset/command/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/card_mod())
-
+	default_programs = list(
+		/datum/computer_file/program/chatclient,
+		/datum/computer_file/program/card_mod)
 
 // ===== IDENTIFICATION CONSOLE =====
 /obj/machinery/modular_computer/console/preset/id
@@ -73,19 +68,15 @@
 	desc = "A stationary computer. This one comes preloaded with identification modification programs."
 	_has_id_slot = TRUE
 	_has_printer = TRUE
-
-/obj/machinery/modular_computer/console/preset/id/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/card_mod())
+	default_programs = list(
+		/datum/computer_file/program/chatclient,
+		/datum/computer_file/program/card_mod)
 
 // ===== CIVILIAN CONSOLE =====
 /obj/machinery/modular_computer/console/preset/civilian
 	console_department = "Civilian"
 	name = "civilian console"
 	desc = "A stationary computer. This one comes preloaded with generic programs."
-
-/obj/machinery/modular_computer/console/preset/civilian/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
-	hard_drive.store_file(new/datum/computer_file/program/chatclient())
-	hard_drive.store_file(new/datum/computer_file/program/arcade())
+	default_programs = list(
+		/datum/computer_file/program/chatclient,
+		/datum/computer_file/program/arcade)

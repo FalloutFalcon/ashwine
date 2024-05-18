@@ -10,7 +10,6 @@
 	var/list/relays = list()
 	var/list/logs = list()
 	var/list/available_station_software = list()
-	var/list/available_antag_software = list()
 	var/list/chat_channels = list()
 	var/list/fileservers = list()
 	// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
@@ -179,7 +178,6 @@
 // Builds lists that contain downloadable software.
 /datum/ntnet/proc/build_software_lists()
 	available_station_software = list()
-	available_antag_software = list()
 	for(var/F in typesof(/datum/computer_file/program))
 		var/datum/computer_file/program/prog = new F
 		// Invalid type (shouldn't be possible but just in case), invalid filetype (not executable program) or invalid filename (unset program)
@@ -188,16 +186,10 @@
 		// Check whether the program should be available for station/antag download, if yes, add it to lists.
 		if(prog.available_on_ntnet)
 			available_station_software.Add(prog)
-		if(prog.available_on_syndinet)
-			available_antag_software.Add(prog)
 
 // Attempts to find a downloadable file according to filename var
 /datum/ntnet/proc/find_ntnet_file_by_name(filename)
 	for(var/N in available_station_software)
-		var/datum/computer_file/program/P = N
-		if(filename == P.filename)
-			return P
-	for(var/N in available_antag_software)
 		var/datum/computer_file/program/P = N
 		if(filename == P.filename)
 			return P

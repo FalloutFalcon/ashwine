@@ -6,7 +6,6 @@
 	size = 20
 	requires_ntnet = TRUE
 	available_on_ntnet = FALSE
-	available_on_syndinet = TRUE
 	tgui_id = "NtosNetDos"
 	program_icon = "satellite-dish"
 

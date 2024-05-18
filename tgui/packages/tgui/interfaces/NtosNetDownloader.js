@@ -19,8 +19,6 @@ export const NtosNetDownloader = (props, context) => {
     disk_used,
     downloadable_programs = [],
     error,
-    hacked_programs = [],
-    hackedavailable,
   } = data;
   return (
     <NtosWindow theme={PC_device_theme} width={480} height={735} resizable>
@@ -52,17 +50,6 @@ export const NtosNetDownloader = (props, context) => {
               <Program key={program.filename} program={program} />
             ))}
         </Section>
-        {!!hackedavailable && (
-          <Section title="UNKNOWN Software Repository">
-            <NoticeBox mb={1}>
-              Please note that Nanotrasen does not recommend download of
-              software from non-official servers.
-            </NoticeBox>
-            {hacked_programs.map((program) => (
-              <Program key={program.filename} program={program} />
-            ))}
-          </Section>
-        )}
       </NtosWindow.Content>
     </NtosWindow>
   );
