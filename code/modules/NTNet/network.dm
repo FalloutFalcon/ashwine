@@ -11,7 +11,7 @@
 	var/list/logs = list()
 	var/list/available_station_software = list()
 	var/list/chat_channels = list()
-	var/list/fileservers = list()
+	//var/list/fileservers = list()		Unsure what this was meant for
 	// Amount of logs the system tries to keep in memory. Keep below 999 to prevent byond from acting weirdly.
 	// High values make displaying logs much laggier.
 	var/setting_maxlogcount = 100

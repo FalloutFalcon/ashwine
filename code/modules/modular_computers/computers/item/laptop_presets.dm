@@ -11,7 +11,7 @@
 
 
 /obj/item/modular_computer/laptop/preset/proc/install_programs()
-	var/obj/item/computer_hardware/hard_drive/hard_drive = cpu.all_components[MC_HDD]
+	var/obj/item/computer_hardware/hard_drive/hard_drive = all_components[MC_HDD]
 	for(var/program in default_programs)
 		hard_drive.store_file(new program())
 
