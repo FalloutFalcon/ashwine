@@ -171,7 +171,7 @@
 	icon_state = "5-8"
 	},
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/plastitanium,
 /area/ruin/unpowered)

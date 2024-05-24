@@ -272,7 +272,7 @@
 /area/ruin/rockplanet/syndicate)
 "Qo" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mob_spawn/human/miner,
+/obj/effect/corpse_spawner/human/miner,
 /obj/item/pickaxe,
 /turf/open/floor/plating/asteroid/rockplanet/lit,
 /area/overmap_encounter/planetoid/rockplanet/explored)

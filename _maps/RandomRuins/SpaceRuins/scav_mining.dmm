@@ -243,7 +243,7 @@
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/space/has_grav)
 "rl" = (
-/obj/effect/mob_spawn/human/miner,
+/obj/effect/corpse_spawner/human/miner,
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/space/has_grav)
 "rH" = (
@@ -251,7 +251,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/space/has_grav/scav_mining/entrance)
 "rM" = (
-/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/obj/effect/corpse_spawner/human/cargo_tech,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
@@ -550,12 +550,12 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/scav_mining/core)
 "LT" = (
-/obj/effect/mob_spawn/human/miner,
+/obj/effect/corpse_spawner/human/miner,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/scav_mining/dorm)
 "MZ" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mob_spawn/human/miner,
+/obj/effect/corpse_spawner/human/miner,
 /turf/open/floor/plating/asteroid/airless,
 /area/ruin/space/has_grav)
 "No" = (

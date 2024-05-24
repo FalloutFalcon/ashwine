@@ -59,7 +59,7 @@
 		FISHING_DUD = 5,
 		/obj/item/stack/ore/slag = 20,
 		/obj/structure/closet/crate/necropolis/tendril = 1,
-		/obj/effect/mob_spawn/human/corpse/charredskeleton = 1
+		/obj/effect/corpse_spawner/human/charredskeleton = 1
 	)
 	fish_counts = list(
 		/obj/structure/closet/crate/necropolis/tendril = 1

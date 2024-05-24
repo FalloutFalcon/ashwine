@@ -211,7 +211,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface/lit,
 /area/overmap_encounter/planetoid/lava/explored)
 "ga" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/ashplanet/ash,
@@ -248,7 +248,7 @@
 /obj/structure/stone_tile/surrounding_tile/cracked{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/ashplanet/rocky,
@@ -345,7 +345,7 @@
 	pixel_x = -2;
 	pixel_y = 1
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/spear/bonespear{
@@ -408,7 +408,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/mob_spawn/human/corpse/damaged/legioninfested,
+/obj/effect/corpse_spawner/human/damaged/legioninfested,
 /turf/open/floor/plating/ashplanet/rocky,
 /area/ruin/unpowered/scorched_hut)
 "kG" = (
@@ -494,7 +494,7 @@
 	pixel_x = 9;
 	pixel_y = 10
 	},
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/ruin/unpowered/scorched_hut)
 "mJ" = (
@@ -502,7 +502,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface/lit,
 /area/overmap_encounter/planetoid/lava/explored)
 "mS" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface/lit,
@@ -762,7 +762,7 @@
 /area/overmap_encounter/planetoid/lava/explored)
 "wI" = (
 /obj/structure/flora/ausbushes/grassybush/hell,
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/grass/lava/purple,
@@ -915,7 +915,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/cave/explored)
 "zT" = (
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /turf/open/floor/plating/grass/lava/purple,
 /area/overmap_encounter/planetoid/lava/explored)
 "Ae" = (
@@ -936,7 +936,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/overmap_encounter/planetoid/cave/explored)
 "AM" = (
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /turf/open/floor/plating/ashplanet/rocky,
 /area/ruin/unpowered/scorched_hut)
 "AZ" = (
@@ -1098,7 +1098,7 @@
 /obj/structure/stone_tile/slab/cracked{
 	dir = 5
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/melee/baseball_bat/bone{
@@ -1294,7 +1294,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/cave/explored)
 "KJ" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/effect/decal/cleanable/blood/old,
@@ -1378,7 +1378,7 @@
 /obj/structure/stone_tile/surrounding/cracked{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /turf/open/floor/plating/ashplanet/rocky,
 /area/ruin/unpowered/scorched_hut)
 "My" = (
@@ -1646,7 +1646,7 @@
 /obj/structure/stone_tile/block/cracked{
 	dir = 6
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/ashplanet/rocky,
@@ -1758,7 +1758,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/cave/explored)
 "XT" = (
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface/lit,
 /area/overmap_encounter/planetoid/lava/explored)
 "Ya" = (

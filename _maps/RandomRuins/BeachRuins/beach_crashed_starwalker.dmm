@@ -592,7 +592,7 @@
 /obj/item/stack/medical/suture/medicated,
 /obj/item/circuitboard/machine/rdserver,
 /obj/item/circuitboard/machine/protolathe/department/security,
-/obj/effect/mob_spawn/human/sec,
+/obj/effect/corpse_spawner/human/sec,
 /turf/open/floor/plasteel,
 /area/ruin/beach/starwalker)
 "iw" = (
@@ -664,7 +664,7 @@
 "jH" = (
 /obj/structure/closet/crate/coffin,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/effect/mob_spawn/human/corpse/pirate,
+/obj/effect/corpse_spawner/human/pirate,
 /turf/open/floor/plating/dirt,
 /area/overmap_encounter/planetoid/cave/explored)
 "jL" = (
@@ -1413,7 +1413,7 @@
 /area/overmap_encounter/planetoid/beachplanet/explored)
 "wc" = (
 /obj/structure/closet/crate/coffin,
-/obj/effect/mob_spawn/human/corpse/pirate,
+/obj/effect/corpse_spawner/human/pirate,
 /turf/open/floor/plating/dirt,
 /area/overmap_encounter/planetoid/cave/explored)
 "wh" = (
@@ -2755,7 +2755,7 @@
 	desc = "It looks incredibly comfy, and expensive. Theres a little note on the side, explaining how its made of %100 real cow skin.";
 	name = "Cowskin chair"
 	},
-/obj/effect/mob_spawn/human/corpse/pirate/ranged,
+/obj/effect/corpse_spawner/human/pirate/ranged,
 /turf/open/floor/plating/dirt,
 /area/overmap_encounter/planetoid/cave/explored)
 "Qi" = (

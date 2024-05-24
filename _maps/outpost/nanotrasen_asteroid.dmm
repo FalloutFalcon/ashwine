@@ -11501,7 +11501,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/glass,
 /obj/structure/closet/body_bag,
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/corpse_spawner/human/damaged,
 /turf/open/floor/plating,
 /area/outpost/maintenance/fore)
 "Oi" = (
@@ -13405,7 +13405,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/body_bag,
-/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/obj/effect/corpse_spawner/human/cargo_tech,
 /obj/structure/catwalk/over/plated_catwalk,
 /turf/open/floor/plating,
 /area/outpost/maintenance/fore)

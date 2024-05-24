@@ -13,7 +13,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/powered)
 "cI" = (
-/obj/effect/mob_spawn/human/corpse/assistant,
+/obj/effect/corpse_spawner/human/assistant,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/floor/plasteel,
 /area/ruin/powered)
@@ -201,7 +201,7 @@
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 10
 	},
-/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/obj/effect/corpse_spawner/human/cargo_tech,
 /obj/item/clothing/mask/cigarette/rollie/trippy{
 	pixel_x = 7;
 	pixel_y = 15

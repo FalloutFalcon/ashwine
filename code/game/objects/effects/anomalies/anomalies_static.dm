@@ -121,13 +121,16 @@
 	immortal = TRUE
 	immobile = TRUE
 
+//I need to deal with this later but im pretty sure vicspawner should qdel itself so relying on the spawned_mob_ref is bad
+/*
 /obj/effect/anomaly/tvstatic/planetary/Initialize(mapload)
 	if(prob(25) & !stored_mob)
-		var/obj/effect/mob_spawn/human/corpse/damaged/legioninfested/vicspawner = new (src)
+		var/obj/effect/corpse_spawner/human/damaged/legioninfested/vicspawner = new (src)
 		var/mob/living/carbon/victim = (vicspawner.spawned_mob_ref)?.resolve()
 		src.stored_mob = victim
 		victim.forceMove(src)
 	. = ..()
+*/
 
 /obj/effect/particle_effect/staticball
 	name = "static blob"

@@ -1174,7 +1174,7 @@
 /turf/open/floor/plasteel,
 /area/ship/crew/canteen)
 "ny" = (
-/obj/effect/mob_spawn/human/corpse/frontier{
+/obj/effect/corpse_spawner/human/frontier{
 	mob_type = /mob/living/carbon/human/species/moth
 	},
 /obj/effect/decal/cleanable/crayon{

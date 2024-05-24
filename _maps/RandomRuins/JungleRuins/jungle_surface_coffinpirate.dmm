@@ -56,7 +56,7 @@
 /area/ruin/unpowered)
 "m" = (
 /obj/structure/closet/crate/coffin,
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /turf/open/floor/plating/grass/jungle/lit,
 /area/overmap_encounter/planetoid/jungle/explored)
 "n" = (
@@ -241,7 +241,7 @@
 "U" = (
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/mob_spawn/human/corpse/pirate{
+/obj/effect/corpse_spawner/human/pirate{
 	desc = "It looks like they died of a heart attack in their sleep."
 	},
 /turf/open/floor/wood,

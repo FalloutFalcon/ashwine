@@ -144,7 +144,7 @@
 /turf/open/floor/mineral/plastitanium/red,
 /area/overmap_encounter/planetoid/cave/explored)
 "I" = (
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/corpse_spawner/human/damaged,
 /obj/effect/decal/cleanable/blood,
 /obj/item/clothing/suit/armor/riot/knight/red,
 /obj/item/clothing/head/helmet/knight/red,
@@ -187,7 +187,7 @@
 /turf/open/floor/plating,
 /area/overmap_encounter/planetoid/cave/explored)
 "O" = (
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/corpse_spawner/human/damaged,
 /obj/item/clothing/shoes/jackboots,
 /obj/item/clothing/under/color/khaki/buster,
 /obj/item/clothing/glasses/welding/ghostbuster,
@@ -239,7 +239,7 @@
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/corpse_spawner/human/damaged,
 /obj/item/clothing/under/rank/civilian/chaplain,
 /obj/item/clothing/head/helmet/chaplain/witchunter_hat,
 /obj/effect/decal/cleanable/blood,

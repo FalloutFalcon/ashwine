@@ -309,7 +309,7 @@
 /turf/open/floor/engine,
 /area/ruin/rockplanet/nanotrasen)
 "eW" = (
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/obj/effect/corpse_spawner/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "bubblegumfoot"
 	},
@@ -729,7 +729,7 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ruin/rockplanet/nanotrasen)
 "ma" = (
-/obj/effect/mob_spawn/human/scientist,
+/obj/effect/corpse_spawner/human/scientist,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "coatblood"
@@ -1017,7 +1017,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/rockplanet/nanotrasen)
 "pN" = (
-/obj/effect/mob_spawn/human/sec,
+/obj/effect/corpse_spawner/human/sec,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/tracks{
 	pixel_y = 10
@@ -1269,7 +1269,7 @@
 	},
 /area/ruin/rockplanet/nanotrasen)
 "ui" = (
-/obj/effect/mob_spawn/human/scientist,
+/obj/effect/corpse_spawner/human/scientist,
 /obj/effect/decal/cleanable/blood/tracks{
 	pixel_y = 10
 	},
@@ -1756,7 +1756,7 @@
 /turf/open/floor/grass,
 /area/ruin/rockplanet/nanotrasen)
 "Dk" = (
-/obj/effect/mob_spawn/human/corpse/assistant,
+/obj/effect/corpse_spawner/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/turf_decal/industrial/warning{
 	dir = 1
@@ -2893,7 +2893,7 @@
 /turf/open/floor/wood,
 /area/ruin/rockplanet/nanotrasen)
 "ZP" = (
-/obj/effect/mob_spawn/human/scientist,
+/obj/effect/corpse_spawner/human/scientist,
 /obj/item/gun/ballistic/automatic/pistol/commander,
 /obj/item/ammo_casing/spent,
 /obj/effect/decal/cleanable/blood{

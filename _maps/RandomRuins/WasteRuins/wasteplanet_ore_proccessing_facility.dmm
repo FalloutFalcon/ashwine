@@ -180,7 +180,7 @@
 /turf/open/floor/plating/asteroid/wasteplanet,
 /area/overmap_encounter/planetoid/wasteplanet/explored)
 "mg" = (
-/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/obj/effect/corpse_spawner/human/cargo_tech,
 /obj/machinery/light/small/directional/north,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)

@@ -225,7 +225,7 @@
 	icon_state = "1-2"
 	},
 /obj/machinery/light/small/broken/directional/east,
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	mob_name = "Dr. Hibert Lacroix";
 	outfit = /datum/outfit/job/scientist;
 	short_desc = "Looks ike the man chose starvation in plase of beeing eaten alive."
@@ -740,7 +740,7 @@
 /area/ship/science/storage)
 "mb" = (
 /obj/effect/decal/cleanable/blood/bubblegum,
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	outfit = /datum/outfit/job/chemist
 	},
 /obj/item/gun/ballistic/automatic/pistol/candor/no_mag{

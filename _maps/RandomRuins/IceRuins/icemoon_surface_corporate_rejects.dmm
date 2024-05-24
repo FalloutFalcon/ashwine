@@ -1251,7 +1251,7 @@
 /obj/structure/chair{
 	dir = 1
 	},
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier{
+/obj/effect/corpse_spawner/human/nanotrasensoldier{
 	name = "Alfred Ososs"
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -1607,7 +1607,7 @@
 /area/ruin/unpowered/corprejectengineering)
 "Kk" = (
 /obj/structure/bed,
-/obj/effect/mob_spawn/human/clown/corpse,
+/obj/effect/corpse_spawner/human/clown/corpse,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/unpowered/corprejectrooms)
 "Kn" = (
@@ -1847,12 +1847,12 @@
 /area/ruin/unpowered/corprejectengineering)
 "PU" = (
 /obj/structure/bed,
-/obj/effect/mob_spawn/human/corpse/cargo_tech,
+/obj/effect/corpse_spawner/human/cargo_tech,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/unpowered/corprejectrooms)
 "Qf" = (
 /obj/structure/bed,
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/machinery/light/directional/north,
 /turf/open/floor/mineral/plastitanium/red,
 /area/ruin/unpowered/corprejectrooms)

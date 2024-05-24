@@ -10,7 +10,7 @@
 	dir = 8
 	},
 /obj/item/melee/transforming/energy/sword/saber/red,
-/obj/effect/mob_spawn/human/corpse/nanotrasenassaultsoldier,
+/obj/effect/corpse_spawner/human/nanotrasenassaultsoldier,
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/lava/explored)
 "aA" = (
@@ -42,7 +42,7 @@
 "cx" = (
 /obj/structure/stone_tile/slab,
 /obj/item/ammo_casing/shotgun/buckshot,
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -339,7 +339,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/lava/explored)
 "nh" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -458,14 +458,14 @@
 /area/overmap_encounter/planetoid/lava/explored)
 "rx" = (
 /obj/structure/stone_tile/block,
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/lava/explored)
 "rD" = (
 /obj/structure/stone_tile/slab,
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/spear/bonespear,
@@ -489,7 +489,7 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/spear/bonespear,
@@ -556,7 +556,7 @@
 /area/overmap_encounter/planetoid/lava/explored)
 "vH" = (
 /obj/structure/stone_tile/block,
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/spear/bonespear,
@@ -576,7 +576,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/lava/explored)
 "vU" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/spear/bonespear,
@@ -672,7 +672,7 @@
 /obj/structure/stone_tile{
 	dir = 1
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -702,7 +702,7 @@
 /obj/structure/stone_tile/block{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -768,7 +768,7 @@
 /obj/structure/stone_tile/block{
 	dir = 8
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -814,7 +814,7 @@
 /turf/open/lava/smooth/lava_land_surface,
 /area/overmap_encounter/planetoid/lava/explored)
 "HL" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/wood,
@@ -901,7 +901,7 @@
 /obj/structure/stone_tile{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -943,7 +943,7 @@
 /obj/structure/stone_tile/block{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/item/spear/bonespear,
@@ -955,7 +955,7 @@
 /area/overmap_encounter/planetoid/lava/explored)
 "LL" = (
 /obj/structure/stone_tile/slab,
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
@@ -1044,7 +1044,7 @@
 /turf/open/floor/plating/asteroid/basalt/lava_land_surface,
 /area/overmap_encounter/planetoid/lava/explored)
 "SJ" = (
-/obj/effect/mob_spawn/human/corpse{
+/obj/effect/corpse_spawner/human{
 	mob_species = /datum/species/lizard/ashwalker
 	},
 /obj/structure/stone_tile/block{

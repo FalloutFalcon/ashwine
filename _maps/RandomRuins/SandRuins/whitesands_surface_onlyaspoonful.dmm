@@ -113,7 +113,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "gF" = (
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor2"
 	},
@@ -249,7 +249,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "pZ" = (
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plastic,
 /area/ruin/powered)
@@ -351,7 +351,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "zM" = (
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plastic,
@@ -459,7 +459,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "Hl" = (
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/obj/effect/corpse_spawner/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor6"
 	},
@@ -488,7 +488,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "Iy" = (
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor6"
 	},
@@ -518,7 +518,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "KY" = (
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/obj/effect/corpse_spawner/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plastic,
@@ -712,7 +712,7 @@
 /turf/open/floor/plastic,
 /area/ruin/powered)
 "Zr" = (
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/obj/effect/corpse_spawner/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor4"
 	},

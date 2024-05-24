@@ -38,7 +38,7 @@
 
 /obj/effect/anomaly/phantom/detonate()
 	anomalyEffect()
-	new /obj/effect/mob_spawn/human/corpse/damaged/legioninfested(loc)
+	new /obj/effect/corpse_spawner/human/damaged/legioninfested(loc)
 	. = ..()
 
 /obj/effect/anomaly/phantom/planetary

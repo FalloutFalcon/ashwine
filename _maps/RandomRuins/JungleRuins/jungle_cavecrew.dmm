@@ -2873,7 +2873,7 @@
 	pixel_y = -5;
 	pixel_x = 3
 	},
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/corpse_spawner/human/damaged,
 /turf/open/floor/plating/dirt/jungle/lit,
 /area/overmap_encounter/planetoid/jungle/explored)
 "Jm" = (
@@ -4254,7 +4254,7 @@
 /turf/open/floor/plasteel/tech/grid,
 /area/ruin/jungle/cavecrew/engineering)
 "Zy" = (
-/obj/effect/mob_spawn/human/corpse/pirate,
+/obj/effect/corpse_spawner/human/pirate,
 /turf/open/water/jungle/lit,
 /area/overmap_encounter/planetoid/jungle/explored)
 "Zz" = (

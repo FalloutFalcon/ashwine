@@ -73,7 +73,7 @@
 /obj/structure/chair/wood/wings{
 	dir = 8
 	},
-/obj/effect/mob_spawn/human/engineer,
+/obj/effect/corpse_spawner/human/engineer,
 /turf/open/floor/carpet/donk,
 /area/ruin/unpowered)
 

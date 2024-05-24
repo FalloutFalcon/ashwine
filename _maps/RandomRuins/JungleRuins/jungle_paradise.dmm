@@ -766,7 +766,7 @@
 /turf/open/water/jungle,
 /area/overmap_encounter/planetoid/jungle/explored)
 "eG" = (
-/obj/effect/mob_spawn/human/scientist,
+/obj/effect/corpse_spawner/human/scientist,
 /obj/effect/decal/cleanable/vomit/old,
 /obj/item/healthanalyzer{
 	pixel_x = -5;
@@ -1740,7 +1740,7 @@
 /turf/open/floor/plating/grass/jungle,
 /area/overmap_encounter/planetoid/jungle/explored)
 "ks" = (
-/obj/effect/mob_spawn/human/corpse,
+/obj/effect/corpse_spawner/human,
 /obj/effect/decal/cleanable/blood{
 	pixel_x = 2;
 	pixel_y = -11
@@ -3265,7 +3265,7 @@
 /turf/open/floor/plating/rust,
 /area/overmap_encounter/planetoid/cave/explored)
 "tG" = (
-/obj/effect/mob_spawn/human/engineer,
+/obj/effect/corpse_spawner/human/engineer,
 /obj/effect/decal/cleanable/vomit/old{
 	pixel_x = 8;
 	pixel_y = 5
@@ -5652,7 +5652,7 @@
 /obj/structure/flora/grass/jungle/b{
 	pixel_y = 26
 	},
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	pixel_x = -4;
 	pixel_y = -5
 	},
@@ -6474,7 +6474,7 @@
 /turf/open/water/jungle,
 /area/overmap_encounter/planetoid/cave/explored)
 "Pe" = (
-/obj/effect/mob_spawn/human/miner,
+/obj/effect/corpse_spawner/human/miner,
 /obj/effect/decal/cleanable/vomit/old{
 	pixel_x = 13;
 	pixel_y = 6
@@ -7507,7 +7507,7 @@
 /obj/structure/chair/plastic{
 	dir = 8
 	},
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier,
+/obj/effect/corpse_spawner/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/vomit/old,
 /obj/item/reagent_containers/food/snacks/breadslice/moldy{
 	pixel_x = -4;

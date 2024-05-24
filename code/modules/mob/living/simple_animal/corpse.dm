@@ -1,3 +1,177 @@
+//Instant version - use when spawning corpses during runtime
+/obj/effect/corpse_spawner/human
+	icon_state = "corpsehuman"
+	roundstart = FALSE
+	instant = TRUE
+
+/obj/effect/corpse_spawner/human/damaged
+	brute_damage = 1000
+
+/obj/effect/corpse_spawner/human/assistant
+	name = "Assistant"
+	outfit = /datum/outfit/job/assistant
+	icon_state = "corpsegreytider"
+
+/obj/effect/corpse_spawner/human/assistant/husked
+	husk = TRUE
+
+/obj/effect/corpse_spawner/human/assistant/beesease_infection
+	disease = /datum/disease/beesease
+
+/obj/effect/corpse_spawner/human/assistant/brainrot_infection
+	disease = /datum/disease/brainrot
+
+/obj/effect/corpse_spawner/human/assistant/spanishflu_infection
+	disease = /datum/disease/fluspanish
+
+/obj/effect/corpse_spawner/human/cargo_tech
+	name = "Cargo Tech"
+	outfit = /datum/outfit/job/cargo_tech
+	icon_state = "corpsecargotech"
+
+/obj/effect/corpse_spawner/human/cook
+	name = "Cook"
+	outfit = /datum/outfit/job/cook
+	icon_state = "corpsecook"
+
+/obj/effect/corpse_spawner/human/cook/husked
+	husk = TRUE
+
+/obj/effect/corpse_spawner/human/doctor
+	name = "Doctor"
+	outfit = /datum/outfit/job/doctor
+	icon_state = "corpsedoctor"
+
+/obj/effect/corpse_spawner/human/engineer
+	name = "Engineer"
+	outfit = /datum/outfit/job/engineer
+	icon_state = "corpseengineer"
+
+/obj/effect/corpse_spawner/human/clown
+	name = "Clown"
+	outfit = /datum/outfit/job/clown
+	icon_state = "corpseclown"
+
+/obj/effect/corpse_spawner/human/scientist
+	name = "Scientist"
+	outfit = /datum/outfit/job/scientist
+	icon_state = "corpsescientist"
+
+/obj/effect/corpse_spawner/human/miner
+	name = "Shaft Miner"
+	outfit = /datum/outfit/job/miner
+	icon_state = "corpseminer"
+
+/obj/effect/corpse_spawner/human/plasmaman
+	mob_species = /datum/species/plasmaman
+	outfit = /datum/outfit/plasmaman
+
+/obj/effect/corpse_spawner/human/botanist
+	outfit = /datum/outfit/job/botanist
+	icon_state = "corpsehuman"
+
+/obj/effect/corpse_spawner/human/botanist/husked
+	husk = TRUE
+
+/obj/effect/corpse_spawner/human/sec
+	outfit = /datum/outfit/job/security
+	icon_state = "corpsehuman"
+
+/obj/effect/corpse_spawner/human/hop
+	outfit = /datum/outfit/job/head_of_personnel
+	icon_state = "corpsehuman"
+
+/obj/effect/corpse_spawner/human/janitor
+	outfit = /datum/outfit/job/janitor
+	icon_state = "corpsehuman"
+
+/obj/effect/corpse_spawner/human/bartender
+	name = "Space Bartender"
+	icon_state = "corpsebartender"
+	id_job = "Bartender"
+	id_access_list = list(ACCESS_BAR)
+	outfit = /datum/outfit/spacebartender
+
+/datum/outfit/spacebartender
+	name = "Space Bartender"
+	uniform = /obj/item/clothing/under/rank/civilian/bartender
+	back = /obj/item/storage/backpack
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	suit = /obj/item/clothing/suit/armor/vest
+	glasses = /obj/item/clothing/glasses/sunglasses/reagent
+	id = /obj/item/card/id
+
+/obj/effect/corpse_spawner/human/bartender/husked
+	husk = TRUE
+
+/obj/effect/corpse_spawner/human/beach
+	outfit = /datum/outfit/beachbum
+
+/datum/outfit/beachbum
+	name = "Beach Bum"
+	glasses = /obj/item/clothing/glasses/sunglasses
+	r_pocket = /obj/item/storage/wallet/random
+	l_pocket = /obj/item/reagent_containers/food/snacks/pizzaslice/dank
+	uniform = /obj/item/clothing/under/pants/jeans
+	id = /obj/item/card/id
+
+/datum/outfit/beachbum/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
+	..()
+	if(visualsOnly)
+		return
+	H.dna.add_mutation(STONER)
+
+/obj/effect/corpse_spawner/human/bridgeofficer
+	name = "Bridge Officer"
+	id_job = "Bridge Officer"
+	id_access_list = list(ACCESS_CENT_CAPTAIN)
+	outfit = /datum/outfit/nanotrasenbridgeofficercorpse
+
+/datum/outfit/nanotrasenbridgeofficercorpse
+	name = "Bridge Officer Corpse"
+	ears = /obj/item/radio/headset/heads/head_of_personnel
+	uniform = /obj/item/clothing/under/rank/centcom/official
+	suit = /obj/item/clothing/suit/armor/vest/bulletproof
+	shoes = /obj/item/clothing/shoes/sneakers/black
+	glasses = /obj/item/clothing/glasses/sunglasses
+	id = /obj/item/card/id
+
+/obj/effect/corpse_spawner/human/commander
+	name = "Commander"
+	id_job = "Commander"
+	id_access_list = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE)
+	outfit = /datum/outfit/nanotrasencommandercorpse
+
+/datum/outfit/nanotrasencommandercorpse
+	name = "\improper Nanotrasen Private Security Commander"
+	uniform = /obj/item/clothing/under/rank/centcom/commander
+	suit = /obj/item/clothing/suit/armor/vest/bulletproof
+	ears = /obj/item/radio/headset/heads/captain
+	glasses = /obj/item/clothing/glasses/eyepatch
+	mask = /obj/item/clothing/mask/cigarette/cigar/cohiba
+	head = /obj/item/clothing/head/centhat
+	gloves = /obj/item/clothing/gloves/tackler/combat
+	shoes = /obj/item/clothing/shoes/combat/swat
+	r_pocket = /obj/item/lighter
+	id = /obj/item/card/id
+
+/obj/effect/corpse_spawner/human/nanotrasensoldier
+	name = "\improper Nanotrasen LP Security Specialist"
+	id_job = "Private Security Force"
+	id_access_list = list(ACCESS_CENT_CAPTAIN, ACCESS_CENT_GENERAL, ACCESS_CENT_SPECOPS, ACCESS_CENT_MEDICAL, ACCESS_CENT_STORAGE, ACCESS_SECURITY, ACCESS_MECH_SECURITY)
+	outfit = /datum/outfit/job/nanotrasen/security/lp
+
+/obj/effect/corpse_spawner/human/skeleton
+	name = "skeletal remains"
+	mob_name = "skeleton"
+	mob_species = /datum/species/skeleton
+	mob_gender = NEUTER
+
+/obj/effect/corpse_spawner/human/zombie
+	name = "rotting corpse"
+	mob_name = "zombie"
+	mob_species = /datum/species/zombie
+
 //Meant for simple animals to drop lootable human bodies.
 
 //If someone can do this in a neater way, be my guest-Kor
@@ -8,7 +182,7 @@
 
 //List of different corpse types
 
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier
+/obj/effect/corpse_spawner/human/syndicatesoldier
 	name = "Syndicate Operative"
 	id_job = "Operative"
 	hairstyle = "Bald"
@@ -27,7 +201,7 @@
 	back = /obj/item/storage/backpack
 	id = /obj/item/card/id/syndicate
 
-/obj/effect/mob_spawn/human/corpse/syndicatecommando
+/obj/effect/corpse_spawner/human/syndicatecommando
 	name = "Syndicate Commando"
 	id_job = "Operative"
 	hairstyle = "Bald"
@@ -46,7 +220,7 @@
 	r_pocket = /obj/item/tank/internals/emergency_oxygen
 	id = /obj/item/card/id/syndicate
 
-/obj/effect/mob_spawn/human/corpse/syndicateramzi
+/obj/effect/corpse_spawner/human/syndicateramzi
 	name = "Ramzi's Clique Commando"
 	id_job = "Cutthroat"
 	hairstyle = "Bald"
@@ -66,7 +240,7 @@
 	id = /obj/item/card/id/syndicate
 
 
-/obj/effect/mob_spawn/human/corpse/syndicatestormtrooper
+/obj/effect/corpse_spawner/human/syndicatestormtrooper
 	name = "Syndicate Stormtrooper"
 	id_job = "Operative"
 	hairstyle = "Bald"
@@ -85,14 +259,14 @@
 	id = /obj/item/card/id/syndicate
 
 
-/obj/effect/mob_spawn/human/clown/corpse
+/obj/effect/corpse_spawner/human/clown/corpse
 	roundstart = FALSE
 	instant = TRUE
 	skin_tone = "caucasian1"
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"
 
-/obj/effect/mob_spawn/human/corpse/pirate
+/obj/effect/corpse_spawner/human/pirate
 	name = "Pirate"
 	skin_tone = "caucasian1" //all pirates are white because it's easier that way
 	outfit = /datum/outfit/piratecorpse
@@ -107,7 +281,7 @@
 	head = /obj/item/clothing/head/bandana
 
 
-/obj/effect/mob_spawn/human/corpse/pirate/ranged
+/obj/effect/corpse_spawner/human/pirate/ranged
 	name = "Pirate Gunner"
 	outfit = /datum/outfit/piratecorpse/ranged
 
@@ -117,7 +291,7 @@
 	head = /obj/item/clothing/head/pirate
 
 
-/obj/effect/mob_spawn/human/corpse/frontier
+/obj/effect/corpse_spawner/human/frontier
 	name = "Frontiersman"
 	outfit = /datum/outfit/frontier
 	hairstyle = "Bald"
@@ -130,10 +304,10 @@
 	head = /obj/item/clothing/head/beret/sec/frontier
 	gloves = /obj/item/clothing/gloves/color/black
 
-/obj/effect/mob_spawn/human/corpse/frontier/ranged
+/obj/effect/corpse_spawner/human/frontier/ranged
 	outfit = /datum/outfit/frontier
 
-/obj/effect/mob_spawn/human/corpse/frontier/ranged/trooper
+/obj/effect/corpse_spawner/human/frontier/ranged/trooper
 	outfit = /datum/outfit/frontier/trooper
 
 /datum/outfit/frontier/trooper
@@ -145,7 +319,7 @@
 	head = /obj/item/clothing/head/helmet/bulletproof/x11/frontier
 
 
-/obj/effect/mob_spawn/human/corpse/frontier/ranged/officer
+/obj/effect/corpse_spawner/human/frontier/ranged/officer
 	name = "Frontiersman Officer"
 	outfit = /datum/outfit/frontier/officer
 
@@ -157,7 +331,7 @@
 	ears = /obj/item/radio/headset
 	head = /obj/item/clothing/head/caphat/frontier
 
-/obj/effect/mob_spawn/human/corpse/frontier/ranged/trooper/heavy
+/obj/effect/corpse_spawner/human/frontier/ranged/trooper/heavy
 	outfit = /datum/outfit/frontier/trooper/heavy
 
 /datum/outfit/frontier/trooper/heavy
@@ -166,14 +340,14 @@
 	head = /obj/item/clothing/head/beret/sec/frontier/officer
 	back = /obj/item/minigunpack
 
-/obj/effect/mob_spawn/human/corpse/frontier/ranged/trooper/heavy/gunless
+/obj/effect/corpse_spawner/human/frontier/ranged/trooper/heavy/gunless
 	outfit = /datum/outfit/frontier/trooper/heavy/gunless
 
 /datum/outfit/frontier/trooper/heavy/gunless
 	name = "Frontiersman Heavy Corpse (Gunless)"
 	back = null
 
-/obj/effect/mob_spawn/human/corpse/wizard
+/obj/effect/corpse_spawner/human/wizard
 	name = "Space Wizard Corpse"
 	outfit = /datum/outfit/wizardcorpse
 	hairstyle = "Bald"
@@ -188,7 +362,7 @@
 	head = /obj/item/clothing/head/wizard
 
 
-/obj/effect/mob_spawn/human/corpse/nanotrasensoldier
+/obj/effect/corpse_spawner/human/nanotrasensoldier
 	name = "\improper Nanotrasen Private Security Officer"
 	id_job = "Private Security Force"
 	outfit = /datum/outfit/nanotrasensoldiercorpse2
@@ -207,7 +381,7 @@
 	back = /obj/item/storage/backpack/security
 	id = /obj/item/card/id
 
-/obj/effect/mob_spawn/human/corpse/nanotrasenassaultsoldier
+/obj/effect/corpse_spawner/human/nanotrasenassaultsoldier
 	name = "Nanotrasen Private Security Officer"
 	id_job = "Nanotrasen Assault Force"
 	outfit = /datum/outfit/nanotrasenassaultsoldiercorpse
@@ -226,7 +400,7 @@
 	back = /obj/item/storage/backpack/security
 	id = /obj/item/card/id
 
-/obj/effect/mob_spawn/human/corpse/cat_butcher
+/obj/effect/corpse_spawner/human/cat_butcher
 	name = "The Cat Surgeon"
 	id_job = "Cat Surgeon"
 	id_access_list = list(ACCESS_AWAY_GENERAL, ACCESS_AWAY_MAINT)
@@ -246,7 +420,7 @@
 	id = /obj/item/card/id
 	glasses = /obj/item/clothing/glasses/hud/health
 
-/obj/effect/mob_spawn/human/corpse/solgov/sonnensoldner
+/obj/effect/corpse_spawner/human/solgov/sonnensoldner
 	name = "SolGov Sonnensoldner"
 	id_job = "SolGov Sonnensoldner"
 	outfit = /datum/outfit/job/solgov/sonnensoldner

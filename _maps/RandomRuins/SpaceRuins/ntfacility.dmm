@@ -111,7 +111,7 @@
 /obj/machinery/cryopod{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	outfit = /datum/outfit/job/cmo
 	},
 /mob/living/simple_animal/hostile/zombie,
@@ -231,7 +231,7 @@
 /obj/effect/turf_decal/corner/opaque/blue{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse/damaged{
+/obj/effect/corpse_spawner/human/damaged{
 	disease = /datum/disease/brainrot;
 	outfit = /datum/outfit/job/assistant
 	},
@@ -754,7 +754,7 @@
 /turf/open/floor/plating/airless,
 /area/ruin/powered)
 "rY" = (
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	outfit = /datum/outfit/job/doctor
 	},
 /obj/effect/decal/cleanable/blood,
@@ -892,7 +892,7 @@
 /area/ruin/powered)
 "vO" = (
 /obj/structure/table/optable,
-/obj/effect/mob_spawn/human/corpse/assistant/brainrot_infection,
+/obj/effect/corpse_spawner/human/assistant/brainrot_infection,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plasteel/dark,
 /area/ruin/powered)
@@ -1396,7 +1396,7 @@
 "Hc" = (
 /obj/structure/bed,
 /obj/item/bedsheet/dorms,
-/obj/effect/mob_spawn/human/corpse/damaged{
+/obj/effect/corpse_spawner/human/damaged{
 	disease = null;
 	outfit = /datum/outfit/job/assistant
 	},
@@ -1593,7 +1593,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/powered)
 "Kw" = (
-/obj/effect/mob_spawn/human/corpse/damaged{
+/obj/effect/corpse_spawner/human/damaged{
 	disease = /datum/disease/brainrot;
 	outfit = /datum/outfit/job/assistant
 	},
@@ -1820,7 +1820,7 @@
 /turf/open/floor/carpet/blue,
 /area/ruin/powered)
 "Pn" = (
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,

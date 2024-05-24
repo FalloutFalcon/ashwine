@@ -165,11 +165,11 @@
 			stored_mob.forceMove(get_turf(src))
 			stored_mob = null
 		else if(fromtendril)
-			new /obj/effect/mob_spawn/human/corpse/charredskeleton(T)
+			new /obj/effect/corpse_spawner/human/charredskeleton(T)
 		else if(dwarf_mob)
-			new /obj/effect/mob_spawn/human/corpse/damaged/legioninfested/dwarf(T)
+			new /obj/effect/corpse_spawner/human/damaged/legioninfested/dwarf(T)
 		else
-			new /obj/effect/mob_spawn/human/corpse/damaged/legioninfested(T)
+			new /obj/effect/corpse_spawner/human/damaged/legioninfested(T)
 	..(gibbed)
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/tendril
@@ -297,7 +297,7 @@
 	layer = MOB_LAYER
 	del_on_death = TRUE
 	sentience_type = SENTIENCE_BOSS
-	loot = list(/obj/item/organ/regenerative_core/legion = 3, /obj/effect/mob_spawn/human/corpse/damaged/legioninfested = 5, /obj/effect/mob_spawn/human/corpse/damaged/legioninfested = 5, /obj/effect/mob_spawn/human/corpse/damaged/legioninfested = 5)
+	loot = list(/obj/item/organ/regenerative_core/legion = 3, /obj/effect/corpse_spawner/human/damaged/legioninfested = 5, /obj/effect/corpse_spawner/human/damaged/legioninfested = 5, /obj/effect/corpse_spawner/human/damaged/legioninfested = 5)
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = INFINITY
@@ -386,7 +386,7 @@
 	return ..()
 
 //Tendril-spawned Legion remains, the charred skeletons of those whose bodies sank into lava or fell into chasms.
-/obj/effect/mob_spawn/human/corpse/charredskeleton
+/obj/effect/corpse_spawner/human/charredskeleton
 	name = "charred skeletal remains"
 	burn_damage = 1000
 	mob_name = "ashen skeleton"
@@ -397,11 +397,11 @@
 
 //Legion infested mobs
 
-/obj/effect/mob_spawn/human/corpse/damaged/legioninfested/dwarf/equip(mob/living/carbon/human/H)
+/obj/effect/corpse_spawner/human/damaged/legioninfested/dwarf/equip(mob/living/carbon/human/H)
 	. = ..()
 	H.transform = H.transform.Scale(0.8, 1)//somehow dwarf squashing is borked when not roundstart. I hate WS code
 
-/obj/effect/mob_spawn/human/corpse/damaged/legioninfested/Initialize() //in an ideal world, these would generate, the legion would overlay over the corpse, and we'd get cool sprites
+/obj/effect/corpse_spawner/human/damaged/legioninfested/Initialize() //in an ideal world, these would generate, the legion would overlay over the corpse, and we'd get cool sprites
 	mob_species = pickweight(list(
 		/datum/species/human = 31,
 		/datum/species/lizard = 26,

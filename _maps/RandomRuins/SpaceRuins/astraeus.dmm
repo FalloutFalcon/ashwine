@@ -598,7 +598,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/bed/roller,
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/mob_spawn/human/corpse/damaged,
+/obj/effect/corpse_spawner/human/damaged,
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plasteel/airless,
 /area/ruin/space/has_grav/astraeus/hallway)

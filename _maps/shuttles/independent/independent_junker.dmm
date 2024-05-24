@@ -1995,7 +1995,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/footprints,
-/obj/effect/mob_spawn/human/corpse/charredskeleton,
+/obj/effect/corpse_spawner/human/charredskeleton,
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/light_switch{

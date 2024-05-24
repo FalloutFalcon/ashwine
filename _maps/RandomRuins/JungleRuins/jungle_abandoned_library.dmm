@@ -341,7 +341,7 @@
 	pixel_x = -4;
 	pixel_y = 3
 	},
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	name = "Curator";
 	outfit = /datum/outfit/job/curator;
 	brute_damage = 400;
@@ -605,7 +605,7 @@
 /turf/open/floor/wood,
 /area/ruin/jungle)
 "kE" = (
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	name = "Chaplain";
 	outfit = /datum/outfit/job/chaplain
 	},
@@ -727,7 +727,7 @@
 /area/ruin/jungle)
 "lD" = (
 /obj/effect/turf_decal/siding/wood,
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	name = "Paramedic";
 	outfit = /datum/outfit/job/paramedic;
 	backpack_contents = null
@@ -1553,7 +1553,7 @@
 /turf/open/floor/wood,
 /area/ruin/jungle)
 "AA" = (
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	oxy_damage = 200;
 	name = "Dungeon Master";
 	outfit = /datum/outfit/job/curator;
@@ -1701,7 +1701,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
 	},
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	name = "Security Officer";
 	outfit = /datum/outfit/job/security;
 	backpack_contents = null
@@ -1818,7 +1818,7 @@
 /turf/open/floor/wood,
 /area/ruin/jungle)
 "EO" = (
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	name = "Curator";
 	outfit = /datum/outfit/job/curator;
 	brute_damage = 400;
@@ -1938,7 +1938,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
-/obj/effect/mob_spawn/human/corpse/syndicatesoldier,
+/obj/effect/corpse_spawner/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood{
 	icon_state = "floor3";
 	pixel_x = -19;
@@ -2173,7 +2173,7 @@
 /turf/open/floor/plating/grass/jungle,
 /area/ruin/jungle)
 "JH" = (
-/obj/effect/mob_spawn/human/corpse/assistant{
+/obj/effect/corpse_spawner/human/assistant{
 	oxy_damage = 200
 	},
 /obj/effect/decal/cleanable/cobweb/cobweb2,
@@ -2259,7 +2259,7 @@
 /turf/open/floor/plating/dirt/jungle,
 /area/ruin/jungle)
 "KR" = (
-/obj/effect/mob_spawn/human/corpse/cargo_tech{
+/obj/effect/corpse_spawner/human/cargo_tech{
 	backpack_contents = null
 	},
 /obj/effect/decal/cleanable/blood{
