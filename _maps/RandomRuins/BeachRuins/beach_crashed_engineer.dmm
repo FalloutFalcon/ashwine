@@ -425,7 +425,7 @@
 	icon_state = "5-8"
 	},
 /obj/effect/decal/cleanable/ash/large,
-/obj/effect/corpse_spawner/human/skeleton,
+/obj/effect/mob_spawn/corpse/human/skeleton,
 /obj/item/wirecutters,
 /turf/open/floor/plating,
 /area/ruin/unpowered)

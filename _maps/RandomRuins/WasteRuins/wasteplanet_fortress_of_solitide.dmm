@@ -139,7 +139,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/powered)
 "br" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light/directional/south,
 /turf/open/floor/plating/rust,
@@ -257,7 +257,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "cm" = (
-/obj/effect/corpse_spawner/human/engineer,
+/obj/effect/mob_spawn/corpse/human/engineer,
 /obj/item/crowbar/power{
 	pixel_x = -1;
 	pixel_y = -13
@@ -437,7 +437,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "eh" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/rust,
@@ -513,7 +513,7 @@
 /obj/structure/chair/wood{
 	dir = 4
 	},
-/obj/effect/corpse_spawner/human/frontier,
+/obj/effect/mob_spawn/corpse/human/frontier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
@@ -810,7 +810,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "hV" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light/directional/west,
 /turf/open/floor/plating,
@@ -828,7 +828,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "hZ" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
@@ -975,7 +975,7 @@
 /area/ruin/powered)
 "jz" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /turf/open/floor/plating,
 /area/ruin/powered)
 "jA" = (
@@ -1121,7 +1121,7 @@
 /area/ruin/powered)
 "kK" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/bananium,
 /area/ruin/powered)
@@ -1266,7 +1266,7 @@
 "lO" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "lQ" = (
@@ -1349,7 +1349,7 @@
 /turf/closed/wall/r_wall/rust,
 /area/ruin/powered)
 "mP" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/item/spear,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1371,7 +1371,7 @@
 /area/ruin/powered)
 "mW" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/vomit/old,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
 	dir = 4
@@ -1447,7 +1447,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "nw" = (
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/rust,
@@ -1517,7 +1517,7 @@
 /area/ruin/powered)
 "nM" = (
 /obj/structure/curtain/cloth/fancy,
-/obj/effect/corpse_spawner/human/frontier,
+/obj/effect/mob_spawn/corpse/human/frontier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/vomit/old,
 /turf/open/floor/plating/rust,
@@ -1789,7 +1789,7 @@
 /area/ruin/powered)
 "qn" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plating,
 /area/ruin/powered)
 "qo" = (
@@ -1921,7 +1921,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "rp" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -2039,7 +2039,7 @@
 /area/ruin/powered)
 "sH" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "sQ" = (
@@ -2373,7 +2373,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/clown,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/mineral/bananium,
 /area/ruin/powered)
@@ -2936,13 +2936,13 @@
 /area/ruin/powered)
 "Bn" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "Bp" = (
 /obj/structure/table/wood,
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
@@ -3218,7 +3218,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "DR" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/powered)
@@ -3595,7 +3595,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "HC" = (
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -3604,7 +3604,7 @@
 /area/ruin/powered)
 "HD" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /mob/living/simple_animal/hostile/rat,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
@@ -3888,7 +3888,7 @@
 /area/ruin/powered)
 "JZ" = (
 /obj/structure/curtain/cloth/fancy,
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
@@ -4006,7 +4006,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "Ld" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /obj/item/clothing/head/chefhat,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
@@ -4163,7 +4163,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "Nr" = (
-/obj/effect/corpse_spawner/human/clown/corpse,
+/obj/effect/mob_spawn/corpse/human/clown/corpse,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/tracks{
 	dir = 4
@@ -4261,7 +4261,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/random,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
 /area/ruin/powered)
@@ -4390,7 +4390,7 @@
 /area/ruin/powered)
 "Pe" = (
 /obj/structure/chair/wood,
-/obj/effect/corpse_spawner/human/frontier,
+/obj/effect/mob_spawn/corpse/human/frontier,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/ruin/powered)
@@ -4479,7 +4479,7 @@
 /area/ruin/powered)
 "PS" = (
 /obj/structure/curtain/cloth/fancy,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/powered)
@@ -4584,7 +4584,7 @@
 "QI" = (
 /obj/structure/bed,
 /obj/item/bedsheet/random,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /turf/open/floor/plating,
 /area/ruin/powered)
@@ -4599,7 +4599,7 @@
 /turf/open/floor/plating,
 /area/ruin/powered)
 "QT" = (
-/obj/effect/corpse_spawner/human/pirate,
+/obj/effect/mob_spawn/corpse/human/pirate,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/powered)
@@ -4739,7 +4739,7 @@
 /area/ruin/powered)
 "SF" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "SG" = (
@@ -4796,7 +4796,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "Tf" = (
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating,
@@ -4810,7 +4810,7 @@
 /obj/structure/chair/wood{
 	dir = 8
 	},
-/obj/effect/corpse_spawner/human/frontier,
+/obj/effect/mob_spawn/corpse/human/frontier,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
 /area/ruin/powered)
@@ -4936,7 +4936,7 @@
 /area/ruin/powered)
 "TX" = (
 /obj/structure/table/reinforced,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/powered)
@@ -4999,7 +4999,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "UF" = (
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /turf/open/floor/plating,
 /area/ruin/powered)
 "UH" = (
@@ -5076,7 +5076,7 @@
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "Vd" = (
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/old,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden/layer4{
@@ -5128,7 +5128,7 @@
 /obj/structure/bed,
 /obj/item/bedsheet/random,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/pirate,
+/obj/effect/mob_spawn/corpse/human/pirate,
 /turf/open/floor/plating/rust,
 /area/ruin/powered)
 "VH" = (
@@ -5340,7 +5340,7 @@
 "XL" = (
 /obj/effect/decal/cleanable/blood,
 /obj/machinery/light/directional/north,
-/obj/effect/corpse_spawner/human/damaged/whitesands/survivor,
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands/survivor,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating,
 /area/ruin/powered)

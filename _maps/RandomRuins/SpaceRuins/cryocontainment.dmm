@@ -401,7 +401,7 @@
 	},
 /area/ruin/unpowered)
 "kU" = (
-/obj/effect/corpse_spawner/human/damaged{
+/obj/effect/mob_spawn/corpse/human/damaged{
 	outfit = /datum/outfit/job/scientist
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1035,7 +1035,7 @@
 /turf/open/floor/plasteel/white/airless,
 /area/ruin/unpowered)
 "Mf" = (
-/obj/effect/corpse_spawner/human/damaged{
+/obj/effect/mob_spawn/corpse/human/damaged{
 	outfit = /datum/outfit/job/scientist
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1305,7 +1305,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer2{
 	dir = 4
 	},
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/machinery/light/directional/north,
 /turf/open/floor/plasteel/dark/airless,
 /area/ruin/unpowered)
@@ -1454,7 +1454,7 @@
 /turf/open/floor/engine/airless,
 /area/ruin/unpowered)
 "Zz" = (
-/obj/effect/corpse_spawner/human/damaged{
+/obj/effect/mob_spawn/corpse/human/damaged{
 	outfit = /datum/outfit/job/scientist
 	},
 /obj/effect/decal/cleanable/blood,

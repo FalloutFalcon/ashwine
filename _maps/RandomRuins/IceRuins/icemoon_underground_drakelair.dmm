@@ -586,7 +586,7 @@
 "Xq" = (
 /obj/structure/bed/pod,
 /obj/item/flashlight/flare/torch,
-/obj/effect/corpse_spawner/human/wizard,
+/obj/effect/mob_spawn/corpse/human/wizard,
 /turf/open/floor/plasteel/rockvault/sandstone,
 /area/ruin/powered)
 "XC" = (

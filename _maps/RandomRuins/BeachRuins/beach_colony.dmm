@@ -83,7 +83,7 @@
 /turf/open/floor/plating/grass/beach/lit,
 /area/overmap_encounter/planetoid/beachplanet/explored)
 "kd" = (
-/obj/effect/corpse_spawner/human/pirate,
+/obj/effect/mob_spawn/corpse/human/pirate,
 /turf/open/floor/plating/grass/beach/lit,
 /area/overmap_encounter/planetoid/beachplanet/explored)
 "kV" = (
@@ -221,7 +221,7 @@
 /turf/open/floor/plating/asteroid/sand/lit,
 /area/overmap_encounter/planetoid/beachplanet/explored)
 "vG" = (
-/obj/effect/corpse_spawner/human/charredskeleton,
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
 /turf/open/floor/carpet/purple{
 	light_range = 2
 	},

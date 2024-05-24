@@ -294,7 +294,7 @@
 /obj/structure/cable{
 	icon_state = "4-8"
 	},
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plasteel/tech/grid,
 /area/ship/medical/morgue)
 "bm" = (

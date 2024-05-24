@@ -95,12 +95,12 @@
 /area/overmap_encounter/planetoid/cave/explored)
 "ks" = (
 /obj/structure/flora/rock/icy,
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/overmap_encounter/planetoid/cave/explored)
 "la" = (
 /obj/effect/decal/cleanable/blood/gibs/up,
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plating/asteroid/snow/icemoon,
 /area/overmap_encounter/planetoid/cave/explored)
 "lg" = (

@@ -266,7 +266,7 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ruin/space/has_grav/syndicircle/research)
 "if" = (
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -523,7 +523,7 @@
 /turf/open/floor/plating/snowed,
 /area/ruin/space/has_grav/syndicircle/winter)
 "oV" = (
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -634,7 +634,7 @@
 /turf/open/floor/mineral/titanium/white,
 /area/ruin/space/has_grav/syndicircle/research)
 "sX" = (
-/obj/effect/corpse_spawner/human/syndicatesoldier,
+/obj/effect/mob_spawn/corpse/human/syndicatesoldier,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/plasteel/tech/techmaint,
@@ -868,7 +868,7 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ruin/space/has_grav/syndicircle/research)
 "xs" = (
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/plasteel/tech/grid,
@@ -942,7 +942,7 @@
 /obj/effect/turf_decal/techfloor{
 	dir = 1
 	},
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/floor/circuit,
@@ -976,7 +976,7 @@
 /turf/open/floor/plasteel/tech/techmaint,
 /area/ruin/space/has_grav/syndicircle/research)
 "AG" = (
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /obj/effect/decal/cleanable/blood/gibs/old,
 /obj/effect/decal/cleanable/blood/splatter,
 /turf/open/floor/plasteel/tech/techmaint,

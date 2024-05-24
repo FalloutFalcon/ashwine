@@ -227,7 +227,7 @@
 /area/ruin/rockplanet/nomad)
 "hm" = (
 /obj/structure/bed/pod,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/structure/curtain/cloth,
 /turf/open/floor/plasteel/rockvault,
 /area/ruin/rockplanet/nomad)

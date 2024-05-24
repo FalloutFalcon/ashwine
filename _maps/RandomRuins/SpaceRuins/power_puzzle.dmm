@@ -222,7 +222,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/powerpuzzle)
 "aS" = (
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 5
 	},
@@ -397,7 +397,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 8
 	},
-/obj/effect/corpse_spawner/human/sec,
+/obj/effect/mob_spawn/corpse/human/sec,
 /obj/effect/decal/cleanable/blood/splatter{
 	pixel_x = -4;
 	pixel_y = 8
@@ -1199,7 +1199,7 @@
 /area/ruin/space/has_grav/powerpuzzle/engineering)
 "iN" = (
 /obj/effect/turf_decal/corner/transparent/grey/diagonal,
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/item/crowbar/red,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 4
@@ -1649,7 +1649,7 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/corner/transparent/grey/diagonal,
-/obj/effect/corpse_spawner/human/cargo_tech{
+/obj/effect/mob_spawn/corpse/human/cargo_tech{
 	outfit = /datum/outfit/job/nanotrasen/engineer
 	},
 /turf/open/floor/plasteel/dark,
@@ -1738,7 +1738,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/powerpuzzle/secure)
 "sc" = (
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/item/reagent_containers/food/snacks/cakeslice/birthday,
 /obj/effect/decal/cleanable/confetti,
 /obj/machinery/light/small/broken/directional/east,
@@ -2486,7 +2486,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer4{
 	dir = 9
 	},
-/obj/effect/corpse_spawner/human/cargo_tech{
+/obj/effect/mob_spawn/corpse/human/cargo_tech{
 	outfit = /datum/outfit/job/nanotrasen/engineer
 	},
 /obj/item/wirecutters{
@@ -2545,7 +2545,7 @@
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/powerpuzzle/engineering)
 "FC" = (
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/item/storage/pill_bottle/floorpill/full,
 /obj/structure/cable{
 	icon_state = "1-2"
@@ -3155,7 +3155,7 @@
 	specialfunctions = 4
 	},
 /obj/effect/decal/cleanable/blood/gibs/old,
-/obj/effect/corpse_spawner/human/cargo_tech{
+/obj/effect/mob_spawn/corpse/human/cargo_tech{
 	outfit = /datum/outfit/job/quartermaster
 	},
 /obj/item/gun/ballistic/automatic/pistol/commander/no_mag{

@@ -4069,7 +4069,7 @@
 /turf/open/floor/wood,
 /area/outpost/crew/bar)
 "zR" = (
-/obj/effect/corpse_spawner/human/charredskeleton{
+/obj/effect/mob_spawn/corpse/human/charredskeleton{
 	name = "Marv"
 	},
 /obj/item/stack/cable_coil/cut/yellow,

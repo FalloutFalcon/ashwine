@@ -56,7 +56,7 @@
 /area/overmap_encounter/planetoid/sand/explored)
 "cI" = (
 /obj/item/clothing/glasses/thermal/eyepatch,
-/obj/effect/corpse_spawner/human/charredskeleton,
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
 /turf/open/floor/plating/asteroid/whitesands{
 	light_range = 2
 	},
@@ -121,7 +121,7 @@
 	},
 /area/overmap_encounter/planetoid/sand/explored)
 "fe" = (
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/effect/decal/cleanable/blood/old{
 	icon_state = "floor2-old"
 	},
@@ -353,7 +353,7 @@
 /turf/closed/wall/mineral/wood,
 /area/ruin)
 "mV" = (
-/obj/effect/corpse_spawner/human/charredskeleton,
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
 /obj/item/multitool/old,
 /turf/open/floor/plating/asteroid/whitesands/dried{
 	light_range = 2
@@ -620,7 +620,7 @@
 /turf/open/floor/wood,
 /area/ruin)
 "yb" = (
-/obj/effect/corpse_spawner/human/charredskeleton,
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
 /turf/open/floor/plating/asteroid/whitesands{
 	light_range = 2
 	},
@@ -653,7 +653,7 @@
 /area/ruin)
 "yZ" = (
 /obj/item/spear,
-/obj/effect/corpse_spawner/human/damaged/whitesands/survivor,
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands/survivor,
 /turf/open/floor/plating/asteroid/whitesands/dried{
 	light_range = 2
 	},

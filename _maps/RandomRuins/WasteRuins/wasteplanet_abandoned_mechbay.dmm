@@ -2783,7 +2783,7 @@
 /area/ruin/wasteplanet/abandoned_mechbay/commandcontrol)
 "Hm" = (
 /obj/structure/bed/roller,
-/obj/effect/corpse_spawner/human/charredskeleton,
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
 /obj/structure/sign/poster/official/bless_this_spess{
 	pixel_x = -31
 	},

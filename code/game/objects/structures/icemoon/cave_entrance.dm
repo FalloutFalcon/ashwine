@@ -13,9 +13,9 @@ GLOBAL_LIST_INIT(ore_probability, list(
 	/obj/item/borg/upgrade/modkit/range = 5,
 	/obj/item/t_scanner/adv_mining_scanner/lesser = 15,
 	/obj/item/kinetic_crusher = 15,
-	/obj/effect/corpse_spawner/human/damaged/legioninfested = 25,
-	/obj/effect/corpse_spawner/human/damaged/legioninfested = 25,
-	/obj/effect/corpse_spawner/human/damaged/legioninfested = 25,
+	/obj/effect/mob_spawn/corpse/human/damaged/legioninfested = 25,
+	/obj/effect/mob_spawn/corpse/human/damaged/legioninfested = 25,
+	/obj/effect/mob_spawn/corpse/human/damaged/legioninfested = 25,
 	/obj/item/tank/jetpack/suit = 10,
 	/obj/item/survivalcapsule = 15,
 	/obj/item/reagent_containers/hypospray/medipen/survival = 15,
@@ -481,20 +481,20 @@ GLOBAL_LIST_INIT(ore_probability, list(
 				new /obj/item/storage/firstaid/regular(loc)
 				new /mob/living/simple_animal/hostile/blob/blobspore/weak(loc)
 			if(prob(35))
-				new /obj/effect/corpse_spawner/human/solgov/sonnensoldner(loc)
+				new /obj/effect/mob_spawn/corpse/human/solgov/sonnensoldner(loc)
 				new /mob/living/simple_animal/hostile/blob/blobspore/weak(loc)
 			else
-				new /obj/effect/corpse_spawner/human/doctor(loc)
+				new /obj/effect/mob_spawn/corpse/human/doctor(loc)
 			if(prob(35))
-				new /obj/effect/corpse_spawner/human/solgov/sonnensoldner(loc)
+				new /obj/effect/mob_spawn/corpse/human/solgov/sonnensoldner(loc)
 				new /mob/living/simple_animal/hostile/blob/blobspore/weak(loc)
 			else
-				new /obj/effect/corpse_spawner/human/doctor(loc)
+				new /obj/effect/mob_spawn/corpse/human/doctor(loc)
 			if(prob(35))
-				new /obj/effect/corpse_spawner/human/solgov/sonnensoldner(loc)
+				new /obj/effect/mob_spawn/corpse/human/solgov/sonnensoldner(loc)
 				new /mob/living/simple_animal/hostile/blob/blobspore/weak(loc)
 			else
-				new /obj/effect/corpse_spawner/human/doctor(loc)
+				new /obj/effect/mob_spawn/corpse/human/doctor(loc)
 			new /obj/item/healthanalyzer(loc)
 			new /turf/open/floor/carpet/nanoweave/beige(loc)
 			new /mob/living/simple_animal/hostile/blob/blobbernaut/independent(loc)
@@ -569,7 +569,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 			if(prob(35))
 				new /mob/living/simple_animal/hostile/swarmer/ai(loc)
 				new /obj/item/clothing/gloves/color/latex/engineering(loc)
-			new /obj/effect/corpse_spawner/human/engineer(loc)
+			new /obj/effect/mob_spawn/corpse/human/engineer(loc)
 			new /turf/open/floor/circuit/telecomms(loc)
 		if(8)//Literally blood-drunk.
 			visible_message("<span class='userdanger'>Blood sprays from the portal. An ichor-drenched figure steps through!</span>")
@@ -723,7 +723,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 			new /mob/living/simple_animal/hostile/asteroid/goliath/beast(loc)
 			new /mob/living/simple_animal/hostile/asteroid/goliath/beast(loc)
 			new /mob/living/simple_animal/hostile/asteroid/goliath/beast/ancient(loc)
-			new /obj/effect/corpse_spawner/human/miner(loc)
+			new /obj/effect/mob_spawn/corpse/human/miner(loc)
 			new /turf/open/floor/plating/asteroid/basalt(loc)
 		if(12)//sailing the ocean blue
 			visible_message("<span class='userdanger'>Water pours out of the portal, followed by a strange vessel. It's occupied.</span>")
@@ -959,7 +959,7 @@ GLOBAL_LIST_INIT(ore_probability, list(
 				new /mob/living/simple_animal/slime/random(loc)
 			if(prob(35))
 				new /mob/living/simple_animal/pet/dog/corgi/puppy/slime(loc)
-			new /obj/effect/corpse_spawner/human/scientist(loc)
+			new /obj/effect/mob_spawn/corpse/human/scientist(loc)
 			new /turf/open/floor/mineral/titanium/purple(loc)
 			new /mob/living/simple_animal/slime/random(loc)
 		if(19)//hey, free elite tumor!

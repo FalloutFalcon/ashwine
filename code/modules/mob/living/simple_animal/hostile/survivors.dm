@@ -27,7 +27,7 @@
 	unsuitable_atmos_damage = 15
 	speak_emote = list("groans")
 	loot = list(
-		/obj/effect/corpse_spawner/human/damaged/whitesands
+		/obj/effect/mob_spawn/corpse/human/damaged/whitesands
 	)
 	del_on_death = 1
 	faction = list("hermit")
@@ -68,7 +68,7 @@
 	name = "Hermit Hunter"
 	desc ="A wild-eyed figure. Watch out- he has a gun, and he remembers just enough of his old life to use it!"
 	loot = list(
-		/obj/effect/corpse_spawner/human/damaged/whitesands/hunter,
+		/obj/effect/mob_spawn/corpse/human/damaged/whitesands/hunter,
 	)
 
 /mob/living/simple_animal/hostile/asteroid/whitesands/ranged/gunslinger
@@ -82,15 +82,15 @@
 	rapid_fire_delay = 3
 	casingtype = /obj/item/ammo_casing/a545_39/recycled
 	loot = list(
-		/obj/effect/corpse_spawner/human/damaged/whitesands/gunslinger,
+		/obj/effect/mob_spawn/corpse/human/damaged/whitesands/gunslinger,
 	)
 
 //survivor corpses
 
-/obj/effect/corpse_spawner/human/damaged/whitesands
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands
 	var/survivor_type //room for alternatives inside the fuckoff grade init.
 
-/obj/effect/corpse_spawner/human/damaged/whitesands/Initialize() //everything here should equal out to 100 for the sake of my sanity.
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands/Initialize() //everything here should equal out to 100 for the sake of my sanity.
 
 	mob_species = pickweight(list(
 			/datum/species/human = 50,
@@ -337,13 +337,13 @@
 	. = ..()
 
 
-/obj/effect/corpse_spawner/human/damaged/whitesands/survivor
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands/survivor
 	survivor_type = "survivor"
 
-/obj/effect/corpse_spawner/human/damaged/whitesands/hunter
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands/hunter
 	survivor_type = "hunter"
 
-/obj/effect/corpse_spawner/human/damaged/whitesands/gunslinger
+/obj/effect/mob_spawn/corpse/human/damaged/whitesands/gunslinger
 	survivor_type = "gunslinger"
 
 //hold overs for any admin who may want to spawn their own survivor realmobs

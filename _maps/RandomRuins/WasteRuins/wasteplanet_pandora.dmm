@@ -499,7 +499,7 @@
 /obj/item/ammo_casing/spent{
 	icon_state = "pistol-brass-empty"
 	},
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /turf/open/floor/plating/dirt/old/waste,
 /area/ruin/wasteplanet)
 "tF" = (
@@ -630,7 +630,7 @@
 /turf/open/water/waste,
 /area/ruin/wasteplanet)
 "zy" = (
-/obj/effect/corpse_spawner/human/nanotrasenassaultsoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasenassaultsoldier,
 /turf/open/indestructible/hierophant/two/waste,
 /area/ruin/wasteplanet)
 "zI" = (
@@ -819,7 +819,7 @@
 /turf/open/floor/wood/waste,
 /area/ruin/wasteplanet)
 "FV" = (
-/obj/effect/corpse_spawner/human/nanotrasensoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasensoldier,
 /turf/open/indestructible/hierophant/waste,
 /area/ruin/wasteplanet)
 "Gu" = (
@@ -1143,7 +1143,7 @@
 /turf/open/floor/mineral/titanium/white,
 /area/ruin/wasteplanet)
 "OU" = (
-/obj/effect/corpse_spawner/human/nanotrasenassaultsoldier,
+/obj/effect/mob_spawn/corpse/human/nanotrasenassaultsoldier,
 /turf/open/indestructible/hierophant/waste,
 /area/ruin/wasteplanet)
 "OV" = (

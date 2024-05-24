@@ -327,7 +327,7 @@
 /turf/open/floor/plating/grass/jungle/lit,
 /area/overmap_encounter/planetoid/jungle/explored)
 "Jd" = (
-/obj/effect/corpse_spawner/human/charredskeleton{
+/obj/effect/mob_spawn/corpse/human/charredskeleton{
 	desc = "Many die in the pursuit of science. Even more die making homebrew explosives in a random shack on some frontier planet.";
 	name = "charred remains of the Teacher"
 	},

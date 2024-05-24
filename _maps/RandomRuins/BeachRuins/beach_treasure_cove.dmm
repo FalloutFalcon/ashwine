@@ -361,7 +361,7 @@
 	pixel_x = -12
 	},
 /obj/item/gps,
-/obj/effect/corpse_spawner/human/cargo_tech,
+/obj/effect/mob_spawn/corpse/human/cargo_tech,
 /obj/item/storage/belt/military,
 /turf/open/floor/wood,
 /area/ruin/beach/treasure_cove)
@@ -1520,7 +1520,7 @@
 /area/ruin/beach/treasure_cove)
 "ZO" = (
 /obj/structure/closet/body_bag,
-/obj/effect/corpse_spawner/human/damaged,
+/obj/effect/mob_spawn/corpse/human/damaged,
 /obj/item/ammo_box/magazine/p16{
 	pixel_x = -7;
 	pixel_y = 2

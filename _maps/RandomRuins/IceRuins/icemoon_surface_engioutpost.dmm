@@ -6,7 +6,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/ruin)
 "ac" = (
-/obj/effect/corpse_spawner/human/engineer,
+/obj/effect/mob_spawn/corpse/human/engineer,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/overmap_encounter/planetoid/ice/explored)
 "ad" = (
@@ -776,7 +776,7 @@
 /turf/open/floor/plasteel/icemoon,
 /area/ruin)
 "bV" = (
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plasteel/icemoon,
 /area/ruin)
 "bW" = (
@@ -1199,7 +1199,7 @@
 /turf/open/floor/plating/ice/icemoon,
 /area/overmap_encounter/planetoid/ice/explored)
 "cU" = (
-/obj/effect/corpse_spawner/human/engineer,
+/obj/effect/mob_spawn/corpse/human/engineer,
 /obj/structure/cable{
 	icon_state = "4-8"
 	},

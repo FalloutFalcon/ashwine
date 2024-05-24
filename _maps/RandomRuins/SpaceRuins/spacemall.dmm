@@ -98,7 +98,7 @@
 "av" = (
 /obj/effect/turf_decal/corner/transparent/green/diagonal,
 /obj/effect/decal/cleanable/blood,
-/obj/effect/corpse_spawner/human/frontier,
+/obj/effect/mob_spawn/corpse/human/frontier,
 /turf/open/floor/plasteel/dark,
 /area/ruin/space/has_grav/spacemall)
 "aw" = (
@@ -1534,7 +1534,7 @@
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/spacemall/dorms)
 "fE" = (
-/obj/effect/corpse_spawner/human/frontier,
+/obj/effect/mob_spawn/corpse/human/frontier,
 /turf/open/floor/plasteel,
 /area/ruin/space/has_grav/spacemall)
 "fF" = (
@@ -3832,7 +3832,7 @@
 /area/ruin/space/has_grav/spacemall/shuttle)
 "oH" = (
 /obj/effect/turf_decal/corner/opaque/grey/diagonal,
-/obj/effect/corpse_spawner/human/charredskeleton{
+/obj/effect/mob_spawn/corpse/human/charredskeleton{
 	outfit = /datum/outfit/job/assistant;
 	burn_damage = 0
 	},
@@ -4230,7 +4230,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/gibs,
-/obj/effect/corpse_spawner/human/charredskeleton{
+/obj/effect/mob_spawn/corpse/human/charredskeleton{
 	outfit = /datum/outfit/job/security;
 	burn_damage = 0
 	},
@@ -6036,7 +6036,7 @@
 	dir = 4
 	},
 /obj/structure/spider/stickyweb,
-/obj/effect/corpse_spawner/human/charredskeleton{
+/obj/effect/mob_spawn/corpse/human/charredskeleton{
 	outfit = /datum/outfit/job/assistant;
 	burn_damage = 0
 	},
@@ -13750,7 +13750,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/effect/corpse_spawner/human/charredskeleton{
+/obj/effect/mob_spawn/corpse/human/charredskeleton{
 	outfit = /datum/outfit/job/assistant;
 	burn_damage = 0
 	},

@@ -8534,7 +8534,7 @@
 /area/ruin/space/has_grav/singularitylab)
 "HF" = (
 /obj/structure/chair/office,
-/obj/effect/corpse_spawner/human/charredskeleton,
+/obj/effect/mob_spawn/corpse/human/charredskeleton,
 /turf/open/floor/carpet/nanoweave/purple,
 /area/ruin/space/has_grav/singularitylab/lab)
 "HG" = (

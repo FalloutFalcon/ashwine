@@ -355,7 +355,7 @@
 /obj/item/gun/ballistic/automatic/pistol/commander{
 	pixel_y = 7
 	},
-/obj/effect/corpse_spawner/human/assistant,
+/obj/effect/mob_spawn/corpse/human/assistant,
 /turf/open/floor/plating{
 	icon_state = "panelscorched"
 	},

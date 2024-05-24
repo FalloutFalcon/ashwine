@@ -22,7 +22,7 @@
 	del_on_death = 1
 	var/zombiejob = "Medical Doctor"
 	var/infection_chance = 0
-	var/obj/effect/corpse_spawner/human/corpse
+	var/obj/effect/mob_spawn/corpse/human/corpse
 
 /mob/living/simple_animal/hostile/zombie/Initialize(mapload)
 	. = ..()

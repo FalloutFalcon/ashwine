@@ -832,7 +832,7 @@
 	desc = "A profession carp butcher, gone mad due to carptoxin exposure. There seems to be something in their pocket...";
 	faction = list("beach","pirate");
 	health = 300;
-	loot = list(/obj/effect/corpse_spawner/human/cat_butcher,/obj/item/guardiancreator/carp);
+	loot = list(/obj/effect/mob_spawn/corpse/human/cat_butcher,/obj/item/guardiancreator/carp);
 	maxHealth = 300;
 	maxbodytemp = 10000;
 	melee_damage_lower = 20;

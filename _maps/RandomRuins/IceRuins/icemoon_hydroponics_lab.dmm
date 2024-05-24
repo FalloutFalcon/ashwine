@@ -465,7 +465,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ruin/powered/hydroponicslab)
 "iB" = (
-/obj/effect/corpse_spawner/human/scientist,
+/obj/effect/mob_spawn/corpse/human/scientist,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plasteel/tech,
 /area/ruin/powered/hydroponicslab)
@@ -1079,7 +1079,7 @@
 /turf/open/floor/plasteel/tech,
 /area/ruin/powered/hydroponicslab)
 "tk" = (
-/obj/effect/corpse_spawner/human/botanist,
+/obj/effect/mob_spawn/corpse/human/botanist,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/hatchet{
