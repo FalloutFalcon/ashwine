@@ -61,19 +61,19 @@
 	. = ..()
 	desc += " This drone appears to have a complex holoprojector built on its 'head'."
 
-/obj/effect/mob_spawn/drone/syndrone
+/obj/effect/mob_spawn/ghost_role/drone/syndrone
 	name = "syndrone shell"
 	desc = "A shell of a syndrone, a modified maintenance drone designed to infiltrate and annihilate."
 	icon_state = "syndrone_item"
 	mob_name = "syndrone"
 	mob_type = /mob/living/simple_animal/drone/syndrone
 
-/obj/effect/mob_spawn/drone/syndrone/badass
+/obj/effect/mob_spawn/ghost_role/drone/syndrone/badass
 	name = "badass syndrone shell"
 	mob_name = "badass syndrone"
 	mob_type = /mob/living/simple_animal/drone/syndrone/badass
 
-/obj/effect/mob_spawn/drone/snowflake
+/obj/effect/mob_spawn/ghost_role/drone/snowflake
 	name = "snowflake drone shell"
 	desc = "A shell of a snowflake drone, a maintenance drone with a built in holographic projector to display hats and masks."
 	mob_name = "snowflake drone"

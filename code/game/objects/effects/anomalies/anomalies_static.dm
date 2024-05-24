@@ -125,7 +125,7 @@
 /*
 /obj/effect/anomaly/tvstatic/planetary/Initialize(mapload)
 	if(prob(25) & !stored_mob)
-		var/obj/effect/mob_spawn/corpse/human/damaged/legioninfested/vicspawner = new (src)
+		var/obj/effect/mob_spawn/corpse/human/legioninfested/vicspawner = new (src)
 		var/mob/living/carbon/victim = (vicspawner.spawned_mob_ref)?.resolve()
 		src.stored_mob = victim
 		victim.forceMove(src)

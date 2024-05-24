@@ -45,32 +45,5 @@
 			continue
 		C.client.view_size.setTo((input("Select view range:", "Range", 4) in ranges) - 7)
 
-/obj/effect/proc_holder/spell/targeted/summon_friend
-	name = "Summon Friend"
-	desc = "The reward for selling your soul."
-	invocation_type = "none"
-	include_user = TRUE
-	range = -1
-	clothes_req = FALSE
-	charge_max = 50
-	cooldown_min = 10
-	action_icon = 'icons/mob/actions/actions_spells.dmi'
-	action_icon_state = "sacredflame"
-	var/mob/living/friend
-	var/obj/effect/mob_spawn/human/demonic_friend/friendShell
-
-/obj/effect/proc_holder/spell/targeted/summon_friend/cast(list/targets, mob/user = usr)
-	if(!QDELETED(friend))
-		to_chat(friend, "<span class='userdanger'>Your master has deemed you a poor friend. Your durance in hell will now resume.</span>")
-		friend.dust(TRUE)
-		qdel(friendShell)
-		return
-	if(!QDELETED(friendShell))
-		qdel(friendShell)
-		return
-	for(var/C in targets)
-		var/mob/living/L = C
-		friendShell = new /obj/effect/mob_spawn/human/demonic_friend(L.loc, L.mind, src)
-
 /obj/effect/proc_holder/spell/targeted/conjure_item/spellpacket/robeless
 	clothes_req = FALSE

@@ -1,12 +1,3 @@
-//Instant version - use when spawning corpses during runtime
-/obj/effect/mob_spawn/corpse/human
-	icon_state = "corpsehuman"
-	roundstart = FALSE
-	instant = TRUE
-
-/obj/effect/mob_spawn/corpse/human/damaged
-	brute_damage = 1000
-
 /obj/effect/mob_spawn/corpse/human/assistant
 	name = "Assistant"
 	outfit = /datum/outfit/job/assistant
@@ -14,15 +5,6 @@
 
 /obj/effect/mob_spawn/corpse/human/assistant/husked
 	husk = TRUE
-
-/obj/effect/mob_spawn/corpse/human/assistant/beesease_infection
-	disease = /datum/disease/beesease
-
-/obj/effect/mob_spawn/corpse/human/assistant/brainrot_infection
-	disease = /datum/disease/brainrot
-
-/obj/effect/mob_spawn/corpse/human/assistant/spanishflu_infection
-	disease = /datum/disease/fluspanish
 
 /obj/effect/mob_spawn/corpse/human/cargo_tech
 	name = "Cargo Tech"
@@ -165,7 +147,6 @@
 	name = "skeletal remains"
 	mob_name = "skeleton"
 	mob_species = /datum/species/skeleton
-	mob_gender = NEUTER
 
 /obj/effect/mob_spawn/corpse/human/zombie
 	name = "rotting corpse"
@@ -260,8 +241,6 @@
 
 
 /obj/effect/mob_spawn/corpse/human/clown/corpse
-	roundstart = FALSE
-	instant = TRUE
 	skin_tone = "caucasian1"
 	hairstyle = "Bald"
 	facial_hairstyle = "Shaved"

@@ -408,7 +408,7 @@
 	dir = 6
 	},
 /obj/effect/decal/cleanable/blood/old,
-/obj/effect/mob_spawn/corpse/human/damaged/legioninfested,
+/obj/effect/mob_spawn/corpse/human/legioninfested,
 /turf/open/floor/plating/ashplanet/rocky,
 /area/ruin/unpowered/scorched_hut)
 "kG" = (

@@ -14,7 +14,7 @@
 		return 0
 	if(!GLOB.the_gateway)
 		return 0
-	new /obj/effect/mob_spawn/swarmer(get_turf(GLOB.the_gateway))
+	new /obj/effect/mob_spawn/ghost_role/swarmer(get_turf(GLOB.the_gateway))
 	if(prob(25)) //25% chance to announce it to the crew
 		var/swarmer_report = "<span class='big bold'>[command_name()] High-Priority Update</span>"
 		swarmer_report += "<br><br>Our long-range sensors have detected an odd signal emanating from your station's gateway. We recommend immediate investigation of your gateway, as something may have come through."

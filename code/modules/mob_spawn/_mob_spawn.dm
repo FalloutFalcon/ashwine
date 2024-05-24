@@ -10,7 +10,7 @@
 	///A forced name of the mob, though can be overridden if a special name is passed as an argument
 	var/mob_name
 	///the type of the mob, you best inherit this
-	var/mob_type = /mob/living/basic/cockroach
+	var/mob_type = /mob/living/carbon/human
 
 	////Human specific stuff. Don't set these if you aren't using a human, the unit tests will put a stop to your sinful hand.
 
@@ -80,7 +80,7 @@
 			spawned_human.skin_tone = skin_tone
 		else
 			spawned_human.skin_tone = pick(GLOB.skin_tones)
-		spawned_human.update_body(is_creating = TRUE)
+		spawned_human.update_body()
 
 /obj/effect/mob_spawn/proc/name_mob(mob/living/spawned_mob, forced_name)
 	var/chosen_name
@@ -138,11 +138,13 @@
 	///which role to check for a job ban (ROLE_LAVALAND is the default ghost role ban)
 	var/role_ban = ROLE_LAVALAND
 	/// Typepath indicating the kind of job datum this ghost role will have. PLEASE inherit this with a new job datum, it's not hard. jobs come with policy configs.
-	var/spawner_job_path = /datum/job/ghost_role
+	var/spawner_job_path = /datum/job
+
+	var/assignedrole = "Ghost Role"
 
 /obj/effect/mob_spawn/ghost_role/Initialize(mapload)
 	. = ..()
-	SSpoints_of_interest.make_point_of_interest(src)
+	//SSpoints_of_interest.make_point_of_interest(src)
 	LAZYADD(GLOB.mob_spawners[name], src)
 
 /obj/effect/mob_spawn/Destroy()
@@ -258,6 +260,8 @@
 		if(important_text != "")
 			output_message += "\n[span_userdanger("[important_text]")]"
 		to_chat(spawned_mob, output_message)
+	if(assignedrole)
+		spawned_mob.mind.assigned_role = assignedrole
 
 /// Checks if the spawner has zero uses left, if so, delete yourself... NOW!
 /obj/effect/mob_spawn/ghost_role/proc/check_uses()
@@ -304,8 +308,10 @@
 	spawned_mob.adjustOxyLoss(oxy_damage)
 	spawned_mob.adjustBruteLoss(brute_damage)
 	spawned_mob.adjustFireLoss(burn_damage)
+	/*
 	if (corpse_description)
 		spawned_mob.AddComponent(/datum/component/temporary_description, corpse_description, naive_corpse_description)
+	*/
 
 /obj/effect/mob_spawn/corpse/create(mob/mob_possessor, newname)
 	. = ..()
@@ -338,11 +344,9 @@
 	. = ..()
 	if(conceal_presence)
 		// We don't want corpse PDAs to show up in the messenger list.
-		var/obj/item/modular_computer/pda/messenger = locate() in spawned_human
-		if(messenger)
-			var/datum/computer_file/program/messenger/message_app = locate() in messenger.stored_files
-			if(message_app)
-				message_app.invisible = TRUE
+		var/obj/item/pda/PDA = locate(/obj/item/pda) in spawned_human
+		if(PDA)
+			PDA.toff = TRUE
 		// Or on crew monitors
 		var/obj/item/clothing/under/sensor_clothes = spawned_human.w_uniform
 		if(istype(sensor_clothes))
@@ -384,16 +388,11 @@
 /obj/effect/mob_spawn/mouse
 	name = "sleeper"
 	mob_type = 	/mob/living/simple_animal/mouse
-	death = FALSE
-	roundstart = FALSE
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 
 /obj/effect/mob_spawn/cow
 	name = "sleeper"
 	mob_type = 	/mob/living/simple_animal/cow
-	death = FALSE
-	roundstart = FALSE
-	mob_gender = FEMALE
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"

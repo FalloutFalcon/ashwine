@@ -49,11 +49,9 @@
 	icon_state = "large_egg"
 	mob_species = /datum/species/lizard/ashwalker/kobold //WS Edit - Kobold
 	outfit = /datum/outfit/ashwalker
-	roundstart = FALSE
-	death = FALSE
 	move_resist = MOVE_FORCE_NORMAL
 	density = FALSE
-	short_desc = "You are an ash walker. Your tribe worships the Necropolis."
+	you_are_text = "You are an ash walker. Your tribe worships the Necropolis."
 	flavour_text = "The wastes are sacred ground, its monsters a blessed bounty. \
 	The invaders from the past have died long ago. You will survive until the next \
 	day, and the day after. Your way of life is important to you."
@@ -66,13 +64,15 @@
 	eggshell = null
 	return ..()
 
-/obj/effect/mob_spawn/ghost_role/human/ash_walker/allow_spawn(mob/user)
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/allow_spawn(mob/user , silent = FALSE)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
-	to_chat(user, "<span class='warning'><b>You have exhausted your usefulness to the Necropolis</b>.</span>")
+	if(!silent)
+		to_chat(user, span_warning("You have exhausted your usefulness to the Necropolis."))
 	return FALSE
 
 /obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/new_spawn)
+	. = ..()
 	new_spawn.fully_replace_character_name(null,random_unique_lizard_name(gender))
 	to_chat(new_spawn, "<b>Drag the corpses of beasts and the dead to your nest. It will absorb them to create more of your kind. You have never seen a outsider before, as that was before your time.</b>")
 
@@ -102,62 +102,8 @@
 	head = /obj/item/clothing/head/helmet/gladiator
 	uniform = /obj/item/clothing/under/costume/gladiator/ash_walker
 
-/obj/effect/mob_spawn/ghost_role/human/demonic_friend
-	name = "Essence of friendship"
-	desc = "Oh boy! Oh boy! A friend!"
-	mob_name = "Demonic friend"
-	icon = 'icons/obj/cardboard_cutout.dmi'
-	icon_state = "cutout_basic"
-	outfit = /datum/outfit/demonic_friend
-	death = FALSE
-	roundstart = FALSE
-	random = TRUE
-	id_job = "SuperFriend"
-	var/obj/effect/proc_holder/spell/targeted/summon_friend/spell
-	var/datum/mind/owner
-	assignedrole = "SuperFriend"
-
-/obj/effect/mob_spawn/ghost_role/human/demonic_friend/Initialize(mapload, datum/mind/owner_mind, obj/effect/proc_holder/spell/targeted/summon_friend/summoning_spell)
-	. = ..()
-	owner = owner_mind
-	flavour_text = "You have been given a reprieve from your eternity of torment, to be [owner.name]'s friend for [owner.p_their()] short mortal coil."
-	important_info = "Be aware that if you do not live up to [owner.name]'s expectations, they can send you back to hell with a single thought. [owner.name]'s death will also return you to hell."
-	var/area/A = get_area(src)
-	if(!mapload && A)
-		notify_ghosts("\A friendship shell has been completed in \the [A.name].", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE)
-	objectives = "Be [owner.name]'s friend, and keep [owner.name] alive, so you don't get sent back to hell."
-	spell = summoning_spell
-
-
-/obj/effect/mob_spawn/ghost_role/human/demonic_friend/special(mob/living/L)
-	if(!QDELETED(owner.current) && owner.current.stat != DEAD)
-		L.fully_replace_character_name(null,"[owner.name]'s best friend")
-		soullink(/datum/soullink/oneway, owner.current, L)
-		spell.friend = L
-		spell.charge_counter = spell.charge_max
-		L.mind.hasSoul = FALSE
-		var/mob/living/carbon/human/H = L
-		var/obj/item/worn = H.wear_id
-		var/obj/item/card/id/id = worn.GetID()
-		id.registered_name = L.real_name
-		id.update_label()
-	else
-		to_chat(L, "<span class='userdanger'>Your owner is already dead! You will soon perish.</span>")
-		addtimer(CALLBACK(L, TYPE_PROC_REF(/mob, dust), 150)) //Give em a few seconds as a mercy.
-
-/datum/outfit/demonic_friend
-	name = "Demonic Friend"
-	uniform = /obj/item/clothing/under/misc/assistantformal
-	shoes = /obj/item/clothing/shoes/laceup
-	r_pocket = /obj/item/radio
-	back = /obj/item/storage/backpack
-	implants = list(/obj/item/implant/mindshield) //No revolutionaries, he's MY friend.
-	id = /obj/item/card/id
-
 /obj/effect/mob_spawn/ghost_role/human/syndicate
 	name = "Syndicate Operative"
-	roundstart = FALSE
-	death = FALSE
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper_s"
 	outfit = /datum/outfit/syndicate_empty
@@ -177,23 +123,21 @@
 /obj/effect/mob_spawn/ghost_role/human/pirate
 	name = "space pirate sleeper"
 	desc = "A cryo sleeper smelling faintly of rum."
-	random = TRUE
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 	mob_name = "a space pirate"
 	mob_species = /datum/species/skeleton
 	outfit = /datum/outfit/pirate/space
-	roundstart = FALSE
-	death = FALSE
 	anchored = TRUE
 	density = FALSE
-	show_flavour = FALSE //Flavour only exists for spawners menu
-	short_desc = "You are a space pirate."
+	show_flavor = FALSE //Flavour only exists for spawners menu
+	you_are_text = "You are a space pirate."
 	flavour_text = "The station refused to pay for your protection, protect the ship, siphon the credits from the station and raid it for even more loot."
 	assignedrole = "Space Pirate"
 	var/rank = "Mate"
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/special(mob/living/new_spawn)
+	. = ..()
 	new_spawn.fully_replace_character_name(new_spawn.real_name,generate_pirate_name())
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/proc/generate_pirate_name()
@@ -245,3 +189,63 @@
 	id = /obj/item/card/id/syndicate_command/captain_id
 	backpack_contents = list(/obj/item/documents/syndicate/red, /obj/item/paper/fluff/ruins/forgottenship/password)
 	implants = list(/obj/item/implant/weapons_auth)
+
+///Syndicate Listening Post
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate
+	name = "Syndicate Bioweapon Scientist"
+	icon = 'icons/obj/machines/sleeper.dmi'
+	icon_state = "sleeper_s"
+	you_are_text = "You are a syndicate science technician, employed in a top secret research facility developing biological weapons."
+	flavour_text = "Reports of potential Nanotrasen fleet movement in your sector prompted you to initiate Operation Smokescreen, killing base power and taking your crew into cryosleep. You've awoken an unknown amount of time later as base security initiates an emergency reboot. Keep vigilant for whatever reawoke you, continue your research as best you can, and try to keep a low profile."
+	important_text = "Prevent yourself and any Syndicate assets from being taken by Corporate forces."
+	outfit = /datum/outfit/lavaland_syndicate
+	assignedrole = "Lavaland Syndicate"
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/special(mob/living/new_spawn)
+	. = ..()
+	new_spawn.grant_language(/datum/language/codespeak, TRUE, TRUE, LANGUAGE_MIND)
+
+/datum/outfit/lavaland_syndicate
+	name = "Lavaland Syndicate Agent"
+	r_hand = /obj/item/gun/ballistic/automatic/sniper_rifle
+	uniform = /obj/item/clothing/under/syndicate
+	suit = /obj/item/clothing/suit/toggle/labcoat
+	shoes = /obj/item/clothing/shoes/combat
+	gloves = /obj/item/clothing/gloves/tackler/combat/insulated
+	ears = /obj/item/radio/headset/syndicate/alt
+	back = /obj/item/storage/backpack
+	r_pocket = /obj/item/gun/ballistic/automatic/pistol
+	id = /obj/item/card/id/syndicate/anyone
+	implants = list(/obj/item/implant/weapons_auth)
+
+/datum/outfit/lavaland_syndicate/post_equip(mob/living/carbon/human/H)
+	H.faction |= ROLE_SYNDICATE
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms
+	name = "Syndicate Comms Agent"
+	you_are_text = "You are a syndicate communications agent, employed in a top secret research facility developing biological weapons."
+	flavour_text = "Reports of potential Nanotrasen fleet movement in your sector prompted you to initiate Operation Smokescreen, killing base power and taking your crew into cryosleep. You've awoken an unknown amount of time later as base security initiates an emergency reboot. Keep vigilant for whatever reawoke you, and try to keep a low profile. Use the communication equipment to monitor any local activity. Anyone nearby is presumed to be an agent of Nanotrasen: Sow disinformation to throw them off your trail. Do not let the base fall into enemy hands!"
+	important_text = "Prevent yourself and any Syndicate assets from being taken by Corporate forces."
+	outfit = /datum/outfit/lavaland_syndicate/comms
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space
+	you_are_text = "You are a deep-cover syndicate agent, assigned to a small military listening post intended to keep an eye on Nanotrasen activity in the area. Increased military operations prompted you to follow Smokescreen protocol and go into cryosleep, leaving your base on minimal power."
+	flavour_text = "Your base's emergency security system has reawoken you and brought the facility back to full power- It can only be presumed Nanotrasen personnel are close to locating you. Monitor any local activity as best you can, and try to keep a low profile. Use the communication equipment to attempt parlance, and sow disinformation to throw Nanotrasen off your trail."
+	important_text = "Prevent yourself and any Syndicate assets from being taken by Corporate forces."
+
+/obj/effect/mob_spawn/ghost_role/human/lavaland_syndicate/comms/space/Initialize()
+	. = ..()
+	if(prob(90)) //only has a 10% chance of existing, otherwise it'll just be a NPC syndie.
+		new /mob/living/simple_animal/hostile/syndicate/ranged(get_turf(src))
+		return INITIALIZE_HINT_QDEL
+
+/datum/outfit/lavaland_syndicate/comms
+	name = "Lavaland Syndicate Comms Agent"
+	r_hand = /obj/item/melee/transforming/energy/sword/saber
+	mask = /obj/item/clothing/mask/chameleon/gps
+	suit = /obj/item/clothing/suit/armor/vest
+
+/obj/item/clothing/mask/chameleon/gps/Initialize()
+	. = ..()
+	AddComponent(/datum/component/gps, "Encrypted Signal")

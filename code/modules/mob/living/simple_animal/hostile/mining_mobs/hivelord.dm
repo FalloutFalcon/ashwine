@@ -167,9 +167,9 @@
 		else if(fromtendril)
 			new /obj/effect/mob_spawn/corpse/human/charredskeleton(T)
 		else if(dwarf_mob)
-			new /obj/effect/mob_spawn/corpse/human/damaged/legioninfested/dwarf(T)
+			new /obj/effect/mob_spawn/corpse/human/legioninfested/dwarf(T)
 		else
-			new /obj/effect/mob_spawn/corpse/human/damaged/legioninfested(T)
+			new /obj/effect/mob_spawn/corpse/human/legioninfested(T)
 	..(gibbed)
 
 /mob/living/simple_animal/hostile/asteroid/hivelord/legion/tendril
@@ -297,7 +297,7 @@
 	layer = MOB_LAYER
 	del_on_death = TRUE
 	sentience_type = SENTIENCE_BOSS
-	loot = list(/obj/item/organ/regenerative_core/legion = 3, /obj/effect/mob_spawn/corpse/human/damaged/legioninfested = 5, /obj/effect/mob_spawn/corpse/human/damaged/legioninfested = 5, /obj/effect/mob_spawn/corpse/human/damaged/legioninfested = 5)
+	loot = list(/obj/item/organ/regenerative_core/legion = 3, /obj/effect/mob_spawn/corpse/human/legioninfested = 5, /obj/effect/mob_spawn/corpse/human/legioninfested = 5, /obj/effect/mob_spawn/corpse/human/legioninfested = 5)
 	atmos_requirements = list("min_oxy" = 0, "max_oxy" = 0, "min_tox" = 0, "max_tox" = 0, "min_co2" = 0, "max_co2" = 0, "min_n2" = 0, "max_n2" = 0)
 	minbodytemp = 0
 	maxbodytemp = INFINITY
@@ -390,18 +390,22 @@
 	name = "charred skeletal remains"
 	burn_damage = 1000
 	mob_name = "ashen skeleton"
-	mob_gender = NEUTER
 	husk = FALSE
 	mob_species = /datum/species/skeleton
-	mob_color = "#454545"
 
-//Legion infested mobs
-
-/obj/effect/mob_spawn/corpse/human/damaged/legioninfested/dwarf/equip(mob/living/carbon/human/H)
+/obj/effect/mob_spawn/corpse/human/charredskeleton/special(mob/living/carbon/human/spawned_human)
 	. = ..()
-	H.transform = H.transform.Scale(0.8, 1)//somehow dwarf squashing is borked when not roundstart. I hate WS code
+	spawned_human.color = "#454545"
+	spawned_human.gender = NEUTER
 
-/obj/effect/mob_spawn/corpse/human/damaged/legioninfested/Initialize() //in an ideal world, these would generate, the legion would overlay over the corpse, and we'd get cool sprites
+/obj/effect/mob_spawn/corpse/human/legioninfested
+	burn_damage = 1000
+
+/obj/effect/mob_spawn/corpse/human/legioninfested/dwarf/special(mob/living/carbon/human/spawned_human)
+	. = ..()
+	spawned_human.dna.add_mutation(/datum/mutation/human/dwarfism)
+
+/obj/effect/mob_spawn/corpse/human/legioninfested/Initialize() //in an ideal world, these would generate, the legion would overlay over the corpse, and we'd get cool sprites
 	mob_species = pickweight(list(
 		/datum/species/human = 31,
 		/datum/species/lizard = 26,

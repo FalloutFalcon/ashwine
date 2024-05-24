@@ -2180,7 +2180,7 @@
 /area/ruin/powered)
 "uD" = (
 /obj/structure/rack,
-/obj/effect/mob_spawn/drone,
+/obj/effect/mob_spawn/ghost_role/drone,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/trash/raisins,
 /obj/effect/spawner/lootdrop/maintenance,

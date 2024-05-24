@@ -3,10 +3,7 @@
 /obj/effect/mob_spawn/ghost_role/human/fugitive
 	assignedrole = "Fugitive Hunter"
 	flavour_text = "" //the flavor text will be the backstory argument called on the antagonist's greet, see hunter.dm for details
-	roundstart = FALSE
-	death = FALSE
-	random = TRUE
-	show_flavour = FALSE
+	show_flavor = FALSE
 	density = TRUE
 	var/back_story = "error"
 
