@@ -135,8 +135,8 @@
 
 	////bans and policy
 
-	///which role to check for a job ban (ROLE_LAVALAND is the default ghost role ban)
-	var/role_ban = ROLE_LAVALAND
+	///which role to check for a job ban (ROLE_GHOST is the default ghost role ban)
+	var/role_ban = ROLE_GHOST
 	/// Typepath indicating the kind of job datum this ghost role will have. PLEASE inherit this with a new job datum, it's not hard. jobs come with policy configs.
 	var/spawner_job_path = /datum/job
 

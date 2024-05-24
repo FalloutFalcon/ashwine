@@ -3,7 +3,7 @@
 //Values for antag preferences, event roles, etc. unified here
 
 
-
+//I need to change the database c:
 //These are synced with the Database, if you change the values of the defines
 //then you MUST update the database!
 #define ROLE_SYNDICATE "Syndicate"
@@ -36,7 +36,7 @@
 #define ROLE_POSIBRAIN "Posibrain"
 #define ROLE_DRONE "Drone"
 #define ROLE_DEATHSQUAD "Deathsquad"
-#define ROLE_LAVALAND "Lavaland"
+#define ROLE_GHOST "Ghost"
 #define ROLE_INTERNAL_AFFAIRS "Internal Affairs Agent"
 #define ROLE_FAMILIES "Familes Antagonists"
 #define ROLE_SYNDICATE_CYBERSUN "Cybersun Space Syndicate" //Ghost role syndi from Forgottenship ruin
