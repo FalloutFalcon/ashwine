@@ -9,7 +9,7 @@
 	icon_state = "large_egg"
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | FREEZE_PROOF
 	max_integrity = 80
-	var/obj/effect/mob_spawn/human/ash_walker/egg
+	var/obj/effect/mob_spawn/ghost_role/human/ash_walker/egg
 
 /obj/structure/ash_walker_eggshell/play_attack_sound(damage_amount, damage_type = BRUTE, damage_flag = 0) //lifted from xeno eggs
 	switch(damage_type)
@@ -41,7 +41,7 @@
 	return ..()
 
 
-/obj/effect/mob_spawn/human/ash_walker
+/obj/effect/mob_spawn/ghost_role/human/ash_walker
 	name = "ash walker egg"
 	desc = "A man-sized yellow egg, spawned from some unfathomable creature. A humanoid silhouette lurks within."
 	mob_name = "an ash walker"
@@ -62,17 +62,17 @@
 	var/obj/structure/ash_walker_eggshell/eggshell
 
 
-/obj/effect/mob_spawn/human/ash_walker/Destroy()
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/Destroy()
 	eggshell = null
 	return ..()
 
-/obj/effect/mob_spawn/human/ash_walker/allow_spawn(mob/user)
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/allow_spawn(mob/user)
 	if(!(user.key in team.players_spawned))//one per person unless you get a bonus spawn
 		return TRUE
 	to_chat(user, "<span class='warning'><b>You have exhausted your usefulness to the Necropolis</b>.</span>")
 	return FALSE
 
-/obj/effect/mob_spawn/human/ash_walker/special(mob/living/new_spawn)
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/special(mob/living/new_spawn)
 	new_spawn.fully_replace_character_name(null,random_unique_lizard_name(gender))
 	to_chat(new_spawn, "<b>Drag the corpses of beasts and the dead to your nest. It will absorb them to create more of your kind. You have never seen a outsider before, as that was before your time.</b>")
 
@@ -87,7 +87,7 @@
 	eggshell.egg = null
 	QDEL_NULL(eggshell)
 
-/obj/effect/mob_spawn/human/ash_walker/Initialize(mapload, datum/team/ashwalkers/ashteam)
+/obj/effect/mob_spawn/ghost_role/human/ash_walker/Initialize(mapload, datum/team/ashwalkers/ashteam)
 	. = ..()
 	var/area/A = get_area(src)
 	team = ashteam
@@ -102,7 +102,7 @@
 	head = /obj/item/clothing/head/helmet/gladiator
 	uniform = /obj/item/clothing/under/costume/gladiator/ash_walker
 
-/obj/effect/mob_spawn/human/demonic_friend
+/obj/effect/mob_spawn/ghost_role/human/demonic_friend
 	name = "Essence of friendship"
 	desc = "Oh boy! Oh boy! A friend!"
 	mob_name = "Demonic friend"
@@ -117,7 +117,7 @@
 	var/datum/mind/owner
 	assignedrole = "SuperFriend"
 
-/obj/effect/mob_spawn/human/demonic_friend/Initialize(mapload, datum/mind/owner_mind, obj/effect/proc_holder/spell/targeted/summon_friend/summoning_spell)
+/obj/effect/mob_spawn/ghost_role/human/demonic_friend/Initialize(mapload, datum/mind/owner_mind, obj/effect/proc_holder/spell/targeted/summon_friend/summoning_spell)
 	. = ..()
 	owner = owner_mind
 	flavour_text = "You have been given a reprieve from your eternity of torment, to be [owner.name]'s friend for [owner.p_their()] short mortal coil."
@@ -129,7 +129,7 @@
 	spell = summoning_spell
 
 
-/obj/effect/mob_spawn/human/demonic_friend/special(mob/living/L)
+/obj/effect/mob_spawn/ghost_role/human/demonic_friend/special(mob/living/L)
 	if(!QDELETED(owner.current) && owner.current.stat != DEAD)
 		L.fully_replace_character_name(null,"[owner.name]'s best friend")
 		soullink(/datum/soullink/oneway, owner.current, L)
@@ -154,7 +154,7 @@
 	implants = list(/obj/item/implant/mindshield) //No revolutionaries, he's MY friend.
 	id = /obj/item/card/id
 
-/obj/effect/mob_spawn/human/syndicate
+/obj/effect/mob_spawn/ghost_role/human/syndicate
 	name = "Syndicate Operative"
 	roundstart = FALSE
 	death = FALSE
@@ -174,7 +174,7 @@
 	id = /obj/item/card/id/syndicate
 
 
-/obj/effect/mob_spawn/human/pirate
+/obj/effect/mob_spawn/ghost_role/human/pirate
 	name = "space pirate sleeper"
 	desc = "A cryo sleeper smelling faintly of rum."
 	random = TRUE
@@ -193,23 +193,23 @@
 	assignedrole = "Space Pirate"
 	var/rank = "Mate"
 
-/obj/effect/mob_spawn/human/pirate/special(mob/living/new_spawn)
+/obj/effect/mob_spawn/ghost_role/human/pirate/special(mob/living/new_spawn)
 	new_spawn.fully_replace_character_name(new_spawn.real_name,generate_pirate_name())
 
-/obj/effect/mob_spawn/human/pirate/proc/generate_pirate_name()
+/obj/effect/mob_spawn/ghost_role/human/pirate/proc/generate_pirate_name()
 	var/beggings = strings(PIRATE_NAMES_FILE, "beginnings")
 	var/endings = strings(PIRATE_NAMES_FILE, "endings")
 	return "[rank] [pick(beggings)][pick(endings)]"
 
-/obj/effect/mob_spawn/human/pirate/Destroy()
+/obj/effect/mob_spawn/ghost_role/human/pirate/Destroy()
 	new/obj/structure/showcase/machinery/oldpod/used(drop_location())
 	return ..()
 
-/obj/effect/mob_spawn/human/pirate/captain
+/obj/effect/mob_spawn/ghost_role/human/pirate/captain
 	rank = "Captain"
 	outfit = /datum/outfit/pirate/space/captain
 
-/obj/effect/mob_spawn/human/pirate/gunner
+/obj/effect/mob_spawn/ghost_role/human/pirate/gunner
 	rank = "Gunner"
 
 /datum/outfit/syndicatespace

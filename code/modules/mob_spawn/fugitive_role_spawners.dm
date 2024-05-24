@@ -1,6 +1,6 @@
 
 
-/obj/effect/mob_spawn/human/fugitive
+/obj/effect/mob_spawn/ghost_role/human/fugitive
 	assignedrole = "Fugitive Hunter"
 	flavour_text = "" //the flavor text will be the backstory argument called on the antagonist's greet, see hunter.dm for details
 	roundstart = FALSE
@@ -10,11 +10,11 @@
 	density = TRUE
 	var/back_story = "error"
 
-/obj/effect/mob_spawn/human/fugitive/Initialize(mapload)
+/obj/effect/mob_spawn/ghost_role/human/fugitive/Initialize(mapload)
 	. = ..()
 	notify_ghosts("Hunters are waking up looking for refugees!", source = src, action=NOTIFY_ATTACK, flashwindow = FALSE, ignore_key = POLL_IGNORE_FUGITIVE)
 
-/obj/effect/mob_spawn/human/fugitive/spacepol
+/obj/effect/mob_spawn/ghost_role/human/fugitive/spacepol
 	name = "police pod"
 	desc = "A small sleeper typically used to put people to sleep for briefing on the mission."
 	mob_name = "a spacepol officer"
@@ -24,7 +24,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 
-/obj/effect/mob_spawn/human/fugitive/russian
+/obj/effect/mob_spawn/ghost_role/human/fugitive/russian
 	name = "russian pod"
 	flavour_text = "Ay blyat. I am a space-russian smuggler! We were mid-flight when our cargo was beamed off our ship!"
 	back_story = "russian"
@@ -34,7 +34,7 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 
-/obj/effect/mob_spawn/human/fugitive/bounty
+/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty
 	name = "bounty hunter pod"
 	flavour_text = "We got a new bounty on some fugitives, dead or alive."
 	back_story = "bounty hunters"
@@ -43,16 +43,16 @@
 	icon = 'icons/obj/machines/sleeper.dmi'
 	icon_state = "sleeper"
 
-/obj/effect/mob_spawn/human/fugitive/bounty/Destroy()
+/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/Destroy()
 	var/obj/structure/fluff/empty_sleeper/S = new(drop_location())
 	S.setDir(dir)
 	return ..()
 
-/obj/effect/mob_spawn/human/fugitive/bounty/armor
+/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/armor
 	outfit = /datum/outfit/bountyarmor
 
-/obj/effect/mob_spawn/human/fugitive/bounty/hook
+/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/hook
 	outfit = /datum/outfit/bountyhook
 
-/obj/effect/mob_spawn/human/fugitive/bounty/synth
+/obj/effect/mob_spawn/ghost_role/human/fugitive/bounty/synth
 	outfit = /datum/outfit/bountysynth

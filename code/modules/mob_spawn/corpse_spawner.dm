@@ -16,7 +16,7 @@
 	var/mob_color //Change the mob's color
 	var/assignedrole
 
-/obj/effect/mob_spawn/Initialize(mapload)
+/obj/effect/corpse_spawner/Initialize(mapload)
 	. = ..()
 	if(instant || (roundstart && (mapload || (SSticker && SSticker.current_state > GAME_STATE_SETTING_UP))))
 		INVOKE_ASYNC(src, PROC_REF(create))
