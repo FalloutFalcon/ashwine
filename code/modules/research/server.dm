@@ -19,9 +19,14 @@
 
 /obj/machinery/rnd/server/proc/create_research_server()
 	var/obj/item/circuitboard/machine/rdserver/board = circuit
-	name = "\improper [board.server_id] server"
+	var/server_id = board.server_id
+	if(!server_id)
+		return
+	name = "\improper [server_id] server"
 	SSresearch.servers |= src
-	stored_research = new(board.server_id)
+	stored_research = new(server_id)
+	connected_network = new(server_id)
+	connected_network.connect_device(src)
 
 /obj/machinery/rnd/server/Destroy()
 	SSresearch.servers -= src
@@ -34,6 +39,10 @@
 	to_chat(user, span_notice("[src] stored in [I]."))
 	return TRUE
 
+/obj/machinery/rnd/server/examine(mob/user)
+	. = ..()
+	. += connected_network.list_devices()
+
 /datum/network
 	var/id
 	var/list/connected_devices = list()
@@ -43,9 +52,17 @@
 
 /datum/network/proc/connect_device(device)
 	connected_devices |= device
-	RegisterSignal(device, COSMIG_PARTENT_QDELETING, PROF_REF(disconnect_device))
+	if(isatom(device))
+		RegisterSignal(device, COMSIG_PARENT_QDELETING, PROC_REF(disconnect_device))
 
 /datum/network/proc/disconnect_device(device)
 	connected_devices -= device
 	if(!length(connected_devices))
 		qdel()
+
+/datum/network/proc/list_devices()
+	var/list/device_list = list()
+	for(var/atom/device in connected_devices)
+		device_list += "[device.name], AREA HERE"
+	return device_list
+

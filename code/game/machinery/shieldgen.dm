@@ -509,26 +509,18 @@
 		return FALSE
 	return TRUE
 
-/obj/machinery/power/shieldwallgen/atmos/attacked_by(obj/item/I, mob/living/user)
-	if(I.tool_behaviour == TOOL_MULTITOOL)
-		var/obj/item/multitool/multi = I
-		if(!panel_open && !locked)
-			if(istype(multi.buffer,/obj/item/assembly/control/shieldwallgen))
-				var/obj/item/assembly/control/shieldwallgen/controller = multi.buffer
-				to_chat(user, span_notice("You copy the ID in your multitool's buffer to the [src]."))
-				id = controller.id
-				return TRUE
-
-		else
-			to_chat(user, span_warning("The controls are locked!"))
-			return
-
-	return ..()
-
 /obj/machinery/power/shieldwallgen/atmos/multitool_act(mob/living/user, obj/item/I)
 	. = ..()
-
-
+	var/obj/item/multitool/multi = I
+	if(!panel_open && !locked)
+		if(istype(multi.buffer,/obj/item/assembly/control/shieldwallgen))
+			var/obj/item/assembly/control/shieldwallgen/controller = multi.buffer
+			to_chat(user, span_notice("You copy the ID in your multitool's buffer to the [src]."))
+			id = controller.id
+			return TRUE
+	else
+		to_chat(user, span_warning("The controls are locked!"))
+		return
 
 /// Same as in the normal shieldwallgen, but with the shieldwalls replaced with atmos shieldwalls
 /obj/machinery/power/shieldwallgen/atmos/setup_field(direction)
