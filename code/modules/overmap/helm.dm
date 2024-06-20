@@ -392,7 +392,7 @@
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
 	priority_announce("Illegal access to local ship database detected.", sender_override="[src.name]", zlevel=virtual_z())
-	if(!do_after(user, 10 SECONDS, src)
+	if(!do_after(user, 10 SECONDS, src))
 		return COMPONENT_BLOCK_TOOL_ATTACK
 
 	say("Warning, database corruption present, resetting local database state.")

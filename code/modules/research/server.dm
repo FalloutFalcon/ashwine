@@ -25,8 +25,7 @@
 	name = "\improper [server_id] server"
 	SSresearch.servers |= src
 	stored_research = new(server_id)
-	connected_network = new(server_id)
-	connected_network.connect_device(src)
+	connected_network = new(server_id, src)
 
 /obj/machinery/rnd/server/Destroy()
 	SSresearch.servers -= src
@@ -45,10 +44,12 @@
 
 /datum/network
 	var/id
+	var/list/hosting_servers = list()
 	var/list/connected_devices = list()
 
-/datum/network/New(new_id)
+/datum/network/New(new_id, obj/machinery/server)
 	id = new_id
+	connect_server(server)
 
 /datum/network/proc/connect_device(device)
 	connected_devices |= device
@@ -57,11 +58,20 @@
 
 /datum/network/proc/disconnect_device(device)
 	connected_devices -= device
-	if(!length(connected_devices))
-		qdel()
+
+/datum/network/proc/connect_server(server)
+	hosting_servers |= server
+	if(isatom(server))
+		RegisterSignal(server, COMSIG_PARENT_QDELETING, PROC_REF(disconnect_server))
+
+/datum/network/proc/disconnect_server(server)
+	hosting_servers -= server
+	if(!length(hosting_servers))
+		qdel(src)
 
 /datum/network/proc/list_devices()
 	var/list/device_list = list()
+	device_list += "[length(hosting_servers)] server\s"
 	for(var/atom/device in connected_devices)
 		device_list += "[device.name], AREA HERE"
 	return device_list
