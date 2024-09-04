@@ -1176,7 +1176,6 @@
 	var/shock_resistance = 0
 	shock_resistance += gloves?.siemens_coefficient == 0
 	if(flags & SHOCK_FULL_BODY)
-		
 		if(HAS_TRAIT(src, TRAIT_FULLBODY_SHOCKIMMUNE))
 			shock_resistance += 100
 	if (HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
