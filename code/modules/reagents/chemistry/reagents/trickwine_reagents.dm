@@ -96,7 +96,7 @@
 		//simple mobs are so tanky and i want this to be useful on them
 		if(iscarbon(M))
 			reac_volume = reac_volume / 4
-		M.electrocute_act(reac_volume, src, siemens_coeff = 1, flags = SHOCK_NOSTUN|SHOCK_TESLA)
+		M.electrocute_act(reac_volume, src, siemens_coeff = 1, flags = SHOCK_NOSTUN|SHOCK_FULL_BODY)
 		do_sparks(5, FALSE, M)
 		playsound(M, 'sound/machines/defib_zap.ogg', 100, TRUE)
 	return ..()

@@ -95,7 +95,7 @@
 	var/stun_time = 100
 
 /obj/structure/trap/stun/trap_effect(mob/living/L)
-	L.electrocute_act(30, src, flags = SHOCK_NOGLOVES) // electrocute act does a message.
+	L.electrocute_act(30, src, flags = SHOCK_BYPASS_CLOTHING) // electrocute act does a message.
 	L.Paralyze(stun_time)
 
 /obj/structure/trap/fire

@@ -489,7 +489,7 @@
 	if(!physiology)
 		return
 	//Calculates the siemens coeff based on clothing. Completely ignores the arguments
-	if(flags & SHOCK_TESLA) //I hate this entire block. This gets the siemens_coeff for tesla shocks
+	if(flags & SHOCK_FULL_BODY) //I hate this entire block. This gets the siemens_coeff for tesla shocks
 		if(gloves && gloves.siemens_coefficient <= 0)
 			siemens_coeff -= 0.5
 		if(wear_suit)
@@ -498,7 +498,7 @@
 			else if(wear_suit.siemens_coefficient <= 0)
 				siemens_coeff -= 0.95
 		siemens_coeff = max(siemens_coeff, 0)
-	else if(!(flags & SHOCK_NOGLOVES)) //This gets the siemens_coeff for all non tesla shocks
+	else if(!(flags & SHOCK_BYPASS_CLOTHING)) //This gets the siemens_coeff for all non tesla shocks
 		if(gloves)
 			siemens_coeff *= gloves.siemens_coefficient
 	siemens_coeff *= physiology.siemens_coeff

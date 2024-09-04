@@ -317,10 +317,10 @@
 
 ///Flags used by the flags parameter of electrocute act.
 
-///Makes it so that the shock doesn't take gloves into account.
-#define SHOCK_NOGLOVES (1 << 0)
-///Used when the shock is from a tesla bolt.
-#define SHOCK_TESLA (1 << 1)
+///Makes it so that the shock doesn't take gloves and all other clothing into account.
+#define SHOCK_BYPASS_CLOTHING (1 << 0)
+///Uses all clothing coeffs in shock.
+#define SHOCK_FULL_BODY (1 << 1)
 ///Used when an illusion shocks something. Makes the shock deal stamina damage and not trigger certain secondary effects.
 #define SHOCK_ILLUSION (1 << 2)
 ///The shock doesn't stun.

@@ -25,7 +25,7 @@
 	..()
 	canshock = TRUE
 	for(var/mob/living/Mob in range(effectrange, src))
-		mobShock(Mob)
+		mob_shock(Mob)
 
 	if(!COOLDOWN_FINISHED(src, pulse_cooldown))
 		return
@@ -38,22 +38,22 @@
 	//the countdown effect, lmao
 	if(iseffect(AM))
 		return
-	mobShock(AM)
+	mob_shock(AM)
 	tesla_zap(src, zap_range, zap_power, zap_flags)
 	new /obj/effect/particle_effect/sparks(loc)
 
 /obj/effect/anomaly/flux/Bump(atom/Atom)
-	mobShock(Atom)
+	mob_shock(Atom)
 	tesla_zap(src, zap_range, zap_power, zap_flags)
 
 /obj/effect/anomaly/flux/Bumped(atom/movable/AM)
-	mobShock(AM)
+	mob_shock(AM)
 	tesla_zap(src, zap_range, zap_power, zap_flags)
 
-/obj/effect/anomaly/flux/proc/mobShock(mob/living/Mob)
-	if(canshock && istype(Mob))
+/obj/effect/anomaly/flux/proc/mob_shock(mob/living/shocked_mob)
+	if(canshock && istype(shocked_mob))
 		canshock = FALSE
-		Mob.electrocute_act(shockdamage, name, flags = SHOCK_NOGLOVES)
+		shocked_mob.electrocute_act(shockdamage, name, flags = SHOCK_BYPASS_CLOTHING)
 
 /obj/effect/anomaly/flux/detonate()
 	switch(explosive)

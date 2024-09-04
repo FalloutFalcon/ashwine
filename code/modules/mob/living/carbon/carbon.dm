@@ -1161,7 +1161,7 @@
 	if (ismecha(loc))
 		return FALSE
 
-	if (wearing_shock_proof_gloves())
+	if (shock_resistance() >= 0.5)
 		return FALSE
 
 	if(!get_powernet_info_from_source(power_source))
@@ -1172,9 +1172,16 @@
 
 	return TRUE
 
-/// Returns if the carbon is wearing shock proof gloves
-/mob/living/carbon/proc/wearing_shock_proof_gloves()
-	return gloves?.siemens_coefficient == 0
+/mob/living/carbon/proc/shock_resistance(flags = NONE)
+	var/shock_resistance = 0
+	shock_resistance += gloves?.siemens_coefficient == 0
+	if(flags & SHOCK_FULL_BODY)
+		
+		if(HAS_TRAIT(src, TRAIT_FULLBODY_SHOCKIMMUNE))
+			shock_resistance += 100
+	if (HAS_TRAIT(src, TRAIT_SHOCKIMMUNE))
+		shock_resistance += 100
+	return shock_resistance
 
 /mob/living/carbon/is_face_visible()
 	return !(wear_mask?.flags_inv & HIDEFACE) && !(head?.flags_inv & HIDEFACE)

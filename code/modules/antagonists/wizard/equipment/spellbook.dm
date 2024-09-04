@@ -213,11 +213,11 @@
 
 /datum/spellbook_entry/lightningbolt/Buy(mob/living/carbon/human/user,obj/item/spellbook/book) //return TRUE on success
 	. = ..()
-	ADD_TRAIT(user, TRAIT_TESLA_SHOCKIMMUNE, "lightning_bolt_spell")
+	ADD_TRAIT(user, TRAIT_FULLBODY_SHOCKIMMUNE, "lightning_bolt_spell")
 
 /datum/spellbook_entry/lightningbolt/Refund(mob/living/carbon/human/user, obj/item/spellbook/book)
 	. = ..()
-	REMOVE_TRAIT(user, TRAIT_TESLA_SHOCKIMMUNE, "lightning_bolt_spell")
+	REMOVE_TRAIT(user, TRAIT_FULLBODY_SHOCKIMMUNE, "lightning_bolt_spell")
 
 /datum/spellbook_entry/barnyard
 	name = "Barnyard Curse"
