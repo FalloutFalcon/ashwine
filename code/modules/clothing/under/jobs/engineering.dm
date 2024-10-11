@@ -64,5 +64,5 @@
 	name = "engineer's hazard jumpsuit"
 	desc = "A high visibility jumpsuit made from heat and radiation resistant materials."
 	icon_state = "hazard_eng"
-	item_state = "suit-orange"
+	item_state = "engi_suit"
 	alt_covers_chest = TRUE
