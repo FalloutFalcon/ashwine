@@ -34,7 +34,7 @@
 	name = "\improper NGR phorid envirosuit"
 	desc = "A button-up envirosuit with use intended for phorids of the New Gorlex Republic. Ensures they don't die of combustion."
 	icon_state = "ngr_envirosuit"
-	item_state = "ngr_envirosuit"
+	item_state = "envirosuit"
 	icon = 'icons/obj/clothing/faction/ngr/uniforms.dmi'
 	mob_overlay_icon = 'icons/mob/clothing/faction/ngr/uniforms.dmi'
 
