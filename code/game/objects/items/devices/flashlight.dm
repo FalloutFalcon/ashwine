@@ -469,7 +469,7 @@
 	color = LIGHT_COLOR_GREEN
 	base_icon_state = "glowstick"
 	icon_state = "glowstick"
-	item_state = "glowstick"
+	item_state = null
 	grind_results = list(/datum/reagent/phenol = 15, /datum/reagent/hydrogen = 10, /datum/reagent/oxygen = 5) //Meth-in-a-stick
 	var/fuel = 0
 	toggle_on_sound = 'sound/effects/glowstick.ogg'

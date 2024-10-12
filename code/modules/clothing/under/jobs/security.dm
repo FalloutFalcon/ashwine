@@ -246,14 +246,12 @@
 	name = "space police uniform"
 	desc = "A police uniform often found in the lines at donut shops."
 	icon_state = "spacepolice_families"
-	item_state = "spacepolice_families"
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/security/officer/blueshirt
 	name = "blue shirt and tie"
 	desc = "I'm a little busy right now, Calhoun."
 	icon_state = "blueshift"
-	item_state = "blueshift"
 
 /obj/item/clothing/under/rank/security/officer/mallcop
 	name = "NT mall cop uniform"

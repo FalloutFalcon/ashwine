@@ -11,7 +11,6 @@
 	name = "rock"
 	icon = 'icons/obj/ores.dmi'
 	icon_state = "ore"
-	item_state = "ore"
 	full_w_class = WEIGHT_CLASS_BULKY
 	singular_name = "ore chunk"
 	var/points = 0 //How many points this ore gets you from the ore redemption machine
@@ -69,7 +68,6 @@
 /obj/item/stack/ore/uranium
 	name = "uranium ore"
 	icon_state = "Uranium ore"
-	item_state = "Uranium ore"
 	singular_name = "uranium ore chunk"
 	points = 30
 	material_flags = MATERIAL_NO_EFFECTS
@@ -82,7 +80,6 @@
 /obj/item/stack/ore/iron
 	name = "iron ore"
 	icon_state = "Iron ore"
-	item_state = "Iron ore"
 	singular_name = "iron ore chunk"
 	points = 1
 	custom_materials = list(/datum/material/iron=MINERAL_MATERIAL_AMOUNT)
@@ -94,7 +91,6 @@
 /obj/item/stack/ore/glass
 	name = "sand pile"
 	icon_state = "Glass ore"
-	item_state = "Glass ore"
 	singular_name = "sand pile"
 	grind_results = list(/datum/reagent/silicon = 10)
 	points = 1
@@ -106,35 +102,30 @@
 /obj/item/stack/ore/glass/basalt
 	name = "volcanic ash"
 	icon_state = "volcanic_sand"
-	item_state = "volcanic_sand"
 	singular_name = "volcanic ash pile"
 	grind_results = list(/datum/reagent/toxin/lava_microbe = 1, /datum/reagent/ash = 8.5, /datum/reagent/silicon = 8.5)
 
 /obj/item/stack/ore/glass/whitesands
 	name = "white sand pile"
 	icon_state = "whitesands"
-	item_state = "whitesands"
 	singular_name = "white sand pile"
 	grind_results = list(/datum/reagent/consumable/sodiumchloride = 10, /datum/reagent/silicon = 10)
 
 /obj/item/stack/ore/glass/rockplanet
 	name = "oxidized sand pile"
 	icon_state = "rockplanet_sand"
-	item_state = "rockplanet_sand"
 	singular_name = "iron sand pile"
 	grind_results = list(/datum/reagent/silicon = 10, /datum/reagent/iron = 10)
 
 /obj/item/stack/ore/glass/wasteplanet
 	name = "oily dust"
 	icon_state = "wasteplanet_sand"
-	item_state = "wasteplanet_sand"
 	singular_name = "rocky dust"
 	grind_results = list(/datum/reagent/silicon = 10, /datum/reagent/lithium = 2, /datum/reagent/uranium/radium = 1, /datum/reagent/chlorine = 1, /datum/reagent/aluminium = 1)//may be unsafe for human consumption
 
 /obj/item/stack/ore/glass/beach
 	name = "beige sand pile"
 	icon_state = "beach_sand"
-	item_state = "beach_sand"
 	singular_name = "beige sand pile"
 	grind_results = list(/datum/reagent/silicon = 10)
 
@@ -168,7 +159,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/stack/ore/plasma
 	name = "plasma ore"
 	icon_state = "Plasma ore"
-	item_state = "Plasma ore"
 	singular_name = "plasma ore chunk"
 	points = 15
 	custom_materials = list(/datum/material/plasma=MINERAL_MATERIAL_AMOUNT)
@@ -185,7 +175,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/stack/ore/silver
 	name = "silver ore"
 	icon_state = "Silver ore"
-	item_state = "Silver ore"
 	singular_name = "silver ore chunk"
 	points = 16
 	mine_experience = 3
@@ -197,7 +186,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/stack/ore/gold
 	name = "gold ore"
 	icon_state = "Gold ore"
-	item_state = "Gold ore"
 	singular_name = "gold ore chunk"
 	points = 18
 	mine_experience = 5
@@ -209,7 +197,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/stack/ore/diamond
 	name = "diamond ore"
 	icon_state = "Diamond ore"
-	item_state = "Diamond ore"
 	singular_name = "diamond ore chunk"
 	points = 50
 	custom_materials = list(/datum/material/diamond=MINERAL_MATERIAL_AMOUNT)
@@ -221,7 +208,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/stack/ore/titanium
 	name = "titanium ore"
 	icon_state = "Titanium ore"
-	item_state = "Titanium ore"
 	singular_name = "titanium ore chunk"
 	points = 50
 	custom_materials = list(/datum/material/titanium=MINERAL_MATERIAL_AMOUNT)
@@ -233,7 +219,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 /obj/item/stack/ore/hellstone
 	name = "hellstone ore"
 	icon_state = "hellstone-ore"
-	item_state = "hellstone-ore"
 	singular_name = "hellstone ore chunk"
 	resistance_flags = LAVA_PROOF
 	points = 50
@@ -244,14 +229,12 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	name = "slag"
 	desc = "Completely useless."
 	icon_state = "slag"
-	item_state = "slag"
 	singular_name = "slag chunk"
 
 /obj/item/stack/ore/ice
 	name = "ice crystals"
 	desc = "Used in an electrolyzer to produce hydrogen and oxygen."
 	icon_state = "Ice ore"
-	item_state = "Ice ore"
 	singular_name = "ice chunk"
 	scan_state = "rock_Ice"
 	mine_experience = 2
@@ -263,7 +246,6 @@ GLOBAL_LIST_INIT(sand_recipes, list(\
 	desc = "Extremely explosive if struck with mining equipment, Gibtonite is often used by miners to speed up their work by using it as a mining charge. This material is illegal to possess by unauthorized personnel under space law."
 	icon = 'icons/obj/ores.dmi'
 	icon_state = "Gibtonite ore"
-	item_state = "Gibtonite ore"
 	w_class = WEIGHT_CLASS_BULKY
 	throw_range = 0
 	var/primed = FALSE

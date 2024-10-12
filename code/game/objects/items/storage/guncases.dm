@@ -101,6 +101,8 @@
 	name = "pistol case"
 	desc = "A large box designed for holding pistols and magazines safely."
 	icon = 'icons/obj/guncase.dmi'
+	lefthand_file = 'icons/mob/inhands/equipment/toolbox_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/equipment/toolbox_righthand.dmi'
 	icon_state = "guncase"
 	item_state = "infiltrator_case"
 	force = 12

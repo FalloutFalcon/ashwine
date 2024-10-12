@@ -250,6 +250,7 @@ EMPTY_GUN_HELPER(automatic/pistol/commander/inteq)
 	name = ".38 Derringer"
 	desc = "An easily concealable derringer. Uses .38 special ammo."
 	icon_state = "derringer"
+	item_state = "hp_generic"
 
 	icon = 'icons/obj/guns/manufacturer/hunterspride/48x32.dmi'
 	lefthand_file = 'icons/obj/guns/manufacturer/hunterspride/lefthand.dmi'

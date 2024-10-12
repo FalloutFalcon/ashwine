@@ -2,7 +2,6 @@
 	name = "hide"
 	desc = "Something went wrong."
 	icon_state = "sheet-hide"
-	item_state = "sheet-hide"
 	novariants = TRUE
 
 /obj/item/stack/sheet/animalhide/human
@@ -30,7 +29,6 @@ GLOBAL_LIST_INIT(human_recipes, list( \
 	desc = "The by-product of corgi farming."
 	singular_name = "corgi hide piece"
 	icon_state = "sheet-corgi"
-	item_state = "sheet-corgi"
 
 
 GLOBAL_LIST_INIT(gondola_recipes, list ( \
@@ -43,7 +41,6 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	desc = "A thin layer of mothroach hide."
 	singular_name = "mothroach hide piece"
 	icon_state = "sheet-mothroach"
-	item_state = "sheet-mothroach"
 	merge_type = /obj/item/stack/sheet/animalhide/mothroach
 
 /obj/item/stack/sheet/animalhide/gondola
@@ -51,7 +48,6 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	desc = "The extremely valuable product of gondola hunting."
 	singular_name = "gondola hide piece"
 	icon_state = "sheet-gondola"
-	item_state = "sheet-gondola"
 
 /obj/item/stack/sheet/animalhide/gondola/get_main_recipes()
 	. = ..()
@@ -62,14 +58,12 @@ GLOBAL_LIST_INIT(gondola_recipes, list ( \
 	desc = "The by-product of cat farming."
 	singular_name = "cat hide piece"
 	icon_state = "sheet-cat"
-	item_state = "sheet-cat"
 
 /obj/item/stack/sheet/animalhide/monkey
 	name = "monkey hide"
 	desc = "The by-product of monkey farming."
 	singular_name = "monkey hide piece"
 	icon_state = "sheet-monkey"
-	item_state = "sheet-monkey"
 
 GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	new/datum/stack_recipe("monkey mask", /obj/item/clothing/mask/gas/monkeymask, 1), \
@@ -84,14 +78,12 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	desc = "Sssssss..."
 	singular_name = "lizard skin piece"
 	icon_state = "sheet-lizard"
-	item_state = "sheet-lizard"
 
 /obj/item/stack/sheet/animalhide/xeno
 	name = "alien hide"
 	desc = "The skin of a terrible creature."
 	singular_name = "alien hide piece"
 	icon_state = "sheet-xeno"
-	item_state = "sheet-xeno"
 
 //don't see anywhere else to put these, maybe together they could be used to make the xenos suit?
 /obj/item/stack/sheet/xenochitin
@@ -119,14 +111,12 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	desc = "This hide was stripped of its hair, but still needs washing and tanning."
 	singular_name = "hairless hide piece"
 	icon_state = "sheet-hairlesshide"
-	item_state = "sheet-hairlesshide"
 
 /obj/item/stack/sheet/wethide
 	name = "wet hide"
 	desc = "This hide has been cleaned but still needs to be dried."
 	singular_name = "wet hide piece"
 	icon_state = "sheet-wetleather"
-	item_state = "sheet-wetleather"
 	var/wetness = 30 //Reduced when exposed to high temperautres
 	var/drying_threshold_temperature = 500 //Kelvin to start drying
 
@@ -138,7 +128,6 @@ GLOBAL_LIST_INIT(monkey_recipes, list ( \
 	desc = "The by-product of mob grinding."
 	singular_name = "leather piece"
 	icon_state = "sheet-leather"
-	item_state = "sheet-leather"
 
 GLOBAL_LIST_INIT(leather_recipes, list ( \
 	new/datum/stack_recipe("wallet", /obj/item/storage/wallet, 1), \
