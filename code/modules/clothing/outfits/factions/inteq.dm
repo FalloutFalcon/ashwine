@@ -14,7 +14,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_INTEQ)
+	H.faction |= list(FACTION_SHORT_INTEQ)
 
 ///assistants
 

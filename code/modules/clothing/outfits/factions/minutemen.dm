@@ -17,7 +17,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_MINUTEMAN)
+	H.faction |= list(FACTION_SHORT_CLIP)
 /* 	if(selectable_alt_titles)
 		var/selection = input(H, "Select an alternative name for your role.", "Job Title", alt_title) as null|anything in selectable_alt_titles)
 	if(!selection)

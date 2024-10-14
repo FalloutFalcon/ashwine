@@ -3526,7 +3526,7 @@
 /mob/living/simple_animal/hostile/carp/cayenne{
 	name = "Cayenne II";
 	desc = "A descendant from the legendary Cayenne, a failed Syndicate experiment in weaponized space carp.";
-	faction = list("playerSyndicate")
+	faction = list("Syndicate")
 	},
 /obj/item/toy/nuke,
 /obj/effect/turf_decal/corner/opaque/syndiered/border,
@@ -6607,7 +6607,7 @@
 	name = "Secret Box Moth";
 	real_name = "Box Moth";
 	gender = "female";
-	faction = list("neutral","playerSyndicate")
+	faction = list("neutral","Syndicate")
 	},
 /obj/item/reagent_containers/food/snacks/spacetwinkie{
 	pixel_y = 12;

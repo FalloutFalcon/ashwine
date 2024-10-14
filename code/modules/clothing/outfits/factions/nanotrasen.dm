@@ -15,7 +15,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_NANOTRASEN)
+	H.faction |= list(FACTION_SHORT_NT)
 
 // Command //
 

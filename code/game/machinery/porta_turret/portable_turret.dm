@@ -850,7 +850,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/machinery/porta_turret/ship/nt
 	name = "Sharplite Defense Turret"
 	desc = "A cheap and effective turret designed by Sharplite and purchased and installed on most Nanotrasen Vessels."
-	faction = list(FACTION_PLAYER_NANOTRASEN, "turret")
+	faction = list(FACTION_SHORT_NT, "turret")
 	max_integrity = 160
 	integrity_failure = 0.6
 	icon_state = "standard_lethal"
@@ -887,7 +887,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /* Syndicate Turrets */
 
 /obj/machinery/porta_turret/ship/syndicate
-	faction = list(FACTION_PLAYER_SYNDICATE, "turret")
+	faction = list(FACTION_SHORT_SYNDICATE, "turret")
 	icon_state = "standard_lethal"
 	base_icon_state = "standard"
 
@@ -921,7 +921,7 @@ DEFINE_BITFIELD(turret_flags, list(
 	scan_range = 9
 	shot_delay = 20
 	integrity_failure = 0.4
-	faction = list(FACTION_PLAYER_INTEQ, "turret")
+	faction = list(FACTION_SHORT_INTEQ, "turret")
 
 /obj/machinery/porta_turret/ship/inteq/light
 	name = "Close-In Vanguard Turret"
@@ -947,7 +947,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /* Solcon Turrets */
 
 /obj/machinery/porta_turret/ship/solgov
-	faction = list(FACTION_PLAYER_SOLCON, "turret")
+	faction = list(FACTION_SHORT_SOLGOV, "turret")
 
 /* Pan Gezena Federation Turrets */
 //midline but hitscan
@@ -955,7 +955,7 @@ DEFINE_BITFIELD(turret_flags, list(
 /obj/machinery/porta_turret/ship/pgf
 	name = "Etherbor Defensive Mount"
 	desc = "A less portable Etherbor offering, the EDM is a self-directed linkage of energy weapons, designed to keep intruders away from Gezenan vessels."
-	faction = list(FACTION_PLAYER_GEZENA, "Turret")
+	faction = list(FACTION_SHORT_PGF, "turret")
 	stun_projectile = /obj/projectile/beam/hitscan/disabler
 	stun_projectile_sound = 'sound/weapons/gun/energy/kalixpistol.ogg'
 	lethal_projectile = /obj/projectile/beam/hitscan/kalix/pgf/assault

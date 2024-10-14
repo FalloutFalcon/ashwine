@@ -1368,7 +1368,7 @@
 /obj/machinery/porta_turret/syndicate/pod{
 	desc = "A turret built with substandard parts and run down further with age. Still capable of delivering lethal lasers to the odd space carp, but not much else.";
 	dir = 8;
-	faction = list("Frontiersmen");
+	faction = list("hostile_frontiersmen");
 	lethal_projectile = /obj/projectile/beam/weak/penetrator;
 	lethal_projectile_sound = 'sound/weapons/plasma_cutter.ogg';
 	name = "laser turret"

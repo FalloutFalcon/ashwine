@@ -11,7 +11,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_ROUMAIN)
+	H.faction |= list(FACTION_SHORT_SRM)
 
 // Assistant
 

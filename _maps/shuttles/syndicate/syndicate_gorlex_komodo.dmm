@@ -217,7 +217,7 @@
 /mob/living/simple_animal/hostile/asteroid/elite/broodmother_child{
 	desc = "A little guy.";
 	environment_smash = 0;
-	faction = list("neutral","playerSyndicate");
+	faction = list("neutral","Syndicate");
 	name = "Goliath"
 	},
 /obj/effect/decal/cleanable/wrapping,

@@ -17,7 +17,7 @@
 
 /datum/faction/syndicate/ngr
 	name = FACTION_NGR
-	short_name = "NGR"
+	short_name = FACTION_SHORT_NGR
 	prefixes = PREFIX_NGR
 
 /datum/faction/syndicate/cybersun
@@ -26,31 +26,32 @@
 
 /datum/faction/syndicate/suns
 	name = FACTION_SUNS
-	short_name = "SUNS"
+	short_name = FACTION_SHORT_SUNS
 	prefixes = PREFIX_SUNS
 
 /datum/faction/solgov
 	name = FACTION_SOLGOV
+	short_name = FACTION_SHORT_SOLGOV
 	prefixes = PREFIX_SOLGOV
 
 /datum/faction/srm
 	name = FACTION_SRM
-	short_name = "SRM"
+	short_name = FACTION_SHORT_SRM
 	prefixes = PREFIX_SRM
 
 /datum/faction/inteq
 	name = FACTION_INTEQ
-	short_name = "INTEQ"
+	short_name = FACTION_SHORT_INTEQ
 	prefixes = PREFIX_INTEQ
 
 /datum/faction/clip
 	name = FACTION_CLIP
-	short_name = "CLIP"
+	short_name = FACTION_SHORT_CLIP
 	prefixes = PREFIX_CLIP
 
 /datum/faction/nt
 	name = FACTION_NT
-	short_name = "NT"
+	short_name = FACTION_SHORT_NT
 	parent_faction = /datum/faction/nt
 	prefixes = PREFIX_NT
 
@@ -68,7 +69,7 @@
 
 /datum/faction/pgf
 	name = FACTION_PGF
-	short_name = "PGF"
+	short_name = FACTION_SHORT_PGF
 	prefixes = PREFIX_PGF
 
 /datum/faction/independent

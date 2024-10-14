@@ -18,7 +18,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_SYNDICATE)
+	H.faction |= list(FACTION_SHORT_SYNDICATE)
 
 //generates a codename and assigns syndicate access, used in the twinkleshine.
 /datum/outfit/job/syndicate/proc/assign_codename(mob/living/carbon/human/H)

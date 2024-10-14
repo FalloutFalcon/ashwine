@@ -19,7 +19,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_FRONTIERSMEN)
+	H.faction |= list(FACTION_SHORT_FRONTIERSMEN)
 
 // Assistant
 

@@ -2110,7 +2110,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /mob/living/simple_animal/hostile/netherworld/migo{
 	name = "Dog";
-	faction = list("Frontiersmen")
+	faction = list("hostile_frontiersmen")
 	},
 /obj/structure/bed/dogbed,
 /obj/item/reagent_containers/food/snacks/meat/slab/human/mutant/skeleton,

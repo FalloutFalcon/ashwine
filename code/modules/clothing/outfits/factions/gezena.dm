@@ -6,7 +6,7 @@
 	. = ..()
 	if(visualsOnly)
 		return
-	H.faction |= list(FACTION_PLAYER_GEZENA)
+	H.faction |= list(FACTION_SHORT_PGF)
 	H.grant_language(/datum/language/draconic)
 
 //Playable Roles (put in ships):

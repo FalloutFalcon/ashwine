@@ -141,7 +141,7 @@
 /obj/machinery/light/floor,
 /obj/machinery/porta_turret/syndicate/energy{
 	active_power_usage = 0;
-	faction = list("Frontiersmen","beach");
+	faction = list("hostile_frontiersmen","beach");
 	idle_power_usage = 0;
 	reqpower = 0;
 	name = "Point defense anti-carp turret"
@@ -658,7 +658,7 @@
 "Bg" = (
 /obj/effect/turf_decal/corner/opaque/pink/diagonal,
 /mob/living/simple_animal/hostile/human/frontier{
-	faction = list("Frontiersmen","beach")
+	faction = list("hostile_frontiersmen","beach")
 	},
 /turf/open/floor/plastic,
 /area/ruin/beach)
@@ -841,7 +841,7 @@
 /obj/structure/chair/sofa/brown/right/directional/south,
 /obj/effect/decal/cleanable/cobweb,
 /mob/living/simple_animal/hostile/human/frontier{
-	faction = list("Frontiersmen","beach")
+	faction = list("hostile_frontiersmen","beach")
 	},
 /turf/open/floor/carpet,
 /area/ruin/beach)
@@ -1033,7 +1033,7 @@
 	dir = 8
 	},
 /mob/living/simple_animal/hostile/human/frontier/ranged/mosin/neutered{
-	faction = list("Frontiersmen","beach")
+	faction = list("hostile_frontiersmen","beach")
 	},
 /turf/open/floor/wood/ebony,
 /area/overmap_encounter/planetoid/beachplanet/explored)
@@ -1109,7 +1109,7 @@
 "Rh" = (
 /obj/structure/chair/sofa/brown/corner/directional/south,
 /mob/living/simple_animal/hostile/human/frontier{
-	faction = list("Frontiersmen","beach")
+	faction = list("hostile_frontiersmen","beach")
 	},
 /turf/open/floor/carpet,
 /area/ruin/beach)
@@ -1224,7 +1224,7 @@
 	layer = 2.9
 	},
 /mob/living/simple_animal/hostile/human/frontier/ranged/mosin/neutered{
-	faction = list("Frontiersmen","beach")
+	faction = list("hostile_frontiersmen","beach")
 	},
 /turf/open/floor/wood/ebony,
 /area/overmap_encounter/planetoid/beachplanet/explored)
@@ -1306,7 +1306,7 @@
 /area/overmap_encounter/planetoid/beachplanet/explored)
 "ZJ" = (
 /mob/living/simple_animal/hostile/human/frontier{
-	faction = list("Frontiersmen","beach")
+	faction = list("hostile_frontiersmen","beach")
 	},
 /turf/open/floor/wood,
 /area/ruin/beach)
