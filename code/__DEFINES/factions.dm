@@ -15,7 +15,7 @@
 #define FACTION_SUNS "Student-Union of Naturalistic Sciences"
 #define FACTION_SHORT_SUNS "SUNS"
 
-#define FACTION_SOLGOV "SolGov"
+#define FACTION_SOLGOV "Solar Confederation"
 #define FACTION_SHORT_SOLGOV "SolGov"
 
 #define FACTION_SRM "Saint-Roumain Militia"
