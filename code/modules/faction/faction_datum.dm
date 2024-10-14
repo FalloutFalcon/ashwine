@@ -6,12 +6,9 @@
 	/// List of prefixes that ships of this faction uses
 	var/list/prefixes
 
-/datum/faction/New()
-	if(!short_name)
-		short_name = name
-
 /datum/faction/syndicate
 	name = FACTION_SYNDICATE
+	short_name = FACTION_SHORT_SYNDICATE
 	parent_faction = /datum/faction/syndicate
 	prefixes = PREFIX_SYNDICATE
 
@@ -22,6 +19,7 @@
 
 /datum/faction/syndicate/cybersun
 	name = FACTION_CYBERSUN
+	short_name = FACTION_SHORT_CYBERSUN
 	prefixes = PREFIX_CYBERSUN
 
 /datum/faction/syndicate/suns
@@ -57,22 +55,25 @@
 
 /datum/faction/nt/ns_logi
 	name = FACTION_NS_LOGI
+	short_name = FACTION_NS_LOGI
 	prefixes = PREFIX_NS_LOGI
 
 /datum/faction/nt/vigilitas
 	name = FACTION_VIGILITAS
+	short_name = FACTION_VIGILITAS
 	prefixes = PREFIX_VIGILITAS
-
-/datum/faction/frontier
-	name = FACTION_FRONTIER
-	prefixes = PREFIX_FRONTIER
 
 /datum/faction/pgf
 	name = FACTION_PGF
 	short_name = FACTION_SHORT_PGF
 	prefixes = PREFIX_PGF
 
+/datum/faction/frontier
+	name = FACTION_FRONTIER
+	short_name = FACTION_SHORT_FRONTIERSMEN
+	prefixes = PREFIX_FRONTIER
+
 /datum/faction/independent
 	name = FACTION_INDEPENDENT
-	short_name = "Indie"
+	short_name = FACTION_INDEPENDENT
 	prefixes = PREFIX_INDEPENDENT

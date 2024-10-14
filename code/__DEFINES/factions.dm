@@ -38,7 +38,7 @@
 #define FACTION_SHORT_PGF "PGF"
 
 #define FACTION_FRONTIER "Frontiersmen Fleet"
-#define FACTION_SHORT_FRONTIERSMEN "playerFrontiersmen"
+#define FACTION_SHORT_FRONTIERSMEN "Frontiersmen"
 
 #define FACTION_INDEPENDENT "Independent"
 
@@ -53,6 +53,6 @@
 #define PREFIX_NT list("NTSV")
 	#define PREFIX_NS_LOGI list("NSSV")
 	#define PREFIX_VIGILITAS list("VISV")
-#define PREFIX_FRONTIER list("FFV")
 #define PREFIX_PGF list("PGF", "PGFMC", "PGFN")
+#define PREFIX_FRONTIER list("FFV")
 #define PREFIX_INDEPENDENT list("SV", "IMV", "ISV")
