@@ -35,6 +35,7 @@
 	. = ..()
 
 	GLOB.new_player_list += src
+	SSpoints_of_interest.make_point_of_interest(src)
 
 /mob/dead/new_player/Destroy()
 	GLOB.new_player_list -= src
@@ -319,7 +320,6 @@
 		spawn_point.join_player_here(character)
 		var/atom/movable/screen/splash/Spl = new(character.client, TRUE)
 		Spl.Fade(TRUE)
-		character.playsound_local(get_turf(character), 'sound/voice/ApproachingTG.ogg', 25)
 
 		character.update_parallax_teleport()
 
@@ -336,8 +336,6 @@
 
 		if(GLOB.summon_guns_triggered)
 			give_guns(humanc)
-		if(GLOB.summon_magic_triggered)
-			give_magic(humanc)
 		if(GLOB.curse_of_madness_triggered)
 			give_madness(humanc, GLOB.curse_of_madness_triggered)
 		if(CONFIG_GET(flag/roundstart_traits))

@@ -292,3 +292,28 @@
 	description = "<span class='warning'>I was forced to eat cement...</span>\n"
 	mood_change = -6
 	timeout = 4 MINUTES
+
+/datum/mood_event/joywire_emp
+	description = span_boldwarning("IT'S GONE!! IT'S GONE!!\n")
+	mood_change = -30
+	timeout = 5 MINUTES
+
+/datum/mood_event/mindscrew
+	description = span_boldwarning("It isn't ending... it isn't ending, come on...\n")
+	mood_change = -18
+	timeout = 3 MINUTES
+
+/datum/mood_event/bad_touch_bear_hug
+	description = "I just got squeezed way too hard."
+	mood_change = -3
+	timeout = 2 MINUTES
+
+/datum/mood_event/rippedtail
+	description = "<span class='warning'>I ripped their tail right off, what have I done!</span>\n"
+	mood_change = -5
+	timeout = 30 SECONDS
+
+/datum/mood_event/bad_boop
+	description = "<span class='warning'>Someone booped my nose... ACK!</span>\n"
+	mood_change = -3
+	timeout = 4 MINUTES

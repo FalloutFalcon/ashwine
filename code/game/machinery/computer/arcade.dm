@@ -1,7 +1,6 @@
 GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		/obj/item/storage/box/snappops = 2,
 		/obj/item/toy/talking/AI = 2,
-		/obj/item/toy/talking/codex_gigas = 2,
 		/obj/item/clothing/under/syndicate/tacticool = 2,
 		/obj/item/toy/sword = 2,
 		/obj/item/toy/gun = 2,
@@ -17,7 +16,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		/obj/item/toy/prize/honk = 1,
 		/obj/item/toy/prize/marauder = 1,
 		/obj/item/toy/prize/seraph = 1,
-		/obj/item/toy/prize/mauler = 1,
+		/obj/item/toy/prize/touro = 1,
 		/obj/item/toy/prize/odysseus = 1,
 		/obj/item/toy/prize/phazon = 1,
 		/obj/item/toy/prize/reticence = 1,
@@ -44,7 +43,6 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 		/obj/item/extendohand/acme = 1,
 		/obj/item/hot_potato/harmless/toy = 1,
 		/obj/item/card/emagfake = 1,
-		/obj/item/clothing/shoes/wheelys = 2,
 		/obj/item/clothing/shoes/kindleKicks = 2,
 		/obj/item/toy/plush/goatplushie/angry/realgoat = 2,
 		/obj/item/toy/plush/moth = 2,
@@ -295,7 +293,6 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 
 			if(obj_flags & EMAGGED)
 				new /obj/effect/spawner/newbomb/timer/syndicate(loc)
-				new /obj/item/clothing/head/collectable/petehat(loc)
 				message_admins("[ADMIN_LOOKUPFLW(usr)] has outbombed Cuban Pete and been awarded a bomb.")
 				log_game("[key_name(usr)] has outbombed Cuban Pete and been awarded a bomb.")
 				Reset()
@@ -867,7 +864,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 							say("WEEWOO! WEEWOO! Spaceport security en route!")
 							playsound(src, 'sound/items/weeoo1.ogg', 100, FALSE)
 							for(var/i, i<=3, i++)
-								var/mob/living/simple_animal/hostile/syndicate/ranged/smg/orion/O = new/mob/living/simple_animal/hostile/syndicate/ranged/smg/orion(get_turf(src))
+								var/mob/living/simple_animal/hostile/human/syndicate/ranged/smg/orion/O = new/mob/living/simple_animal/hostile/human/syndicate/ranged/smg/orion(get_turf(src))
 								O.target = usr
 
 
@@ -1242,7 +1239,7 @@ GLOBAL_LIST_INIT(arcade_prize_pool, list(
 	newgame()
 	obj_flags |= EMAGGED
 
-/mob/living/simple_animal/hostile/syndicate/ranged/smg/orion
+/mob/living/simple_animal/hostile/human/syndicate/ranged/smg/orion
 	name = "spaceport security"
 	desc = "Premier corporate security forces for all spaceports found along the Orion Trail."
 	faction = list("orion")
