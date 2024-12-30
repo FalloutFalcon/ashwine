@@ -290,13 +290,6 @@
 #define POWER_RESTORATION_SEARCH_APC 2
 #define POWER_RESTORATION_APC_FOUND 3
 
-//Hostile simple animals
-//If you add a new status, be sure to add a list for it to the simple_animals global in _globalvars/lists/mobs.dm
-#define AI_ON 1
-#define AI_IDLE 2
-#define AI_OFF 3
-#define AI_Z_OFF 4
-
 //The range at which a mob should wake up if you spawn into the z level near it
 #define MAX_SIMPLEMOB_WAKEUP_RANGE 5
 

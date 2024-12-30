@@ -129,6 +129,8 @@
 		return
 	A.attack_paw(src)
 
+/atom/proc/attack_basic_mob(mob/user, list/modifiers)
+	SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_BASIC_MOB, user)
 
 /atom/proc/attack_paw(mob/user)
 	if(SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_PAW, user) & COMPONENT_NO_ATTACK_HAND)
