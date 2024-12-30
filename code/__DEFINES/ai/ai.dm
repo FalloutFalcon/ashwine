@@ -1,9 +1,14 @@
 #define GET_AI_BEHAVIOR(behavior_type) SSai_controllers.ai_behaviors[behavior_type]
 #define HAS_AI_CONTROLLER_TYPE(thing, type) istype(thing?.ai_controller, type)
 
+//SIMPLE
+#define AI_ON 1
+#define AI_IDLE 2
+#define AI_OFF 3
+#define AI_Z_OFF 4
+//BASIC
 #define AI_STATUS_ON		1
 #define AI_STATUS_OFF		2
-
 
 ///Monkey checks
 #define SHOULD_RESIST(source) (source.on_fire || source.buckled || HAS_TRAIT(source, TRAIT_RESTRAINED) || (source.pulledby && source.pulledby.grab_state > GRAB_PASSIVE))
