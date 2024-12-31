@@ -68,6 +68,23 @@
 /obj/item/melee/sword/mass/ComponentInitialize()
 	. = ..()
 	AddComponent(/datum/component/two_handed, force_unwielded=20, force_wielded=22)
+	AddElement(/datum/element/integrity_examine)
+
+/obj/item/melee/sword/mass/afterattack(atom/target, mob/user, proximity_flag, click_parameters)
+	. = ..()
+	if(!proximity_flag)
+		return
+
+	if(!ismovable(target))
+		return
+
+	if(isobj(target))
+		var/obj/object_target = target
+		if(!(object_target.obj_flags & CAN_BE_HIT))
+			return .
+
+	take_damage(1, sound_effect = FALSE)
+	user.visible_message(span_warning("[src] forms a crack."))
 
 /obj/item/melee/sword/katana
 	name = "katana"

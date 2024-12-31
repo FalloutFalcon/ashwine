@@ -670,6 +670,7 @@
 #include "code\datums\elements\empprotection.dm"
 #include "code\datums\elements\firestacker.dm"
 #include "code\datums\elements\forced_gravity.dm"
+#include "code\datums\elements\integrity_examine.dm"
 #include "code\datums\elements\lazy_fishing_spot.dm"
 #include "code\datums\elements\light_blocking.dm"
 #include "code\datums\elements\mobappearance.dm"
