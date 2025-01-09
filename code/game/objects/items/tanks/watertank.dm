@@ -439,7 +439,7 @@
 	if(ismob(loc))
 		to_chat(loc, "<span class='notice'>[src] turns off.</span>")
 
-/obj/item/reagent_containers/chemtank/process()
+/obj/item/reagent_containers/chemtank/process(delta_time)
 	if(!ishuman(loc))
 		turn_off()
 		return

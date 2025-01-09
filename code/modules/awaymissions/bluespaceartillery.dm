@@ -11,7 +11,7 @@
 	icon = 'icons/obj/machines/particle_accelerator.dmi'
 	density = TRUE
 
-/obj/machinery/artillerycontrol/process()
+/obj/machinery/artillerycontrol/process(delta_time)
 	if(reload < reload_cooldown)
 		reload++
 

@@ -213,7 +213,7 @@
 	if(istype(target, /obj/item/stack/ore))
 		process_ore(target)
 
-/obj/machinery/mineral/processing_unit/process()
+/obj/machinery/mineral/processing_unit/process(delta_time)
 	if(on)
 		if(selected_material)
 			smelt_ore()

@@ -166,7 +166,7 @@
 	else
 		finish_chronowalk(user, to_turf)
 
-/obj/item/clothing/suit/space/chronos/process()
+/obj/item/clothing/suit/space/chronos/process(delta_time)
 	if(activated)
 		var/mob/living/carbon/human/user = src.loc
 		if(user && ishuman(user) && (user.wear_suit == src))

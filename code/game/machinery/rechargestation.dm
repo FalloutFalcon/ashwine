@@ -48,7 +48,7 @@
 		begin_processing()
 
 
-/obj/machinery/recharge_station/process()
+/obj/machinery/recharge_station/process(delta_time)
 	if(occupant)
 		process_occupant()
 	return 1

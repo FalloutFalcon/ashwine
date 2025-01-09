@@ -65,7 +65,7 @@
 	if(burn_stuff(AM))
 		START_PROCESSING(SSobj, src)
 
-/turf/open/lava/process()
+/turf/open/lava/process(delta_time)
 	if(!burn_stuff())
 		STOP_PROCESSING(SSobj, src)
 

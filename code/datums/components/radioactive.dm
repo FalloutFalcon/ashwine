@@ -40,7 +40,7 @@
 	master.remove_filter("rad_glow")
 	return ..()
 
-/datum/component/radioactive/process()
+/datum/component/radioactive/process(delta_time)
 	if(!prob(50))
 		return
 	radiation_pulse(parent, strength, RAD_DISTANCE_COEFFICIENT*2, FALSE, can_contaminate)

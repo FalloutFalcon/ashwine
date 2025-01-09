@@ -25,7 +25,7 @@
 	START_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/vehicle/ridden/secway/process()
+/obj/vehicle/ridden/secway/process(delta_time)
 	if(obj_integrity >= integrity_failure * max_integrity)
 		return PROCESS_KILL
 	if(prob(20))

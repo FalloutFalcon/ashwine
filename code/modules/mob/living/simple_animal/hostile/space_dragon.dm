@@ -452,7 +452,7 @@
 		playsound(src, 'sound/vehicles/rocketlaunch.ogg', 100, TRUE)
 	return ..()
 
-/obj/structure/carp_rift/process()
+/obj/structure/carp_rift/process(delta_time)
 	time_charged = min(time_charged + 1, max_charge + 1)
 	update_check()
 	for(var/mob/living/simple_animal/hostile/hostilehere in loc)

@@ -73,7 +73,7 @@
 		return
 	queue += purchase
 
-/obj/machinery/ltsrbt/process()
+/obj/machinery/ltsrbt/process(delta_time)
 	if(machine_stat & NOPOWER)
 		return
 

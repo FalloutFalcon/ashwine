@@ -111,7 +111,7 @@
 			icon_state = "fryer_on"
 			fry_loop.start()
 
-/obj/machinery/deepfryer/process()
+/obj/machinery/deepfryer/process(delta_time)
 	..()
 	var/datum/reagent/consumable/cooking_oil/C = reagents.has_reagent(/datum/reagent/consumable/cooking_oil)
 	if(!C)

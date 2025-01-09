@@ -64,7 +64,7 @@
 	STOP_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/item/forcefield_projector/process()
+/obj/item/forcefield_projector/process(delta_time)
 	if(!LAZYLEN(current_fields))
 		shield_integrity = min(shield_integrity + 4, max_shield_integrity)
 	else

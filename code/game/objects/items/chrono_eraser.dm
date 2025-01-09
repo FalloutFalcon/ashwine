@@ -217,7 +217,7 @@
 		underlays = list() //hack: BYOND refuses to update the underlay to match the icon_state otherwise
 		underlays += mob_underlay
 
-/obj/structure/chrono_field/process()
+/obj/structure/chrono_field/process(delta_time)
 	if(captured)
 		if(tickstokill > initial(tickstokill))
 			for(var/atom/movable/AM in contents)

@@ -23,7 +23,7 @@
 	else
 		return ..()
 
-/obj/machinery/the_singularitygen/process()
+/obj/machinery/the_singularitygen/process(delta_time)
 	if(energy > 0)
 		if(energy >= 200)
 			var/turf/T = get_turf(src)

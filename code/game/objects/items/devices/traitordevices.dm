@@ -231,7 +231,7 @@ effective or pretty fucking useless.
 	if(user && user.get_item_by_slot(ITEM_SLOT_BELT) != src)
 		Deactivate()
 
-/obj/item/shadowcloak/process()
+/obj/item/shadowcloak/process(delta_time)
 	if(user.get_item_by_slot(ITEM_SLOT_BELT) != src)
 		Deactivate()
 		return

@@ -118,7 +118,7 @@
 		begin_processing()
 
 
-/obj/machinery/chem_dispenser/process()
+/obj/machinery/chem_dispenser/process(delta_time)
 	if (recharge_counter >= 4)
 		var/usedpower = cell.give(recharge_amount)
 		if(usedpower)

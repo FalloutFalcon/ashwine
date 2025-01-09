@@ -173,7 +173,7 @@
 	flick_overlay_view(I, targloc, 10)
 	icon_state = "pointer"
 
-/obj/item/laser_pointer/process()
+/obj/item/laser_pointer/process(delta_time)
 	if(!diode)
 		recharging = FALSE
 		return PROCESS_KILL

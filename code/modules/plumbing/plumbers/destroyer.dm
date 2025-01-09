@@ -9,7 +9,7 @@
 	. = ..()
 	AddComponent(/datum/component/plumbing/simple_demand, bolt)
 
-/obj/machinery/plumbing/disposer/process()
+/obj/machinery/plumbing/disposer/process(delta_time)
 	if(machine_stat & NOPOWER)
 		return
 	if(reagents.total_volume)

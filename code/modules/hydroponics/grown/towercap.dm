@@ -287,7 +287,7 @@
 			var/obj/item/O = A
 			O.microwave_act()
 
-/obj/structure/bonfire/process()
+/obj/structure/bonfire/process(delta_time)
 	if(!CheckOxygen())
 		extinguish()
 		return

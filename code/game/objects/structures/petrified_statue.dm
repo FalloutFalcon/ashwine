@@ -25,7 +25,7 @@
 		START_PROCESSING(SSobj, src)
 	..()
 
-/obj/structure/statue/petrified/process()
+/obj/structure/statue/petrified/process(delta_time)
 	if(!petrified_mob)
 		STOP_PROCESSING(SSobj, src)
 	timer--

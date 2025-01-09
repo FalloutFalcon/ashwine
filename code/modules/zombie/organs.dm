@@ -40,7 +40,7 @@
 		web of pus and viscera, bound tightly around the brain like some \
 		biological harness.</span>")
 
-/obj/item/organ/zombie_infection/process()
+/obj/item/organ/zombie_infection/process(delta_time)
 	if(!owner)
 		return
 	if(!(src in owner.internal_organs))

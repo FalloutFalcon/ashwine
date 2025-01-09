@@ -123,7 +123,7 @@
 		combat_cooldown = 0
 		START_PROCESSING(SSobj, src)
 
-/obj/item/clothing/suit/armor/abductor/vest/process()
+/obj/item/clothing/suit/armor/abductor/vest/process(delta_time)
 	combat_cooldown++
 	if(combat_cooldown==initial(combat_cooldown))
 		STOP_PROCESSING(SSobj, src)
@@ -843,7 +843,7 @@ Congratulations! You are now trained for invasive xenobiology research!"}
 		START_PROCESSING(SSobj, src)
 		to_chat(AM, "<span class='danger'>You feel a series of tiny pricks!</span>")
 
-/obj/structure/table/optable/abductor/process()
+/obj/structure/table/optable/abductor/process(delta_time)
 	. = PROCESS_KILL
 	for(var/mob/living/carbon/C in get_turf(src))
 		. = TRUE

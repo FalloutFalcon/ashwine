@@ -166,7 +166,7 @@
 	if(. && !anchored)
 		step(src, get_dir(M, src))
 
-/obj/machinery/power/emitter/process()
+/obj/machinery/power/emitter/process(delta_time)
 	if(machine_stat & (BROKEN))
 		return
 	if(!welded || (!powernet && active_power_usage))

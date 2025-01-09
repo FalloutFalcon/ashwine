@@ -162,7 +162,7 @@ GLOBAL_LIST_INIT(dye_registry, list(
 
 	START_PROCESSING(SSfastprocess, src)
 
-/obj/machinery/washing_machine/process()
+/obj/machinery/washing_machine/process(delta_time)
 	if(!busy)
 		animate(src, transform=matrix(), time=2)
 		return PROCESS_KILL

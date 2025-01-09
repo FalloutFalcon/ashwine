@@ -27,7 +27,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	heat = 1000
 	grind_results = list(/datum/reagent/phosphorus = 2)
 
-/obj/item/match/process()
+/obj/item/match/process(delta_time)
 	smoketime--
 	if(smoketime < 1)
 		matchburnout()
@@ -253,7 +253,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				return
 		reagents.remove_any(to_smoke)
 
-/obj/item/clothing/mask/cigarette/process()
+/obj/item/clothing/mask/cigarette/process(delta_time)
 	var/turf/location = get_turf(src)
 	var/mob/living/M = loc
 	if(isliving(loc))
@@ -476,7 +476,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	STOP_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/item/clothing/mask/cigarette/pipe/process()
+/obj/item/clothing/mask/cigarette/pipe/process(delta_time)
 	var/turf/location = get_turf(src)
 	smoketime--
 	if(smoketime < 1)
@@ -683,7 +683,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	else
 		..()
 
-/obj/item/lighter/process()
+/obj/item/lighter/process(delta_time)
 	open_flame()
 
 /obj/item/lighter/get_temperature()
@@ -1002,7 +1002,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 				return
 		reagents.remove_any(REAGENTS_METABOLISM)
 
-/obj/item/clothing/mask/vape/process()
+/obj/item/clothing/mask/vape/process(delta_time)
 	var/mob/living/M = loc
 
 	if(isliving(loc))

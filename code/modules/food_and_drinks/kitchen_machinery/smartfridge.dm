@@ -309,7 +309,7 @@
 	if(contents.len)
 		. += "drying_rack_filled"
 
-/obj/machinery/smartfridge/drying_rack/process()
+/obj/machinery/smartfridge/drying_rack/process(delta_time)
 	..()
 	if(drying)
 		if(rack_dry())//no need to update unless something got dried
@@ -409,7 +409,7 @@
 		max_n_of_items = 20 * B.rating
 		repair_rate = max(0, STANDARD_ORGAN_HEALING * (B.rating - 1))
 
-/obj/machinery/smartfridge/organ/process()
+/obj/machinery/smartfridge/organ/process(delta_time)
 	for(var/organ in contents)
 		var/obj/item/organ/O = organ
 		if(!istype(O))

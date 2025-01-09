@@ -96,7 +96,7 @@
 /obj/item/organ/proc/on_find(mob/living/finder)
 	return
 
-/obj/item/organ/process()
+/obj/item/organ/process(delta_time)
 	on_death() //Kinda hate doing it like this, but I really don't want to call process directly.
 
 /obj/item/organ/proc/on_death()	//runs decay when outside of a person

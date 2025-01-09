@@ -60,7 +60,7 @@
 		give_payout(balance)
 	return ..()
 
-/obj/machinery/computer/slot_machine/process()
+/obj/machinery/computer/slot_machine/process(delta_time)
 	. = ..() //Sanity checks.
 	if(!.)
 		return .

@@ -90,7 +90,7 @@
 	START_PROCESSING(SSobj, src)
 	. = ..()
 
-/obj/structure/spider/eggcluster/process()
+/obj/structure/spider/eggcluster/process(delta_time)
 	amount_grown += rand(0,2)
 	if(amount_grown >= 100)
 		var/num = rand(3,12)
@@ -180,7 +180,7 @@
 	forceMove(exit_vent.loc)
 	entry_vent = null
 
-/obj/structure/spider/spiderling/process()
+/obj/structure/spider/spiderling/process(delta_time)
 	if(travelling_in_vent)
 		if(isturf(loc))
 			travelling_in_vent = 0

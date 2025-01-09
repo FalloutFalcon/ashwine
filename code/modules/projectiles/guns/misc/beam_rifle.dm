@@ -209,7 +209,7 @@
 	P.preparePixelProjectile(targloc, current_user, current_user.client.mouseParams, 0)
 	P.fire(lastangle)
 
-/obj/item/gun/energy/beam_rifle/process()
+/obj/item/gun/energy/beam_rifle/process(delta_time)
 	if(!aiming)
 		last_process = world.time
 		return

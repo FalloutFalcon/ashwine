@@ -82,7 +82,7 @@
 	START_PROCESSING(SSobj, src)
 	return ..()
 
-/obj/vehicle/ridden/atv/process()
+/obj/vehicle/ridden/atv/process(delta_time)
 	if(obj_integrity >= integrity_failure * max_integrity)
 		return PROCESS_KILL
 	if(prob(20))

@@ -73,7 +73,7 @@
 			return
 	..()
 
-/obj/machinery/grill/process()
+/obj/machinery/grill/process(delta_time)
 	..()
 	if(!grilled_item)
 		return PROCESS_KILL
