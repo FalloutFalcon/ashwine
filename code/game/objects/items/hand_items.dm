@@ -191,3 +191,34 @@
 /obj/item/hand_item/handshake
 	name = "handshake"
 	desc = "Ready to firmly shake."
+
+/obj/item/hand_item/handshake/pre_attack(mob/living/carbon/help_target, mob/living/carbon/helper, params)
+	if(!loc.Adjacent(help_target) || !istype(helper) || !istype(help_target))
+		return ..()
+
+/obj/item/hand_item/handshake/attack(mob/living/carbon/target_mob, mob/living/carbon/user, params)
+	if(!loc.Adjacent(target_mob) || !istype(user) || !istype(target_mob))
+		return TRUE
+
+	user.give(target_mob)
+	return TRUE
+
+/obj/item/hand_item/handshake/on_offered(mob/living/carbon/offerer, mob/living/carbon/offered)
+	. = TRUE
+
+	if(!istype(offerer))
+		return
+
+	if(!offered)
+		offered = locate(/mob/living/carbon) in orange(1, offerer)
+
+	offerer.visible_message(span_notice("[offerer] extends out [offerer.p_their()] hand."),
+		span_notice("You extend out your hand."), null, 2)
+
+	offerer.apply_status_effect(/datum/status_effect/offering/no_item_received, src, /atom/movable/screen/alert/give/hand)
+	return
+
+/obj/item/hand_item/handshake/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
+	. = TRUE
+	to_chat(offerer, span_notice("Handshake yo."))
+	to_chat(taker, span_notice("Handshake yo!"))
