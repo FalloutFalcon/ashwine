@@ -155,12 +155,44 @@
 	. = ..()
 	if(!.)
 		return
-	var/obj/item/slapper/N = new(user)
+	var/obj/item/hand_item/slapper/N = new(user)
 	if(user.put_in_hands(N))
-		to_chat(user, "<span class='notice'>You ready your slapping hand.</span>")
+		to_chat(user, span_notice("You ready your slapping hand."))
 	else
 		qdel(N)
-		to_chat(user, "<span class='warning'>You're incapable of slapping in your current state.</span>")
+		to_chat(user, span_warning("You're incapable of slapping in your current state."))
+
+/datum/emote/living/carbon/hand
+	key = "hand"
+	key_third_person = "hands"
+	hands_use_check = TRUE
+
+/datum/emote/living/carbon/hand/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/hand_item/hand/hand = new(user)
+	if(user.put_in_hands(hand))
+		to_chat(user, span_notice("You ready your hand."))
+	else
+		qdel(hand)
+		to_chat(user, span_warning("You're incapable of using your hand in your current state."))
+
+/datum/emote/living/carbon/handshake
+	key = "handshake"
+	key_third_person = "handshakes"
+	hands_use_check = TRUE
+
+/datum/emote/living/carbon/handshake/run_emote(mob/user, params, type_override, intentional)
+	. = ..()
+	if(!.)
+		return
+	var/obj/item/hand_item/handshake/hand = new(user)
+	if(user.put_in_hands(hand))
+		to_chat(user, span_notice("You ready your hand for a shake."))
+	else
+		qdel(hand)
+		to_chat(user, span_warning("You're incapable of using your hand in your current state."))
 
 /datum/emote/living/carbon/noogie
 	key = "noogie"
@@ -267,97 +299,6 @@
 	iteration++
 	noogie_loop(user, target, iteration)
 
-/obj/item/slapper
-	name = "slapper"
-	desc = "This is how real men fight."
-	icon_state = "latexballon"
-	item_state = "nothing"
-	force = 0
-	throwforce = 0
-	item_flags = DROPDEL | ABSTRACT
-	attack_verb = list("slapped")
-	hitsound = 'sound/effects/snap.ogg'
-	/// How many smaller table smacks we can do before we're out
-	var/table_smacks_left = 3
-
-/obj/item/slapper/attack(mob/living/M, mob/living/carbon/human/user)
-	if(ishuman(M))
-		var/mob/living/carbon/human/L = M
-		if(L && L.dna && L.dna.species)
-			L.dna.species.stop_wagging_tail(M)
-	user.do_attack_animation(M)
-
-	var/slap_volume = 50
-	var/datum/status_effect/offering/kiss_check = M.has_status_effect(STATUS_EFFECT_OFFERING)
-	if(kiss_check && istype(kiss_check.offered_item, /obj/item/kisser) && (user in kiss_check.possible_takers))
-		user.visible_message(span_danger("[user] scoffs at [M]'s advance, winds up, and smacks [M.p_them()] hard to the ground!"),
-			span_notice("The nerve! You wind back your hand and smack [M] hard enough to knock [M.p_them()] over!"),
-			span_hear("You hear someone get the everloving shit smacked out of them!"), ignored_mobs = M)
-		to_chat(M, span_userdanger("You see [user] scoff and pull back [user.p_their()] arm, then suddenly you're on the ground with an ungodly ringing in your ears!"))
-		slap_volume = 120
-		SEND_SOUND(M, sound('sound/weapons/flash_ring.ogg'))
-		shake_camera(M, 2, 2)
-		M.Paralyze(2.5 SECONDS)
-		M.confused += 7
-		M.adjustStaminaLoss(40)
-	else if(user.zone_selected == BODY_ZONE_HEAD || user.zone_selected == BODY_ZONE_PRECISE_MOUTH)
-		user.visible_message(span_danger("[user] slaps [M] in the face!"),
-			span_notice("You slap [M] in the face!"),
-			span_hear("You hear a slap."))
-	else
-		user.visible_message(span_danger("[user] slaps [M]!"),
-			span_notice("You slap [M]!"),
-			span_hear("You hear a slap."))
-	playsound(M, 'sound/weapons/slap.ogg', slap_volume, TRUE, -1)
-	return
-
-/obj/item/slapper/on_offered(mob/living/carbon/offerer)
-	. = TRUE
-
-	if(!(locate(/mob/living/carbon) in orange(1, offerer)))
-		visible_message(span_danger("[offerer] raises [offerer.p_their()] arm, looking around for a high-five, but there's no one around!"), \
-			span_warning("You post up, looking for a high-five, but finding no one within range!"), null, 2)
-		return
-
-	offerer.visible_message(span_notice("[offerer] raises [offerer.p_their()] arm, looking for a high-five!"), \
-		span_notice("You post up, looking for a high-five!"), null, 2)
-	offerer.apply_status_effect(STATUS_EFFECT_OFFERING, src, /atom/movable/screen/alert/give/highfive)
-
-/// Yeah broh! This is where we do the high-fiving (or high-tenning :o)
-/obj/item/slapper/on_offer_taken(mob/living/carbon/offerer, mob/living/carbon/taker)
-	. = TRUE
-
-	var/open_hands_taker
-	var/slappers_giver
-	for(var/i in taker.held_items) // see how many hands the taker has open for high'ing
-		if(isnull(i))
-			open_hands_taker++
-
-	if(!open_hands_taker)
-		to_chat(taker, span_warning("You can't high-five [offerer] with no open hands!"))
-		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five_full_hand) // not so successful now!
-		return
-
-	for(var/i in offerer.held_items)
-		var/obj/item/slapper/slap_check = i
-		if(istype(slap_check))
-			slappers_giver++
-
-	if(slappers_giver >= 2) // we only check this if it's already established the taker has 2+ hands free
-		offerer.visible_message(span_notice("[taker] enthusiastically high-tens [offerer]!"), span_nicegreen("Wow! You're high-tenned [taker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), ignored_mobs=taker)
-		to_chat(taker, span_nicegreen("You give high-tenning [offerer] your all!"))
-		playsound(offerer, 'sound/weapons/slap.ogg', 100, TRUE, 1)
-		SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
-		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_ten)
-	else
-		offerer.visible_message(span_notice("[taker] high-fives [offerer]!"), span_nicegreen("All right! You're high-fived by [taker]!"), span_hear("You hear a sickening sound of flesh hitting flesh!"), ignored_mobs=taker)
-		to_chat(taker, span_nicegreen("You high-five [offerer]!"))
-		playsound(offerer, 'sound/weapons/slap.ogg', 50, TRUE, -1)
-		SEND_SIGNAL(offerer, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
-		SEND_SIGNAL(taker, COMSIG_ADD_MOOD_EVENT, "high_five", /datum/mood_event/high_five)
-	qdel(src)
-
-
 /obj/item/kisser
 	name = "kiss"
 	desc = "I want you all to know, everyone and anyone, to seal it with a kiss."
@@ -386,7 +327,7 @@
 	blown_kiss.fire()
 	qdel(src)
 
-/obj/item/kisser/on_offered(mob/living/carbon/offerer)
+/obj/item/kisser/on_offered(mob/living/carbon/offerer, mob/living/carbon/offered)
 	if(!(locate(/mob/living/carbon) in orange(1, offerer)))
 		return TRUE
 
