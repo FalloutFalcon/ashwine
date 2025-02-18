@@ -16,6 +16,7 @@ SUBSYSTEM_DEF(mapping)
 	var/list/ruin_types_probabilities = list()
 	var/list/ruins_templates = list()
 	var/list/planet_types = list()
+	var/list/mission_pois = list()
 
 	var/list/maplist
 	var/list/ship_purchase_list
@@ -240,7 +241,7 @@ SUBSYSTEM_DEF(mapping)
 				job_slot = GLOB.name_occupations[job]
 				slots = value
 			else if(islist(value))
-				var/datum/outfit/job_outfit = text2path(value["outfit"])
+				var/datum/outfit/job/job_outfit = text2path(value["outfit"])
 				if(isnull(job_outfit))
 					stack_trace("Invalid job outfit! [value["outfit"]] on [S.name]'s config! Defaulting to assistant clothing.")
 					job_outfit = /datum/outfit/job/assistant

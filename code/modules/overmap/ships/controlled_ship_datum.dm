@@ -32,11 +32,6 @@
 	///Shipwide bank account used for cargo consoles and bounty payouts.
 	var/datum/bank_account/ship/ship_account
 
-	/// List of currently-accepted missions.
-	var/list/datum/mission/missions
-	/// The maximum number of currently active missions that a ship may take on.
-	var/max_missions = 2
-
 	/// Manifest list of people on the ship. Indexed by mob REAL NAME. value is JOB INSTANCE
 	var/list/manifest = list()
 
@@ -85,6 +80,9 @@
 		shipkey.name = "ship key ([new_name])"
 	for(var/area/shuttle_area as anything in shuttle_port?.shuttle_areas)
 		shuttle_area.rename_area("[new_name] [initial(shuttle_area.name)]")
+	for(var/datum/weakref/stupid_fax in shuttle_port?.fax_list)
+		var/obj/machinery/fax/our_fax = stupid_fax.resolve()
+		our_fax.fax_name = "[get_area_name(our_fax)] Fax Machine"
 	if(!force)
 		COOLDOWN_START(src, rename_cooldown, 5 MINUTES)
 		if(shuttle_port?.virtual_z() == null)
@@ -127,7 +125,6 @@
 	. = ..()
 	SSovermap.controlled_ships -= src
 	helms.Cut()
-	QDEL_LIST(missions)
 	LAZYCLEARLIST(owner_candidates)
 	if(!QDELETED(shuttle_port))
 		shuttle_port.current_ship = null

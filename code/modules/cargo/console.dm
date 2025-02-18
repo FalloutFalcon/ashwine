@@ -1,4 +1,3 @@
-#define BEACON_COST 500
 #define SP_LINKED 1
 #define SP_READY 2
 #define SP_LAUNCH 3
@@ -104,19 +103,17 @@
 	var/outpost_docked = istype(current_ship.docked_to, /datum/overmap/outpost)
 
 	data["onShip"] = !isnull(current_ship)
-	data["numMissions"] = current_ship ? LAZYLEN(current_ship.missions) : 0
-	data["maxMissions"] = current_ship ? current_ship.max_missions : 0
 	data["outpostDocked"] = outpost_docked
 	data["points"] = charge_account ? charge_account.account_balance : 0
 	data["siliconUser"] = user.has_unlimited_silicon_privilege && check_ship_ai_access(user)
 	data["beaconZone"] = beacon ? get_area(beacon) : ""//where is the beacon located? outputs in the tgui
 	data["usingBeacon"] = use_beacon //is the mode set to deliver to the beacon or the cargobay?
 	data["canBeacon"] = !use_beacon || canBeacon //is the mode set to beacon delivery, and is the beacon in a valid location?
-	data["canBuyBeacon"] = charge_account ? (cooldown <= 0 && charge_account.account_balance >= BEACON_COST) : FALSE
+	data["canBuyBeacon"] = charge_account ? (cooldown <= 0) : FALSE
 	data["beaconError"] = use_beacon && !canBeacon ? "(BEACON ERROR)" : ""//changes button text to include an error alert if necessary
 	data["hasBeacon"] = beacon != null//is there a linked beacon?
 	data["beaconName"] = beacon ? beacon.name : "No Beacon Found"
-	data["printMsg"] = cooldown > 0 ? "Print Beacon for [BEACON_COST] credits ([cooldown])" : "Print Beacon for [BEACON_COST] credits"//buttontext for printing beacons
+	data["printMsg"] = cooldown > 0 ? "Print Beacon ([cooldown])" : "Print Beacon"//buttontext for printing beacons
 	data["supplies"] = list()
 	message = "Sales are near-instantaneous - please choose carefully."
 	if(SSshuttle.supplyBlocked)
@@ -130,17 +127,6 @@
 	data["supplies"] = supply_pack_data
 	if (cooldown > 0)//cooldown used for printing beacons
 		cooldown--
-
-	data["shipMissions"] = list()
-	data["outpostMissions"] = list()
-
-	if(current_ship)
-		for(var/datum/mission/M as anything in current_ship.missions)
-			data["shipMissions"] += list(M.get_tgui_info())
-		if(outpost_docked)
-			var/datum/overmap/outpost/out = current_ship.docked_to
-			for(var/datum/mission/M as anything in out.missions)
-				data["outpostMissions"] += list(M.get_tgui_info())
 
 	return data
 
@@ -172,12 +158,11 @@
 			if (beacon)
 				beacon.update_status(SP_READY) //turns on the beacon's ready light
 		if("printBeacon")
-			if(charge_account?.adjust_money(-BEACON_COST, "cargo_beacon"))
-				cooldown = 10//a ~ten second cooldown for printing beacons to prevent spam
-				var/obj/item/supplypod_beacon/C = new /obj/item/supplypod_beacon(drop_location())
-				C.link_console(src, usr)//rather than in beacon's Initialize(), we can assign the computer to the beacon by reusing this proc)
-				printed_beacons++//printed_beacons starts at 0, so the first one out will be called beacon # 1
-				beacon.name = "Supply Pod Beacon #[printed_beacons]"
+			cooldown = 300
+			var/obj/item/supplypod_beacon/C = new /obj/item/supplypod_beacon(drop_location())
+			C.link_console(src, usr)//rather than in beacon's Initialize(), we can assign the computer to the beacon by reusing this proc)
+			printed_beacons++//printed_beacons starts at 0, so the first one out will be called beacon # 1
+			beacon.name = "Supply Pod Beacon #[printed_beacons]"
 		if("add")
 			var/datum/overmap/outpost/current_outpost = current_ship.docked_to
 			if(istype(current_ship.docked_to))
@@ -222,25 +207,6 @@
 					new /obj/effect/pod_landingzone(landing_turf, podType, SO)
 					update_appearance() // ??????????????????
 					return TRUE
-
-		if("mission-act")
-			var/datum/mission/mission = locate(params["ref"])
-			var/obj/docking_port/mobile/D = SSshuttle.get_containing_shuttle(src)
-			var/datum/overmap/ship/controlled/ship = D.current_ship
-			var/datum/overmap/outpost/outpost = ship.docked_to
-			if(!istype(outpost) || mission.source_outpost != outpost) // important to check these to prevent href fuckery
-				return
-			if(!mission.accepted)
-				if(LAZYLEN(ship.missions) >= ship.max_missions)
-					return
-				mission.accept(ship, loc)
-				return TRUE
-			else if(mission.servant == ship)
-				if(mission.can_complete())
-					mission.turn_in()
-				else if(tgui_alert(usr, "Give up on [mission]?", src, list("Yes", "No")) == "Yes")
-					mission.give_up()
-				return TRUE
 
 /obj/machinery/computer/cargo/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	. = ..()
